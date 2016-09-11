@@ -44,7 +44,7 @@
 
 <div class="hr_25"></div>
 <div class="footer">
-	<p><a href="#">简介</a><i>|</i><a href="#">Go公告</a><i>|</i> <a href="#">招纳贤士</a><i>|</i><a href="#">联系我们</a><i>|</i>客服热线：021-8888-8888</p>
+	<p><a href="#">简介</a><i>|</i><a href="#">公告</a><i>|</i> <a href="#">招纳贤士</a><i>|</i><a href="#">联系我们</a><i>|</i>客服热线：021-8888-8888</p>
 </div>
 </body>
 </html>

@@ -7,8 +7,8 @@ function addPro(){
 	unset($arr['act']);
 
 
-//	$path="../uploadImages";
-	$path="/usr/local/wechat_node_server/public/images/";
+
+	$path = IMAGE_UPLOAD_PATH;
 	$uploadFiles=uploadFile($path);
 	if(is_array($uploadFiles)&&$uploadFiles){
 		foreach($uploadFiles as $key=>$uploadFile){
@@ -42,8 +42,7 @@ function editPro($id){
 	if($_FILES) {
 
 		//添加新图片
-//		$path = "./uploadImages";
-		$path="/usr/local/wechat_node_server/public/images/	";
+		$path = IMAGE_UPLOAD_PATH;
 		$uploadFiles = uploadFile($path);
 		if (is_array($uploadFiles) && $uploadFiles) {
 			//删除旧图片
@@ -58,8 +57,8 @@ function editPro($id){
 //				unlink("../image_100/" . $proImgName);
 //			}
 
-			if (file_exists("/usr/local/wechat_node_server/public/images/" . $proImgName)) {
-				unlink("/usr/local/wechat_node_server/public/images/" . $proImgName);
+			if (file_exists($path = IMAGE_UPLOAD_PATH . $proImgName)) {
+				unlink($path = IMAGE_UPLOAD_PATH . $proImgName);
 			}
 			if (file_exists("../image_100/" . $proImgName)) {
 				unlink("../image_100/" . $proImgName);
@@ -101,8 +100,9 @@ function delPro($id)
 //	if (file_exists("../uploadImages/" . $proImgName)) {
 //		unlink("../uploadImages/" . $proImgName);
 //	}
-	if (file_exists("/usr/local/wechat_node_server/public/images/" . $proImgName)) {
-		unlink("/usr/local/wechat_node_server/public/images/" . $proImgName);
+
+	if (file_exists(IMAGE_UPLOAD_PATH . $proImgName)) {
+		unlink(IMAGE_UPLOAD_PATH . $proImgName);
 	}
 	if (file_exists("../image_100/" . $proImgName)) {
 		unlink("../image_100/" . $proImgName);
