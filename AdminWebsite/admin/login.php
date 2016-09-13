@@ -32,7 +32,7 @@
 				<li class="l_tit">验证码</li>
 				<li class="mb_10">
 					<input type="text"  name="verify" class="login_input " style="width:60%">
-					<img src="getVerify.php" alt="验证码" class="verify_img "/>
+					<img src="../operation/getVerify.php" alt="验证码" class="verify_img "/>
 				</li>
 
 				<li class="autoLogin"><input type="checkbox" id="a1" class="checked" name="autoFlag" value="1"><label for="a1">一周内自动登陆</label></li>

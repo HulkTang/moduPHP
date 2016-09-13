@@ -65,6 +65,7 @@ checkLogined();
                         <dl id="menu3" style="display:none;">
                             <dd><a href="listTodayOrder.php" target="mainFrame">今日订单</a></dd>
                             <dd><a href="listAllOrder.php" target="mainFrame">历史订单</a></dd>
+                            <dd><a href="listAllSales.php" target="mainFrame">销量统计</a></dd>
                         </dl>
                     </li>
                     <li>
