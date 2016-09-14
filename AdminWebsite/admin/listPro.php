@@ -7,7 +7,7 @@ $orderBy=$order?" order by ".$order:null;
 $keywords=isset($_REQUEST['keywords'])?$_REQUEST['keywords']:null;
 $where=$keywords?" where gd_name like '%{$keywords}%'":null;
 //得到数据库中所有商品
-$sql="select gd_name,gd_price,gd_inventory,gd_description,gd_sales,gd_picture,gd_catalogue_name from gd_mst;";
+$sql="select gd_name,gd_price,gd_inventory,gd_description,gd_sales,gd_picture,gd_catalogue_name from gd_mst {$where} {$orderBy};";
 $totalRows=getResultNum($link,$sql);
 $pageSize=5;
 $totalPage=ceil($totalRows/$pageSize);
@@ -48,8 +48,8 @@ if($totalPage!=0)
                                 <div class="bui_select">
                                     <select id="selectByPrice" class="select" onchange="change(this.value)">
                                     	<option>-请选择-</option>
-										<option value="gd_price desc">由高到底</option>
-                                        <option value="gd_price asc" >由低到高</option>
+										<option value="gd_price desc" <?php echo $order=="gd_price desc"?"selected='selected'":null;?>>由高到底</option>
+                                        <option value="gd_price asc" <?php echo $order=="gd_price asc"?"selected='selected'":null;?>>由低到高</option>
                                     </select>
                                 </div>
                             </div>
@@ -58,8 +58,8 @@ if($totalPage!=0)
                                 <div class="bui_select">
                                  <select id="selectByInventory" class="select" onchange="change(this.value)">
                                  	<option>-请选择-</option>
-                                        <option value="gd_inventory desc" >由高到底</option>
-                                        <option value="gd_inventory asc">由低到高</option>
+                                        <option value="gd_inventory desc" <?php echo $order=="gd_inventory desc"?"selected='selected'":null;?>>由高到底</option>
+                                        <option value="gd_inventory asc"<?php echo $order=="gd_inventory asc"?"selected='selected'":null;?>>由低到高</option>
                                     </select>
                                 </div>
                             </div>
@@ -68,14 +68,14 @@ if($totalPage!=0)
 								<div class="bui_select">
 									<select id="selectByOrder" class="select" onchange="change(this.value)">
 										<option>-请选择-</option>
-										<option value="gd_sales desc" >由高到底</option>
-										<option value="gd_sales asc">由低到高</option>
+										<option value="gd_sales desc" <?php echo $order=="gd_sales desc"?"selected='selected'":null;?>>由高到底</option>
+										<option value="gd_sales asc" <?php echo $order=="gd_sales asc"?"selected='selected'":null;?>>由低到高</option>
 									</select>
 								</div>
 							</div>
                             <div class="text">
 
-								<input type="text" value="" class="search"  id="search" onkeypress="search()" >
+								<input type="text" value="<?php echo isset($_REQUEST['keywords'])?$_REQUEST['keywords']:null;?>" class="search"  id="search" onkeypress="search()" >
 								<input type="button" value="搜索" class="btn" onclick="searchbtn('<?php echo $order;?>')">
                             </div>
                         </div>
@@ -142,7 +142,7 @@ if($totalPage!=0)
                            <?php  endforeach;?>
                            <?php if($totalRows>$pageSize):?>
                             <tr>
-                            	<td colspan="7"><?php echo showPage($page, $totalPage,"keywords={$keywords}&order={$order}");?></td>
+                            	<td colspan="7"><?php echo showPage($page, $totalPage,"&keywords={$keywords}&order={$order}");?></td>
                             </tr>
                             <?php endif;?>
                         </tbody>
@@ -179,17 +179,17 @@ function showDetail(id,t){
 	}
 	function search(){
 		if(event.keyCode==13){
-			//alert("press");
-			var val=document.getElementById("search").value;
-			window.location="listPro.php?keywords="+val;
+			var keyword=document.getElementById("search").value;
+			window.location="listPro.php?keywords="+keyword;
 		}
 	}
 	function searchbtn(order){
-		var val=document.getElementById("search").value;
-		window.location="listPro.php?keywords="+val+"&order="+order;
+		var keyword=document.getElementById("search").value;
+		window.location="listPro.php?keywords="+keyword+"&order="+order;
 	}
-	function change(val){
-		window.location="listPro.php?order="+val;
+	function change(order){
+		var keyword=document.getElementById("search").value;
+		window.location="listPro.php?keywords="+keyword+"&order="+order;
 	}
 </script>
 </body>

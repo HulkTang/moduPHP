@@ -13,7 +13,8 @@ function addPro(){
 	if(is_array($uploadFiles)&&$uploadFiles){
 		foreach($uploadFiles as $key=>$uploadFile){
 			thumb($path."/".$uploadFile['name'],"../image_100/".$uploadFile['name'],100,100);
-			$arr['gd_picture'] = "../image_100/".$uploadFile['name'];
+//			$arr['gd_picture'] = "../image_100/".$uploadFile['name'];
+			$arr['gd_picture'] = IMAGE_STORE_PATH.$uploadFile['name'];
 		}
 	}
 	$res=insert($link,"gd_mst",$arr);
@@ -57,8 +58,8 @@ function editPro($id){
 //				unlink("../image_100/" . $proImgName);
 //			}
 
-			if (file_exists($path = IMAGE_UPLOAD_PATH . $proImgName)) {
-				unlink($path = IMAGE_UPLOAD_PATH . $proImgName);
+			if (file_exists(IMAGE_UPLOAD_PATH . $proImgName)) {
+				unlink(IMAGE_UPLOAD_PATH . $proImgName);
 			}
 			if (file_exists("../image_100/" . $proImgName)) {
 				unlink("../image_100/" . $proImgName);
@@ -66,7 +67,8 @@ function editPro($id){
 
 			foreach ($uploadFiles as $key => $uploadFile) {
 				thumb($path . "/" . $uploadFile['name'], "../image_100/" . $uploadFile['name'], 100, 100);
-				$arr['gd_picture'] = "../image_100/" . $uploadFile['name'];
+//				$arr['gd_picture'] = "../image_100/" . $uploadFile['name'];
+				$arr['gd_picture'] = IMAGE_STORE_PATH.$uploadFile['name'];
 			}
 		}
 	}
@@ -133,13 +135,6 @@ function checkProExist($cid){
 	$rows=fetchAll($link,$sql);
 	return $rows;
 }
-
-function getAllPros($link){
-	$sql="select p.id,p.pName,p.pIndex,p.pNum,p.mPrice,p.iPrice,p.pDescription,p.pTime,p.isShow,p.isHot,c.name,p.cId from go_product as p join go_cate c on p.cId=c.id";
-	$rows=fetchAll($link,$sql);
-	return $rows;
-}
-
 
 
 function getRecommendPro($link,$proID){

@@ -67,6 +67,7 @@ function fetchOne($link,$sql,$result_type=MYSQLI_ASSOC){
 
 function fetchAll($link,$sql,$result_type=MYSQLI_ASSOC){
 
+    echo $sql;
     $rows = array();
     $result = mysqli_query($link,$sql);
     if($result == null){

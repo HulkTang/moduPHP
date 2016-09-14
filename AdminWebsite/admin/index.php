@@ -12,7 +12,6 @@ checkLogined();
 
 <body>
     <div class="head">
-            <div class="logo fr"><a href="#"></a></div>
             <h3 class="head_text fl">魔都的面-后台管理系统</h3>
     </div>
     <div class="operation_user clearfix">
@@ -35,7 +34,7 @@ checkLogined();
         <div class="main">
             <!--右侧内容-->
             <div class="cont">
-                <div class="title">后台管理</div>
+                <div class="title" id="titleOfMainFrame">后台管理</div>
       	 		<!-- 嵌套网页开始 -->         
                 <iframe src="main.php"  frameborder="0" name="mainFrame" width="100%" height="522"></iframe>
                 <!-- 嵌套网页结束 -->   
@@ -49,29 +48,30 @@ checkLogined();
                     <li>
                         <h3><div onclick="show('menu1','change1')" style="cursor:pointer"><div id="change1" style="display:inline">+</div>&nbsp;&nbsp;<div style="display:inline">商品管理</div></div></h3>
                         <dl id="menu1" style="display:none;">
-                        	<dd><a href="addPro.php" target="mainFrame">添加商品</a></dd>
-                            <dd><a href="listPro.php" target="mainFrame">商品列表</a></dd>
+                        	<dd><a href="addPro.php" target="mainFrame" onclick="changeTitle('添加商品');">添加商品</a></dd>
+                            <dd><a href="listPro.php" target="mainFrame" onclick="changeTitle('商品列表');">商品列表</a></dd>
                         </dl>
                     </li>
                     <li>
                         <h3><div onclick="show('menu2','change2')" style="cursor:pointer"><div id="change2" style="display:inline">+</div>&nbsp;&nbsp;<div style="display:inline">分类管理</div></div></h3>
                         <dl id="menu2" style="display:none;">
-                        	<dd><a href="addCate.php" target="mainFrame">添加分类</a></dd>
-                            <dd><a href="listCate.php" target="mainFrame">分类列表</a></dd>
+                        	<dd><a href="addCate.php" target="mainFrame" onclick="changeTitle('添加分类');">添加分类</a></dd>
+                            <dd><a href="listCate.php" target="mainFrame" onclick="changeTitle('分类列表');">分类列表</a></dd>
                         </dl>
                     </li>
                     <li>
                         <h3><div  onclick="show('menu3','change3')" style="cursor:pointer" ><div id="change3" style="display:inline">+</div>&nbsp;&nbsp;<div style="display:inline">订单管理</div></div></h3>
                         <dl id="menu3" style="display:none;">
-                            <dd><a href="listTodayOrder.php" target="mainFrame">今日订单</a></dd>
-                            <dd><a href="listAllOrder.php" target="mainFrame">历史订单</a></dd>
+                            <dd><a href="listTodayOrder.php" target="mainFrame" onclick="changeTitle('今日订单');">今日订单</a></dd>
+                            <dd><a href="listAllOrder.php" target="mainFrame" onclick="changeTitle('历史订单');">历史订单</a></dd>
+                            <dd><a href="listAllSales.php" target="mainFrame" onclick="changeTitle('销量统计');">销量统计</a></dd>
                         </dl>
                     </li>
                     <li>
                         <h3><div onclick="show('menu4','change4')" style="cursor:pointer"><div id="change4" style="display:inline">+</div>&nbsp;&nbsp;<div style="display:inline">员工管理</div></div></h3>
                         <dl id="menu4" style="display:none;">
-                        	<dd><a href="addUser.php" target="mainFrame">添加用户</a></dd>
-                            <dd><a href="listUser.php" target="mainFrame">用户列表</a></dd>
+                        	<dd><a href="addUser.php" target="mainFrame" onclick="changeTitle('添加用户');">添加用户</a></dd>
+                            <dd><a href="listUser.php" target="mainFrame" onclick="changeTitle('用户列表');">用户列表</a></dd>
                         </dl>
                     </li>
                     <?php
@@ -110,6 +110,9 @@ checkLogined();
     		    }else{
     		         menu.style.display='none';
     		    }
+        }
+        function changeTitle(title){
+            document.getElementById('titleOfMainFrame').innerHTML = title;
         }
         function reload(){
             window.frames.mainFrame.location.reload();
