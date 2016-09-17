@@ -14,7 +14,7 @@
 	<div class="logoBar login_logo">
 		<div class="comWidth">
 			<div class="logo fl">
-				<a href="#"><img src="images/logo.png" alt=""></a>
+				
 			</div>
 			<h3 class="welcome_title">魔都的面-后台管理系统</h3>
 		</div>

@@ -12,7 +12,6 @@ checkLogined();
 
 <body>
     <div class="head">
-            <div class="logo fr"><a href="#"></a></div>
             <h3 class="head_text fl">魔都的面-后台管理系统</h3>
     </div>
     <div class="operation_user clearfix">
