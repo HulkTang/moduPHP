@@ -1,5 +1,5 @@
 <?php
-require_once '../include.php';
+require_once '../../include.php';
 $rows=getAllAdmin();
 //$pageSize=2;
 //$page=$_REQUEST['page']?(int)$_REQUEST['page']:1;
@@ -16,7 +16,7 @@ ob_clean();
 <head>
     <meta charset="utf-8">
     <title>-.-</title>
-    <link rel="stylesheet" href="styles/backstage.css">
+    <link rel="stylesheet" href="../styles/backstage.css">
 </head>
 
 <body>
@@ -66,7 +66,7 @@ ob_clean();
 
     function delAdmin(id){
         if(window.confirm("您确定要删除吗？删除之后不可以恢复!")){
-            window.location="doAdminAction.php?act=delAdmin&id="+id;
+            window.location="../doAdminAction.php?act=delAdmin&id="+id;
         }
     }
 </script>

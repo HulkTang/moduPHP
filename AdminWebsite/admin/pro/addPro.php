@@ -1,5 +1,5 @@
 <?php 
-require_once '../include.php';
+require_once '../../include.php';
 checkLogined();
 $rows=getAllCate();
 if(!$rows){
@@ -11,8 +11,8 @@ if(!$rows){
 <head>
 <meta charset="utf-8">
 <title>-.-</title>
-<link href="styles/global.css"  rel="stylesheet"  type="text/css" media="all" />
-<script type="text/javascript" src="scripts/jquery-1.6.4.js"></script>
+<link href="../styles/global.css" rel="stylesheet" type="text/css" media="all" />
+<script type="text/javascript" src="../scripts/jquery-1.6.4.js"></script>
 <script>
  
         $(document).ready(function(){
@@ -38,7 +38,7 @@ if(!$rows){
 </head>
 <body>
 <h3>添加商品</h3>
-<form action="doAdminAction.php" method="post" enctype="multipart/form-data">
+<form action="../doAdminAction.php" method="post" enctype="multipart/form-data">
 	<!--        表单无法同时以post get传递参数，采用该方法传递。-->
 	<input type="hidden" name="act" value="addPro" >
 <table width="70%"  border="1" cellpadding="5" cellspacing="0" bgcolor="#cccccc">

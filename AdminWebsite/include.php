@@ -10,6 +10,7 @@ require_once "core/admin.inc.php";
 require_once "core/cate.inc.php";
 require_once "core/pro.inc.php";
 require_once "core/order.inc.php";
+require_once "core/balance.inc.php";
 require_once "lib/page.func.php";
 require_once "lib/upload.func.php";
 require_once "configs/parameters.php";

@@ -1,7 +1,6 @@
 <?php
 
-require_once '../include.php';
-$rows=getAllCate();
+require_once '../../include.php';
 $pageSize=2;
 $page=isset($_REQUEST['page'])?(int)$_REQUEST['page']:1;
 $rows=getCateByPage($page,$pageSize);
@@ -16,7 +15,7 @@ if(!$rows){
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Insert title here</title>
-    <link rel="stylesheet" href="styles/backstage.css">
+    <link rel="stylesheet" href="../styles/backstage.css">
 </head>
 <body>
 <div class="details">
@@ -57,7 +56,7 @@ if(!$rows){
     }
     function delCate(id){
         if(window.confirm("您确定要删除吗？删除之后不能恢复!")){
-            window.location="doAdminAction.php?act=delCate&id="+id;
+            window.location="../doAdminAction.php?act=delCate&id="+id;
         }
     }
     function addCate(){

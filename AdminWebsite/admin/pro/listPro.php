@@ -1,5 +1,5 @@
 <?php
-require_once '../include.php';
+require_once '../../include.php';
 checkLogined();
 $link = connect();
 $order=isset($_REQUEST['order'])?$_REQUEST['order']:null;
@@ -26,11 +26,11 @@ if($totalPage!=0)
 <head>
 <meta charset="utf-8">
 <title>-.-</title>
-<link rel="stylesheet" href="styles/backstage.css">
-<link rel="stylesheet" href="scripts/jquery-ui/css/ui-lightness/jquery-ui-1.10.4.custom.css" />
-<script src="scripts/jquery-ui/js/jquery-1.10.2.js"></script>
-<script src="scripts/jquery-ui/js/jquery-ui-1.10.4.custom.js"></script>
-<script src="scripts/jquery-ui/js/jquery-ui-1.10.4.custom.min.js"></script>
+<link rel="stylesheet" href="../styles/backstage.css">
+<link rel="stylesheet" href="../scripts/jquery-ui/css/ui-lightness/jquery-ui-1.10.4.custom.css" />
+<script src="../scripts/jquery-ui/js/jquery-1.10.2.js"></script>
+<script src="../scripts/jquery-ui/js/jquery-ui-1.10.4.custom.js"></script>
+<script src="../scripts/jquery-ui/js/jquery-ui-1.10.4.custom.min.js"></script>
 </head>
 
 <body>
@@ -174,7 +174,7 @@ function showDetail(id,t){
 	}
 	function delPro(id){
 		if(window.confirm("您确认要删除吗？")){
-			window.location="doAdminAction.php?act=delPro&id="+id;
+			window.location="../doAdminAction.php?act=delPro&id="+id;
 		}
 	}
 	function search(){

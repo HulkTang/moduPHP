@@ -9,7 +9,7 @@ function createXMLHttpRequest(){
 }
 function start(){
     createXMLHttpRequest();
-    var url="../ajax/showTodayOrder.php";
+    var url="../../ajax/showTodayOrder.php";
     var page = GetQueryString('page');
     if(page!=null)
         url = url+'?page='+page;

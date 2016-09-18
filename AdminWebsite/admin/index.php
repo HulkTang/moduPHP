@@ -48,30 +48,30 @@ checkLogined();
                     <li>
                         <h3><div onclick="show('menu1','change1')" style="cursor:pointer"><div id="change1" style="display:inline">+</div>&nbsp;&nbsp;<div style="display:inline">商品管理</div></div></h3>
                         <dl id="menu1" style="display:none;">
-                        	<dd><a href="addPro.php" target="mainFrame" onclick="changeTitle('添加商品');">添加商品</a></dd>
-                            <dd><a href="listPro.php" target="mainFrame" onclick="changeTitle('商品列表');">商品列表</a></dd>
+                        	<dd><a href="pro/addPro.php" target="mainFrame" onclick="changeTitle('添加商品');">添加商品</a></dd>
+                            <dd><a href="pro/listPro.php" target="mainFrame" onclick="changeTitle('商品列表');">商品列表</a></dd>
                         </dl>
                     </li>
                     <li>
                         <h3><div onclick="show('menu2','change2')" style="cursor:pointer"><div id="change2" style="display:inline">+</div>&nbsp;&nbsp;<div style="display:inline">分类管理</div></div></h3>
                         <dl id="menu2" style="display:none;">
-                        	<dd><a href="addCate.php" target="mainFrame" onclick="changeTitle('添加分类');">添加分类</a></dd>
-                            <dd><a href="listCate.php" target="mainFrame" onclick="changeTitle('分类列表');">分类列表</a></dd>
+                        	<dd><a href="cate/addCate.php" target="mainFrame" onclick="changeTitle('添加分类');">添加分类</a></dd>
+                            <dd><a href="cate/listCate.php" target="mainFrame" onclick="changeTitle('分类列表');">分类列表</a></dd>
                         </dl>
                     </li>
                     <li>
                         <h3><div  onclick="show('menu3','change3')" style="cursor:pointer" ><div id="change3" style="display:inline">+</div>&nbsp;&nbsp;<div style="display:inline">订单管理</div></div></h3>
                         <dl id="menu3" style="display:none;">
-                            <dd><a href="listTodayOrder.php" target="mainFrame" onclick="changeTitle('今日订单');">今日订单</a></dd>
-                            <dd><a href="listAllOrder.php" target="mainFrame" onclick="changeTitle('历史订单');">历史订单</a></dd>
-                            <dd><a href="listAllSales.php" target="mainFrame" onclick="changeTitle('销量统计');">销量统计</a></dd>
+                            <dd><a href="order/listTodayOrder.php" target="mainFrame" onclick="changeTitle('今日订单');">今日订单</a></dd>
+                            <dd><a href="order/listAllOrder.php" target="mainFrame" onclick="changeTitle('历史订单');">历史订单</a></dd>
+                            <dd><a href="order/listAllSales.php" target="mainFrame" onclick="changeTitle('销量统计');">销量统计</a></dd>
                         </dl>
                     </li>
                     <li>
-                        <h3><div onclick="show('menu4','change4')" style="cursor:pointer"><div id="change4" style="display:inline">+</div>&nbsp;&nbsp;<div style="display:inline">员工管理</div></div></h3>
+                        <h3><div onclick="show('menu4','change4')" style="cursor:pointer"><div id="change4" style="display:inline">+</div>&nbsp;&nbsp;<div style="display:inline">顾客管理</div></div></h3>
                         <dl id="menu4" style="display:none;">
-                        	<dd><a href="addUser.php" target="mainFrame" onclick="changeTitle('添加用户');">添加用户</a></dd>
-                            <dd><a href="listUser.php" target="mainFrame" onclick="changeTitle('用户列表');">用户列表</a></dd>
+                        	<dd><a href="customer/listBalance.php" target="mainFrame" onclick="changeTitle('充值卡余额');">充值卡余额</a></dd>
+                            <dd><a href="customer/listBalanceChange.php" target="mainFrame" onclick="changeTitle('充值/消费记录');">充值/消费记录</a></dd>
                         </dl>
                     </li>
                     <?php
@@ -84,9 +84,9 @@ checkLogined();
                     <li style="display:<?php echo $display;?>">
                         <h3><div onclick="show('menu5','change5')" style="cursor:pointer"><div id="change5" style="display:inline">+</div>&nbsp;&nbsp;<div style="display:inline">管理员管理</div></div></h3>
                         <dl id="menu5" style="display:none;">
-                        	<dd><a href="addAdmin.php" target="mainFrame">添加管理员</a></dd>
-                            <dd><a href="listAdmin.php" target="mainFrame">管理员列表</a></dd>
-                            <dd><a href="changeBossPassword.php" target="mainFrame">更改密码</a></dd>
+                        	<dd><a href="admin/addAdmin.php" target="mainFrame">添加管理员</a></dd>
+                            <dd><a href="admin/listAdmin.php" target="mainFrame">管理员列表</a></dd>
+                            <dd><a href="admin/changeBossPassword.php" target="mainFrame">更改密码</a></dd>
                         </dl>
                     </li>
 

@@ -7,7 +7,7 @@
 </head>
 <body>
 <h3>添加分类</h3>
-<form action="doAdminAction.php" method="post">
+<form action="../doAdminAction.php" method="post">
     <!--        表单无法同时以post get传递参数，采用该方法传递。-->
     <input type="hidden" name="act" value="addCate" >
     <table width="70%" border="1" cellpadding="5" cellspacing="0" bgcolor="#cccccc">

@@ -1,5 +1,5 @@
 <?php 
-require_once '../include.php';
+require_once '../../include.php';
 checkLogined();
 $link = connect();
 $rows=getAllCate();
@@ -15,8 +15,8 @@ var_dump($proInfo);
 <head>
 <meta charset="utf-8">
 <title>-.-</title>
-<link href="styles/global.css"  rel="stylesheet"  type="text/css" media="all" />
-<script type="text/javascript" src="./scripts/jquery-1.6.4.js"></script>
+<link href="../styles/global.css" rel="stylesheet" type="text/css" media="all" />
+<script type="text/javascript" src="../scripts/jquery-1.6.4.js"></script>
 <script>
         $(document).ready(function(){
         	$("#selectFileBtn").click(function(){
@@ -41,7 +41,7 @@ var_dump($proInfo);
 </head>
 <body>
 <h3>编辑商品</h3>
-<form action="doAdminAction.php?" method="post" enctype="multipart/form-data">
+<form action="../doAdminAction.php?" method="post" enctype="multipart/form-data">
 	<!--        表单无法同时以post get传递参数，采用该方法传递。-->
 	<input type="hidden" name="act" value="editPro" >
 	<input type="hidden" name="id" value="<?php echo $id;?>" >

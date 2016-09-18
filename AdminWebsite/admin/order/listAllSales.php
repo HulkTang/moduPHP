@@ -1,5 +1,5 @@
 <?php
-require_once '../include.php';
+require_once '../../include.php';
 
 $from=isset($_REQUEST['from'])?$_REQUEST['from']:'2016-08-01';
 $to=isset($_REQUEST['to'])?$_REQUEST['to']:'2088-08-01';
@@ -15,8 +15,8 @@ $income=getIncomeByDate($from,$to);
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Insert title here</title>
-    <link rel="stylesheet" href="styles/backstage.css">
-    <script src="scripts/showTodayOrder.js"></script>
+    <link rel="stylesheet" href="../styles/backstage.css">
+    <script src="../scripts/showTodayOrder.js"></script>
 </head>
 <body>
 <div class="details">
@@ -73,7 +73,7 @@ $income=getIncomeByDate($from,$to);
     }
     function delCate(id){
         if(window.confirm("您确定要删除吗？删除之后不能恢复!")){
-            window.location="doAdminAction.php?act=delOrder&id="+id;
+            window.location="../doAdminAction.php?act=delOrder&id="+id;
         }
     }
     function searchbtn(){

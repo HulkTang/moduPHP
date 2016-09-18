@@ -1,5 +1,5 @@
 <?php
-require_once '../include.php';
+require_once '../../include.php';
 $ctlg_id = $_REQUEST['id'];
 $row = getOneCate($ctlg_id);
 ob_clean();
@@ -12,7 +12,7 @@ ob_clean();
 </head>
 <body>
 <h3>编辑分类</h3>
-<form action="doAdminAction.php?id=<?php echo $ctlg_id;?>" method="post">
+<form action="../doAdminAction.php?id=<?php echo $ctlg_id;?>" method="post">
     <input type="hidden" name="act" value="editCate" >
     <table width="70%" border="1" cellpadding="5" cellspacing="0" bgcolor="#cccccc">
         <tr>
