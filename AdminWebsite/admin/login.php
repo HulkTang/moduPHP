@@ -3,43 +3,63 @@
 <head>
 <meta charset="utf-8">
 <title>登陆</title>
+<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+<link href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <link type="text/css" rel="stylesheet" href="styles/reset.css">
 <link type="text/css" rel="stylesheet" href="styles/main.css">
 
 </head>
 
 <body>
-<div class="headerBar">
-	<h3 class="head_text fr"></h3>
-	<div class="logoBar login_logo">
-		<div class="comWidth">
-			<div class="logo fl">
-				
-			</div>
-			<h3 class="welcome_title">魔都的面-后台管理系统</h3>
-		</div>
+<div class="jumbotron row">
+	
+	<div class="col-md-2"></div>
+	<div class="col-md-10">
+		<h1>魔都的面</h1>
+		<p>后台管理系统</p>
 	</div>
+			
+	
 </div>
 
-<div class="loginBox">
-	<div class="login_cont">
-	<form action="doLogin.php" method="post">
-			<ul class="login">
-				<li class="l_tit">帐号</li>
-				<li class="mb_10"><input type="text"  name="username" placeholder="请输入管理员帐号" class="login_input user_icon"></li>
-				<li class="l_tit">密码</li>
-				<li class="mb_10"><input type="password"  name="password" placeholder="请输入管理员密码" class="login_input password_icon"></li>
-				<li class="l_tit">验证码</li>
-				<li class="mb_10">
-					<input type="text"  name="verify" class="login_input " style="width:60%">
-					<img src="../operation/getVerify.php" alt="验证码" class="verify_img "/>
-				</li>
-
-				<li class="autoLogin"><input type="checkbox" id="a1" class="checked" name="autoFlag" value="1"><label for="a1">一周内自动登陆</label></li>
-				<li><input type="submit" value="" class="login_btn"></li>
-			</ul>
-		</form>
-	</div>
+<div class="container">
+<div class="col-md-4"></div>
+    <div class="col-md-4">
+          <div class="panel panel-default">
+             <div class="panel-body">
+             
+   
+              <form action="doLogin.php" method="post">
+                     <div class="input-group ">
+    	      	
+    	                    <label>帐号</label>
+    	                    <input type="text"  name="username" placeholder="请输入管理员帐号" class="form-control">
+                      </div>
+                      <div class="input-group ">
+                             <label>密码</label>
+                            <input type="password"  name="password" placeholder="请输入管理员密码" class="form-control">
+                      </div>
+                      <div class="input-group ">
+                            <label>验证码</label>
+                            <input type="text"  name="verify" class="form-control ">
+    	      				<img src="../operation/getVerify.php" alt="验证码" class="verify_img "/>
+                      </div>
+    	      		<div class="input-group ">
+    	      			
+    	      			<input type="checkbox" id="a1" class="checked" name="autoFlag" value="1">
+    	      			<label for="a1">一周内自动登陆</label>
+    	      		</div>
+    	      			<button type="submit"  class="btn btn_success">登录</button>
+    	      		
+    	      
+    	            
+              </form>
+              </div>
+              
+             </div>
+    </div>
+<div class="col-md-4"></div>
 </div>
 
 <div class="hr_25"></div>
