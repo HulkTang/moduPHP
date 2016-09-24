@@ -8,11 +8,11 @@ function addPro(){
 
 
 
-	$path = IMAGE_UPLOAD_PATH;
+	$path = IMAGE_ORIGIN_UPLOAD_PATH;
 	$uploadFiles=uploadFile($path);
 	if(is_array($uploadFiles)&&$uploadFiles){
 		foreach($uploadFiles as $key=>$uploadFile){
-			thumb($path."/".$uploadFile['name'],"../image_100/".$uploadFile['name'],100,100);
+			thumb($path."/".$uploadFile['name'],IMAGE_UPLOAD_PATH.$uploadFile['name'],100,100);
 //			$arr['gd_picture'] = "../image_100/".$uploadFile['name'];
 			$arr['gd_picture'] = IMAGE_STORE_PATH.$uploadFile['name'];
 		}
@@ -23,8 +23,11 @@ function addPro(){
 		$mes="<p>添加成功!</p><a href='addPro.php' target='mainFrame'>继续添加</a>|<a href='listPro.php' target='mainFrame'>查看商品列表</a>";
 	}else{
 		foreach($uploadFiles as $uploadFile){
-			if(file_exists("../image_100/".$uploadFile['name'])){
-				unlink("../image_100/".$uploadFile['name']);
+			if(file_exists(IMAGE_ORIGIN_UPLOAD_PATH.$uploadFile['name'])){
+				unlink(IMAGE_ORIGIN_UPLOAD_PATH.$uploadFile['name']);
+			}
+			if(file_exists(IMAGE_UPLOAD_PATH.$uploadFile['name'])){
+				unlink(IMAGE_UPLOAD_PATH.$uploadFile['name']);
 			}
 		}
 		$mes="<p>添加失败!</p><a href='addPro.php' target='mainFrame'>重新添加</a>";
@@ -43,7 +46,7 @@ function editPro($id){
 	if($_FILES) {
 
 		//添加新图片
-		$path = IMAGE_UPLOAD_PATH;
+		$path = IMAGE_ORIGIN_UPLOAD_PATH;
 		$uploadFiles = uploadFile($path);
 		if (is_array($uploadFiles) && $uploadFiles) {
 			//删除旧图片
@@ -61,8 +64,8 @@ function editPro($id){
 			if (file_exists(IMAGE_UPLOAD_PATH . $proImgName)) {
 				unlink(IMAGE_UPLOAD_PATH . $proImgName);
 			}
-			if (file_exists("../image_100/" . $proImgName)) {
-				unlink("../image_100/" . $proImgName);
+			if (file_exists(IMAGE_ORIGIN_UPLOAD_PATH . $proImgName)) {
+				unlink(IMAGE_ORIGIN_UPLOAD_PATH . $proImgName);
 			}
 
 			foreach ($uploadFiles as $key => $uploadFile) {
@@ -80,8 +83,11 @@ function editPro($id){
 	}else{
 		if($_FILES&&is_array($uploadFiles)&&$uploadFiles){
 			foreach($uploadFiles as $uploadFile){
-				if(file_exists("../image_100/".$uploadFile['name'])){
-					unlink("../image_100/".$uploadFile['name']);
+				if(file_exists(IMAGE_ORIGIN_UPLOAD_PATH.$uploadFile['name'])){
+					unlink(IMAGE_ORIGIN_UPLOAD_PATH.$uploadFile['name']);
+				}
+				if(file_exists(IMAGE_UPLOAD_PATH.$uploadFile['name'])){
+					unlink(IMAGE_UPLOAD_PATH.$uploadFile['name']);
 				}
 			}
 		}
@@ -102,13 +108,13 @@ function delPro($id)
 //	if (file_exists("../uploadImages/" . $proImgName)) {
 //		unlink("../uploadImages/" . $proImgName);
 //	}
-
+	if (file_exists(IMAGE_ORIGIN_UPLOAD_PATH . $proImgName)) {
+		unlink(IMAGE_ORIGIN_UPLOAD_PATH . $proImgName);
+	}
 	if (file_exists(IMAGE_UPLOAD_PATH . $proImgName)) {
 		unlink(IMAGE_UPLOAD_PATH . $proImgName);
 	}
-	if (file_exists("../image_100/" . $proImgName)) {
-		unlink("../image_100/" . $proImgName);
-	}
+	
 
 	$res = delete($link, "gd_mst", $where);
 	if ($res) {

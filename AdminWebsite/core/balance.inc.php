@@ -14,6 +14,9 @@ function getBalanceByPage($page,$pageSize){
     if($page>=$totalPage)$page=$totalPage;
     $offset=($page-1)*$pageSize;
     $sql="select blc_openid,blc_balance,blc_last_change from blc_master order by blc_last_change limit {$offset},{$pageSize};";
+    $sql = "select m.blc_openid,m.blc_balance,m.blc_last_change,m.blc_card_type,b.blc_benefit_type,b.blc_benefit_balance,b.blc_benefit_unit 
+            from blc_master m,blc_benefit_config b where m.blc_openid = b.blc_openid 
+            order by blc_last_change limit {$offset},{$pageSize};";
     $rows=fetchAll($link,$sql);
     return $rows;
 }
