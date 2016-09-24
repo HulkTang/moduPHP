@@ -73,7 +73,7 @@ checkLogined();
                     <li>
                         <h3><div onclick="show('menu4','change4')" style="cursor:pointer"><div id="change4" style="display:inline">+</div>&nbsp;&nbsp;<div style="display:inline">顾客管理</div></div></h3>
                         <dl id="menu4" style="display:none;">
-                        	<dd><a href="customer/listBalance.php" target="mainFrame" onclick="changeTitle('充值卡余额');">充值卡余额</a></dd>
+                        	<dd><a href="customer/listBalance.php" target="mainFrame" onclick="changeTitle('会员卡余额');">会员卡余额</a></dd>
                             <dd><a href="customer/listBalanceChange.php" target="mainFrame" onclick="changeTitle('充值/消费记录');">充值/消费记录</a></dd>
                         </dl>
                     </li>

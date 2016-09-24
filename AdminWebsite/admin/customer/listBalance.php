@@ -20,9 +20,11 @@ $rows=getBalanceByPage($page,$pageSize);
     <table class="table" cellspacing="0" cellpadding="0">
         <thead>
         <tr>
-            <th width="30%">openId</th>
-            <th width="25%">最后修改时间</th>
+            <th width="15%">openId</th>
+            <th width="20%">最后修改时间</th>
             <th width="15%">余额</th>
+            <th width="15%">优惠类型</th>
+            <th width="15%">优惠剩余</th>
             <th>操作</th>
         </tr>
         </thead>
@@ -32,12 +34,14 @@ $rows=getBalanceByPage($page,$pageSize);
                 <td><?php echo $row['blc_openid'];?></td>
                 <td><?php echo $row['blc_last_change'];?></td>
                 <td><?php echo $row['blc_balance'];?>元</td>
+                <td><?php echo $row['blc_benefit_type'];?></td>
+                <td><?php echo $row['blc_benefit_balance'].$row['blc_benefit_unit'];?></td>
                 <td align="center"><input type="button" value="删除(无效)" class="btn" onclick="delCate(<?php echo $row['blc_openid'];?>)"></td>
             </tr>
         <?php endforeach;?>
         <?php if($totalRows>$pageSize):?>
             <tr>
-                <td colspan="4"><?php echo showPage($page, $totalPage);?></td>
+                <td colspan="6"><?php echo showPage($page, $totalPage);?></td>
             </tr>
         <?php endif;?>
         </tbody>
