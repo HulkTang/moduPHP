@@ -20,7 +20,7 @@ function addPro(){
 	$res=insert($link,"gd_mst",$arr);
 	$pid=getInsertId($link);
 	if($res&&$pid){
-		$mes="<p>添加成功!</p><a href='addPro.php' target='mainFrame'>继续添加</a>|<a href='listPro.php' target='mainFrame'>查看商品列表</a>";
+		$mes="<p>添加成功!</p><a href='pro/addPro.php' target='mainFrame'>继续添加</a>|<a href='pro/listPro.php' target='mainFrame'>查看商品列表</a>";
 	}else{
 		foreach($uploadFiles as $uploadFile){
 			if(file_exists(IMAGE_ORIGIN_UPLOAD_PATH.$uploadFile['name'])){
@@ -30,7 +30,7 @@ function addPro(){
 				unlink(IMAGE_UPLOAD_PATH.$uploadFile['name']);
 			}
 		}
-		$mes="<p>添加失败!</p><a href='addPro.php' target='mainFrame'>重新添加</a>";
+		$mes="<p>添加失败!</p><a href='pro/addPro.php' target='mainFrame'>重新添加</a>";
 		
 	}
 	return $mes;
@@ -79,7 +79,7 @@ function editPro($id){
 	$where="gd_id={$id}";
 	$res=update($link,"gd_mst",$arr,$where);
 	if($res){
-		$mes="<p>编辑成功!</p><a href='listPro.php' target='mainFrame'>查看商品列表</a>";
+		$mes="<p>编辑成功!</p><a href='pro/listPro.php' target='mainFrame'>查看商品列表</a>";
 	}else{
 		if($_FILES&&is_array($uploadFiles)&&$uploadFiles){
 			foreach($uploadFiles as $uploadFile){
@@ -91,7 +91,7 @@ function editPro($id){
 				}
 			}
 		}
-		$mes="<p>编辑失败!</p><a href='listPro.php' target='mainFrame'>重新编辑</a>";
+		$mes="<p>编辑失败!</p><a href='pro/listPro.php' target='mainFrame'>重新编辑</a>";
 		
 	}
 	return $mes;
@@ -118,9 +118,9 @@ function delPro($id)
 
 	$res = delete($link, "gd_mst", $where);
 	if ($res) {
-		$mes = "删除成功!<br/><a href='listPro.php' target='mainFrame'>查看商品列表</a>";
+		$mes = "删除成功!<br/><a href='pro/listPro.php' target='mainFrame'>查看商品列表</a>";
 	} else {
-		$mes = "删除失败!<br/><a href='listPro.php' target='mainFrame'>重新删除</a>";
+		$mes = "删除失败!<br/><a href='pro/listPro.php' target='mainFrame'>重新删除</a>";
 	}
 	return $mes;
 }
@@ -143,12 +143,5 @@ function checkProExist($cid){
 }
 
 
-function getRecommendPro($link,$proID){
-	//生成随机数
-	$arr=range(0,4);
-	shuffle($arr);
-	$sql="select p.id,p.pName,p.pIndex,p.pNum,p.mPrice,p.iPrice,p.pDescription,p.pTime,p.isShow,p.isHot,c.name,p.cId from go_product as p join go_cate c on p.cId=c.id where p.pNum>0 and p.isHot>0 and p.id!={$proID} order by p.isHot DESC limit {$arr[0]},1";
-	$rows=fetchAll($link,$sql);
-	return $rows;
-}
+
 

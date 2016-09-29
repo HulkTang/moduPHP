@@ -6,9 +6,9 @@ function addCate(){
     //删除以post方式提交的act
     unset($arr['act']);
     if(insert($link,"gd_ctlg",$arr)){
-        $mes="分类添加成功!<br/><a href='addCate.php'>继续添加</a>|<a href='listCate.php'>查看分类</a>";
+        $mes="分类添加成功!<br/><a href='cate/addCate.php'>继续添加</a>|<a href='cate/listCate.php'>查看分类</a>";
     }else{
-        $mes="分类添加失败！<br/><a href='addCate.php'>重新添加</a>|<a href='listCate.php'>查看分类</a>";
+        $mes="分类添加失败！<br/><a href='cate/addCate.php'>重新添加</a>|<a href='cate/listCate.php'>查看分类</a>";
     }
     return $mes;
 }
@@ -39,13 +39,13 @@ function delCate($id){
     $res=checkProExist($id);
 
     if($res){
-        alertMes("不能删除分类，请先删除该分类下的商品", "listPro.php");
+        alertMes("不能删除分类，请先删除该分类下的商品", "pro/listPro.php");
     }else{
         $where="ctlg_id=".$id;
         if(delete($link,"gd_ctlg",$where)){
-            $mes="分类删除成功!<br/><a href='listCate.php'>查看分类</a>|<a href='addCate.php'>添加分类</a>";
+            $mes="分类删除成功!<br/><a href='cate/listCate.php'>查看分类</a>|<a href='cate/addCate.php'>添加分类</a>";
         }else{
-            $mes="删除失败！<br/><a href='listCate.php'>请重新操作</a>";
+            $mes="删除失败！<br/><a href='cate/listCate.php'>请重新操作</a>";
         }
         return $mes;
     }
@@ -57,9 +57,9 @@ function editCate($ctlg_id){
     //删除以post方式提交的act
     unset($arr['act']);
     if(update($link,"gd_ctlg",$arr,"ctlg_id='{$ctlg_id}'")>0){
-        $msg = "分类修改成功!<br/><a href='listCate.php'>查看分类</a>";
+        $msg = "分类修改成功!<br/><a href='cate/listCate.php'>查看分类</a>";
     }else{
-        $msg = "分类修改失败!<br/><a href='listCate.php'>请重新修改</a>";
+        $msg = "分类修改失败!<br/><a href='cate/listCate.php'>请重新修改</a>";
     }
     return $msg;
 

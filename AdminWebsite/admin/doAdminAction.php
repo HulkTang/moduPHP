@@ -28,7 +28,10 @@ if($act=="logout"){
     $mes = delPro($_REQUEST['id']);
 }elseif($act=='editPro'){
     $mes = editPro($_REQUEST['id']);
+}elseif($act=='addBenefit'){
+    $mes = addBenefit();
 }
+
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">

@@ -2,7 +2,7 @@
 
 require_once "../include.php";
 $username = $_POST['username'];
-$password = $_POST['password'];
+$password = md5($_POST['password']);
 $verify = $_POST['verify'];
 $verify1 = $_SESSION['verify'];
 if(isset($_POST['autoFlag']))

@@ -86,6 +86,7 @@ function getResultNum($link,$sql){
     if($result == null){
         return 0;
     }
+    echo $sql.'</br>';
     return mysqli_num_rows($result);
 }
 

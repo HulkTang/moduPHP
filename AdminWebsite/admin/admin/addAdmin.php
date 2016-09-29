@@ -3,6 +3,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Insert title here</title>
+    <script type='text/javascript' src="../scripts/jquery-ui/js/jquery-1.10.2.js"></script>
 </head>
 <body>
 <h3>添加管理员</h3>
@@ -11,12 +12,12 @@
 <!--        表单无法同时以post get传递参数，采用该方法传递。-->
         <input type="hidden" name="act" value="addAdmin" >
         <tr>
-            <td align="right">管理员姓名</td>
-            <td><input type="text" name="stf_name" placehoder="请输入管理员姓名"></td>
+            <td align="right">管理员工号</td>
+            <td><input type="text" name="stf_code" id="stf_code" placehoder="请输入管理员工号" onblur="getAdminName()"></td>
         </tr>
         <tr>
-            <td align="right">管理员工号</td>
-            <td><input type="text" name="st_manager_code" placehoder="请输入管理员工号"></td>
+            <td align="right">管理员姓名</td>
+            <td><input type="text" name="stf_name" id="stf_name" placehoder="请输入管理员姓名" readonly="readonly"></td>
         </tr>
 <!--        <tr>-->
 <!--            <td align="right">店名</td>-->
@@ -27,6 +28,16 @@
         </tr>
     </table>
 </form>
-
+<script type="application/javascript">
+    function getAdminName(){
+        var adminNumber = document.getElementById('stf_code').value;
+        $.ajax({
+            type: 'POST',
+            url: '../../ajax/showAdminNameForadminNumber.php',
+            success:function(data){document.getElementById('stf_name').value = data},
+            data:{adminNumber:adminNumber}
+        });
+    }
+</script>
 </body>
 </html>

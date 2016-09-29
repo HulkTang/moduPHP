@@ -1,7 +1,6 @@
 <?php 
 require_once '../../include.php';
 checkLogined();
-$link = connect();
 $rows=getAllCate();
 if(!$rows){
 	alertMes("没有相应分类，请先添加分类!!", "addCate.php");
