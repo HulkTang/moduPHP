@@ -33,7 +33,7 @@
 .login_cont{padding:15px 76px;}
 .l_tit{color:#000; line-height:20px;}
 .login_input{border:#999 solid 1px; height:32px; line-height:32px\9; text-indent:5px; width:100%;}
-.verify_img{border:none;height:32px;float:right;width:35%;}
+.verify_img{border:none;height:32px;float:right;width:100%;}
 .user_icon{background:url(../images/icon/user_icon.jpg) right center no-repeat;}
 .password_icon{background:url(../images/icon/password_icon.png) right center no-repeat ;}
 .mb_10{margin-bottom:10px;}
