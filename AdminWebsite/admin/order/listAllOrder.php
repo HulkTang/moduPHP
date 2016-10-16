@@ -61,7 +61,7 @@ $rows=getAllOrderByPage($page,$pageSize,$from,$to);
             <td><?php echo showFormatedProList($row['od_string']);?></td>
             <td><?php echo $row['od_total_price'];?></td>
             <td><?php echo $row['od_state'];?></td>
-            <td align="center"><input type="button" value="修改" class="btn" onclick="editCate(<?php echo $row['od_id'];?>)"><input type="button" value="删除" class="btn"  onclick="delCate(<?php echo $row['od_id'];?>)"></td>
+            <td align="center"><input type="button" value="打印" class="btn" onclick="printOrder(<?php echo $row['od_id'];?>)"><input type="button" value="删除(无效)" class="btn"  onclick="delCate(<?php echo $row['od_id'];?>)"></td>
         </tr>
     <?php endforeach;?>
     <?php if($totalRows>$pageSize):?>
@@ -73,12 +73,14 @@ $rows=getAllOrderByPage($page,$pageSize,$from,$to);
     </table>
 </div>
 <script type="text/javascript">
-    function editCate(id){
-        window.location="editOrder.php?id="+id;
+    function printOrder(id){
+        if(window.confirm("您确定要打印吗？删除之后不能恢复!")){
+            window.location="../doAdminAction.php?act=printOrder&id="+id;
+        }
     }
     function delCate(id){
         if(window.confirm("您确定要删除吗？删除之后不能恢复!")){
-            window.location="../doAdminAction.php?act=delOrder&id="+id;
+
         }
     }
     function search(){

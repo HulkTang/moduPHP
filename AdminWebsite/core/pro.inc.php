@@ -69,7 +69,7 @@ function editPro($id){
 			}
 
 			foreach ($uploadFiles as $key => $uploadFile) {
-				thumb($path . "/" . $uploadFile['name'], "../image_100/" . $uploadFile['name'], 100, 100);
+				thumb($path . "/" . $uploadFile['name'], IMAGE_UPLOAD_PATH . $uploadFile['name'], 100, 100);
 //				$arr['gd_picture'] = "../image_100/" . $uploadFile['name'];
 				$arr['gd_picture'] = IMAGE_STORE_PATH.$uploadFile['name'];
 			}

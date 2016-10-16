@@ -38,7 +38,7 @@
         echo    "<td>".showFormatedProList($row['od_string'])."</td>";
         echo    "<td>".$row['od_total_price']."</td>";
         echo    "<td>".$row['od_state']."</td>";
-        echo    "<td align=\"center\"><input type=\"button\" value=\"修改 无效\" class=\"btn\" onclick=\"editCate(".$row['od_id'].")\">";
+        echo    "<td align=\"center\"><input type=\"button\" value=\"打印\" class=\"btn\" onclick=\"printOrder(".$row['od_id'].")\">";
         echo    "<input type=\"button\" value=\"测试\" class=\"btn\"  onclick=\"test(".$row['od_id'].")\">";
         echo    "<input type=\"button\" value=\"删除 无效\" class=\"btn\"  onclick=\"delCate(".$row['od_id'].")\"></td></tr>";
             

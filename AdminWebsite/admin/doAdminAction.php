@@ -28,6 +28,8 @@ if($act=="logout"){
     $mes = delPro($_REQUEST['id']);
 }elseif($act=='editPro'){
     $mes = editPro($_REQUEST['id']);
+}elseif($act=='printOrder'){
+    $mes = printOrder($_REQUEST['id']);
 }elseif($act=='addBenefit'){
     $mes = addBenefit();
 }
