@@ -92,17 +92,17 @@ function getIncomeByDate($from='2016-09-01',$to='2050-09-01'){
     return $row;
 }
 
-function printOrder($id){
-    global $link;
-    $sql="select od_id,od_desk_id,od_date,od_string,od_total_price,od_state from od_hdr where od_id = '{$id}';";
-    $row=fetchOne($link,$sql);
-    $od_id = $row['od_id'];//订单编号
-    $od_desk_id = $row['od_desk_id'];//桌号
-    $od_date = $row['od_date'];//下单时间
-    $od_string = $row['od_string'];//菜品和数量，格式类似于“苦瓜*1;蛋糕*1;肥牛*1;”
-    $od_total_price = $row['od_total_price'];//订单总价
-    echo "打印数据:".$od_id.'/'.$od_desk_id.'/'.$od_date.'/'.$od_string.'/'.$od_total_price;
-    //在这里加打印的相关函数
-
-
-}
+//function printOrder($id){
+//    global $link;
+//    $sql="select od_id,od_desk_id,od_date,od_string,od_total_price,od_state from od_hdr where od_id = '{$id}';";
+//    $row=fetchOne($link,$sql);
+//    $od_id = $row['od_id'];//订单编号
+//    $od_desk_id = $row['od_desk_id'];//桌号
+//    $od_date = $row['od_date'];//下单时间
+//    $od_string = $row['od_string'];//菜品和数量，格式类似于“苦瓜*1;蛋糕*1;肥牛*1;”
+//    $od_total_price = $row['od_total_price'];//订单总价
+//    echo "打印数据:".$od_id.'/'.$od_desk_id.'/'.$od_date.'/'.$od_string.'/'.$od_total_price;
+//    //在这里加打印的相关函数
+//
+//
+//}
