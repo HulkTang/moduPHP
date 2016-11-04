@@ -1,5 +1,5 @@
 <?php
-require_once '../include.php';
+require_once '../../include.php';
 $adminNumber=isset($_REQUEST['adminNumber'])?$_REQUEST['adminNumber']:null;
 if($adminNumber==null)
     echo '';

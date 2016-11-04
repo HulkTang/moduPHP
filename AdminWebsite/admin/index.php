@@ -7,9 +7,6 @@ checkLogined();
 <head>
 <meta charset="utf-8">
 <title>网站管理员</title>
-<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
-<link href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="styles/backstage.css">
 </head>
 
@@ -73,8 +70,10 @@ checkLogined();
                     <li>
                         <h3><div onclick="show('menu4','change4')" style="cursor:pointer"><div id="change4" style="display:inline">+</div>&nbsp;&nbsp;<div style="display:inline">顾客管理</div></div></h3>
                         <dl id="menu4" style="display:none;">
-                        	<dd><a href="customer/listBalance.php" target="mainFrame" onclick="changeTitle('会员卡余额');">会员卡余额</a></dd>
+                        	<dd><a href="customer/listBalance.php" target="mainFrame" onclick="changeTitle('会员卡管理');">会员卡管理</a></dd>
                             <dd><a href="customer/listBalanceChange.php" target="mainFrame" onclick="changeTitle('充值/消费记录');">充值/消费记录</a></dd>
+                            <dd><a href="customer/listCouponConfig.php" target="mainFrame" onclick="changeTitle('优惠券配置');">优惠券配置</a></dd>
+                            <dd><a href="customer/listActivityConfig.php" target="mainFrame" onclick="changeTitle('活动配置');">活动配置</a></dd>
                         </dl>
                     </li>
                     <?php

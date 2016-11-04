@@ -1,11 +1,12 @@
 <?php
-    require_once '../include.php';
+    require_once '../../include.php';
 
 
 
-    $pageSize=2;
+    $pageSize=5;
     $page=isset($_REQUEST['page'])?(int)$_REQUEST['page']:1;
     $rows=getTodayOrderByPage($page,$pageSize);
+//    printNewTodayOrder();
 
     echo "
             <div class=\"details_operation clearfix\">
@@ -23,6 +24,7 @@
                     <th width=\"25%\">商品</th>
                     <th width=\"7%\">总价</th>
                     <th width=\"7%\">状态</th>
+                    <th width=\"7%\">打印</th>
 
                     <th>操作</th>
                 </tr>
@@ -38,14 +40,15 @@
         echo    "<td>".showFormatedProList($row['od_string'])."</td>";
         echo    "<td>".$row['od_total_price']."</td>";
         echo    "<td>".$row['od_state']."</td>";
+        echo    "<td>".$row['od_isprint']."</td>";
         echo    "<td align=\"center\"><input type=\"button\" value=\"打印\" class=\"btn\" onclick=\"printOrder(".$row['od_id'].")\">";
-        echo    "<input type=\"button\" value=\"测试\" class=\"btn\"  onclick=\"test(".$row['od_id'].")\">";
-        echo    "<input type=\"button\" value=\"删除 无效\" class=\"btn\"  onclick=\"delCate(".$row['od_id'].")\"></td></tr>";
+
+
             
     endforeach;
 
     if($totalRows>$pageSize):
-        echo "<tr><td colspan=\"7\">".showPage($page, $totalPage, null, "&nbsp;", 'listTodayOrder.php')."</td></tr>";
+        echo "<tr><td colspan=\"8\">".showPage($page, $totalPage, null, "&nbsp;", 'listTodayOrder.php')."</td></tr>";
     endif;
 
     echo "   </tbody>

@@ -12,7 +12,7 @@ function checkLogined(){
     else if(isset($_SESSION['adminCode']))
         return;
     else{
-        $sql = "select stf_mst.* from stf_mst, st_mst where stf_mst.stf_code='{$_COOKIE['adminCode']}' and stf_mst.stf_password='{$_COOKIE['adminPassword']}'";
+        $sql = "select * from stf_mst where stf_code='{$_COOKIE['adminCode']}' and stf_password='{$_COOKIE['adminPassword']}'";
         $result = checkAdmin($link,$sql);
         if($result){
             $_SESSION['adminCode'] = $result['stf_code'];
@@ -48,8 +48,12 @@ function addAdmin(){
     $arr = $_POST;
     unset($arr['act']);
 
-    if($arr['stf_name']=='员工编号不存在'){
+    if(strstr($arr['stf_name'],'员工编号不存在')!==false){
         $mes = "该员工编号不存在，请重新核对。";
+        alertMes($mes,'admin/addAdmin.php');
+    }
+    if($arr['stf_name']==null){
+        $mes = "请填写员工姓名";
         alertMes($mes,'admin/addAdmin.php');
     }
 

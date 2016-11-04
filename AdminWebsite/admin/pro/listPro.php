@@ -9,7 +9,7 @@ $where=$keywords?" where gd_name like '%{$keywords}%'":null;
 //得到数据库中所有商品
 $sql="select gd_name,gd_price,gd_inventory,gd_description,gd_sales,gd_picture,gd_catalogue_name from gd_mst {$where} {$orderBy};";
 $totalRows=getResultNum($link,$sql);
-$pageSize=5;
+$pageSize=6;
 $totalPage=ceil($totalRows/$pageSize);
 $page=isset($_REQUEST['page'])?(int)$_REQUEST['page']:1;
 if($page<1||$page==null||!is_numeric($page))$page=1;
@@ -85,10 +85,10 @@ if($totalPage!=0)
                         <thead>
                             <tr>
                                 <th width="12%">商品名称</th>
-                                <th width="12%">商品分类</th>
-                                <th width="12%">商品库存</th>
-                                <th width="12%">商品销量</th>
-                                <th width="12%">商品价格</th>
+                                <th width="8%">商品分类</th>
+                                <th width="8%">商品库存</th>
+                                <th width="8%">商品销量</th>
+                                <th width="8%">商品价格</th>
                                 <th>操作</th>
                             </tr>
                         </thead>
@@ -101,7 +101,11 @@ if($totalPage!=0)
 								<td><?php echo $row['gd_sales'];?></td>
 								<td><?php echo $row['gd_price'];?>元</td>
                                 <td align="center">
-                                				<input type="button" value="详情" class="btn" onclick="showDetail(<?php echo $row['gd_id'];?>,'<?php echo $row['gd_name'];?>')"><input type="button" value="修改" class="btn" onclick="editPro(<?php echo $row['gd_id'];?>)"><input type="button" value="删除" class="btn"onclick="delPro(<?php echo $row['gd_id'];?>)">
+                                				<input type="button" value="详情" class="btn" onclick="showDetail(<?php echo $row['gd_id'];?>,'<?php echo $row['gd_name'];?>')">
+											 	<input type="button" value="二维码" class="btn"onclick="getQRForPro(<?php echo $row['gd_id'];?>)">
+												<input type="button" value="配置" class="btn"onclick="configPro(<?php echo $row['gd_id'];?>)">
+												<input type="button" value="修改" class="btn" onclick="editPro(<?php echo $row['gd_id'];?>)">
+												<input type="button" value="删除" class="btn"onclick="delPro(<?php echo $row['gd_id'];?>)">
 					                            <div id="showDetail<?php echo $row['gd_id'];?>" style="display:none;">
 					                        	<table class="table" cellspacing="0" cellpadding="0">
 					                        		<tr>
@@ -150,22 +154,27 @@ if($totalPage!=0)
                 </div>
 <script type="text/javascript">
 
-window.onload=function(){
-
-}
-function showDetail(id,t){
-	$("#showDetail"+id).dialog({
-		  height:"auto",
-	      width: "auto",
-	      position: {my: "center", at: "center",  collision:"fit"},
-	      modal:false,
-	      draggable:true,
-	      resizable:true,
-	      title:"商品名称："+t,
-	      show:"slide",
-	      hide:"explode"
-	});
-}
+	window.onload=function(){
+	
+	}
+	function showDetail(id,t){
+		$("#showDetail"+id).dialog({
+			  height:"auto",
+			  width: "auto",
+			  position: {my: "center", at: "center",  collision:"fit"},
+			  modal:false,
+			  draggable:true,
+			  resizable:true,
+			  title:"商品名称："+t,
+			  show:"slide",
+			  hide:"explode"
+		});
+	}
+	
+	function configPro(id){
+		window.location='listProConfig.php?id='+id;
+	}
+	
 	function addPro(){
 		window.location='addPro.php';
 	}
@@ -190,6 +199,9 @@ function showDetail(id,t){
 	function change(order){
 		var keyword=document.getElementById("search").value;
 		window.location="listPro.php?keywords="+keyword+"&order="+order;
+	}
+	function getQRForPro(id){
+			window.location="../doAdminAction.php?act=getQRForPro&id="+id;
 	}
 </script>
 </body>

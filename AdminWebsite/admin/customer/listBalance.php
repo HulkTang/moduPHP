@@ -4,12 +4,9 @@ require_once '../../include.php';
 $cardNumber=isset($_REQUEST['cardNumber'])?$_REQUEST['cardNumber']:null;
 $isEmpty=isset($_REQUEST['isEmpty'])?$_REQUEST['isEmpty']:'EMPTY';
 
-$pageSize=2;
+$pageSize=5;
 $page=isset($_REQUEST['page'])?(int)$_REQUEST['page']:1;
 $rows=getBalanceByPage($page,$pageSize,$cardNumber,$isEmpty);
-
-var_dump($page);
-var_dump($totalRows);
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -24,7 +21,7 @@ var_dump($totalRows);
     <div class="details_operation clearfix">
 
         <div class="bui_select">
-            <input type="button" value="发放优惠券" class="add"  onclick="addBenefit()">
+            <input type="button" value="发放优惠券" class="add"  onclick="sendCouponToCardNumber()">
         </div>
 
         <div class="fr">
@@ -44,11 +41,11 @@ var_dump($totalRows);
         <thead>
         <tr>
             <th width="15%">卡号</th>
-            <th width="5%">等级</th>
-            <th width="20%">最后修改时间</th>
+            <th width="8%">等级</th>
+            <th width="18%">最后修改时间</th>
             <th width="15%">余额</th>
-            <th width="15%">优惠类型</th>
-            <th width="15%">优惠剩余</th>
+            <th width="15%">消费总额</th>
+            <th width="15%">优惠券剩余</th>
             <th>操作</th>
         </tr>
         </thead>
@@ -59,9 +56,9 @@ var_dump($totalRows);
                 <td><?php echo $row['blc_card_type'];?></td>
                 <td><?php echo $row['blc_last_change'];?></td>
                 <td><?php echo $row['blc_balance'];?>元</td>
-                <td><?php echo $row['blc_benefit_type'];?></td>
-                <td><?php echo $row['blc_benefit_balance'].$row['blc_benefit_unit'];?></td>
-                <td align="center"><input type="button" value="发放优惠券" class="btn" onclick="editBenefit(<?php echo $row['id'];?>)"></td>
+                <td><?php echo getTotalConsumeByCardNumber($row['blc_card_number']);?>元</td>
+                <td><?php echo getTotalCouponNumberByCardNumber($row['blc_card_number']);?>张</td>
+                <td align="center"><input type="button" value="查看优惠券" class="btn" onclick="listCouponByCardNumber(<?php echo $row['blc_card_number'];?>)"></td>
             </tr>
         <?php endforeach;?>
         <?php if($totalRows>$pageSize):?>
@@ -74,12 +71,16 @@ var_dump($totalRows);
 </div>
 <script type="text/javascript">
 
-    function editBenefit(id){
-        window.location='editBenefit.php?id='+id;
+    function listCouponConfig(){
+        window.location='listCouponConfig.php';
+    }
+    
+    function listCouponByCardNumber(cardNumber){
+        window.location='listCoupon.php?cardNumber='+cardNumber;
     }
 
-    function addBenefit(){
-        window.location='addBenefit.php';
+    function sendCouponToCardNumber(){
+        window.location='sendCouponToCardNumber.php';
     }
 
     function searchbtn(){

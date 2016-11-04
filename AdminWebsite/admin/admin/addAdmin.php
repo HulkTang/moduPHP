@@ -4,6 +4,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Insert title here</title>
     <script type='text/javascript' src="../scripts/jquery-ui/js/jquery-1.10.2.js"></script>
+    <link rel="stylesheet" href="../styles/common.css">
 </head>
 <body>
 <h3>添加管理员</h3>
@@ -17,23 +18,24 @@
         </tr>
         <tr>
             <td align="right">管理员姓名</td>
-            <td><input type="text" name="stf_name" id="stf_name" placehoder="请输入管理员姓名" readonly="readonly"></td>
+            <td><input type="text" class='immutable' name="stf_name" id="stf_name" placehoder="请输入管理员姓名" readonly="readonly"></td>
         </tr>
 <!--        <tr>-->
 <!--            <td align="right">店名</td>-->
 <!--            <td><input type="text" name="st_name" placehoder="请输入店名"></td>-->
 <!--        </tr>-->
         <tr>
-            <td colspan="2" align="center"><input type="submit" value="添加管理员"></td>
+            <td colspan="2" align="center"><input type="submit" value="添加管理员" ></td>
         </tr>
     </table>
 </form>
 <script type="application/javascript">
+
     function getAdminName(){
         var adminNumber = document.getElementById('stf_code').value;
         $.ajax({
             type: 'POST',
-            url: '../../ajax/showAdminNameForadminNumber.php',
+            url: '../../ajax/admin/showAdminNameForadminNumber.php',
             success:function(data){document.getElementById('stf_name').value = data},
             data:{adminNumber:adminNumber}
         });

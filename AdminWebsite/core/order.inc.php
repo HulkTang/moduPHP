@@ -24,7 +24,7 @@ function getTodayOrderByPage($page,$pageSize){
     }
     if($page>=$totalPage)$page=$totalPage;
     $offset=($page-1)*$pageSize;
-    $sql="select od_id,od_desk_id,od_date,od_string,od_total_price,od_state from od_hdr where date(od_date) = '{$currentDate}' order by od_date desc limit {$offset},{$pageSize};";
+    $sql="select od_id,od_desk_id,od_date,od_string,od_total_price,od_state,od_isprint from od_hdr where date(od_date) = '{$currentDate}' order by od_date desc limit {$offset},{$pageSize};";
     $rows=fetchAll($link,$sql);
 
     return $rows;
@@ -51,7 +51,7 @@ function getAllOrderByPage($page,$pageSize,$from,$to){
     }
     if($page>=$totalPage)$page=$totalPage;
     $offset=($page-1)*$pageSize;
-    $sql="select od_id,od_desk_id,od_date,od_string,od_total_price,od_state from od_hdr where date(od_hdr.od_date)>='{$from}' and date(od_hdr.od_date)<='{$to}' order by od_date desc limit {$offset},{$pageSize};";
+    $sql="select od_id,od_desk_id,od_date,od_string,od_total_price,od_state,od_isprint from od_hdr where date(od_hdr.od_date)>='{$from}' and date(od_hdr.od_date)<='{$to}' order by od_date desc limit {$offset},{$pageSize};";
     $rows=fetchAll($link,$sql);
 
     return $rows;
@@ -63,11 +63,11 @@ function showFormatedProList($proOfOrder){
     foreach($arr as $a):
         $formatedArr = $formatedArr.$a.'</br>';
     endforeach;
+    $formatedArr = substr($formatedArr,0,-5);
     return $formatedArr;
-//    return $proOfOrder;
 }
 
-function getSalesByPage($page,$pageSize,$from='2016-09-01',$to='2050-09-01'){
+function getSalesByPage($page,$pageSize,$from='2016-08-01',$to='2010-10-01'){
     global $link;
     $sql="select distinct(od_ln.gd_name) from od_hdr,od_ln where date(od_hdr.od_date)>='{$from}' and date(od_hdr.od_date)<='{$to}' and od_hdr.od_id = od_ln.od_id;";
     global $totalRows;
@@ -85,7 +85,7 @@ function getSalesByPage($page,$pageSize,$from='2016-09-01',$to='2050-09-01'){
     return $rows;
 }
 
-function getIncomeByDate($from='2016-09-01',$to='2050-09-01'){
+function getIncomeByDate($from='2016-08-01',$to='2016-10-01'){
     global $link;
     $sql="select sum(od_total_price) as od_total_income from od_hdr where date(od_hdr.od_date)>='{$from}' and date(od_hdr.od_date)<='{$to}';";
     $row=fetchOne($link,$sql);

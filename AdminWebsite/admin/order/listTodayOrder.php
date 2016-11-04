@@ -20,13 +20,8 @@
         start();
     }
     function printOrder(id){
-        if(window.confirm("您确定要打印吗？删除之后不能恢复!")){
+        if(window.confirm("您确定要打印吗？打印之后不能恢复!")){
             window.location="../doAdminAction.php?act=printOrder&id="+id;
-        }
-    }
-    function delCate(id){
-        if(window.confirm("您确定要删除吗？删除之后不能恢复!")){
-            window.location="../doAdminAction.php?act=delOrder&id="+id;
         }
     }
     function test(text){

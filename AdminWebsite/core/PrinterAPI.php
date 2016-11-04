@@ -9,6 +9,7 @@ define('IP','api163.feieyun.com');
 define('PORT',80);
 define('HOSTNAME','/FeieServer');
 $link = connect();
+//根据主订单id打印
 function printOrder($id){
 	global $link;
 	$sql1="select od_id,od_desk_id,od_date,od_string,od_total_price,od_state from od_hdr where od_id = {$id};";
@@ -18,6 +19,35 @@ function printOrder($id){
 	$rows=fetchAll($link,$sql2);
 	//在这里加打印的相关函数
 	wp_print(PRINTER_SN,KEY,1,$row,$rows);
+
+	//打印成功如何判断？
+	//判断打印成功后，修改打印状态为'Y'
+	//现在把每一次查出的未打印订单，状态先全部修改为'Y'，再加入打印队列。能否成功需要测试。
+	
+}
+
+function updateOrderIsPrint($id){
+	global $link;
+	$arr = [];
+	$arr['od_isprint'] = 'Y';
+	$where = "od_id='{$id}'";
+	update($link,"od_hdr",$arr,$where);
+	
+}
+
+function printNewTodayOrder(){
+	global $link;
+	$currentTime = date("Y-m-d H:i:s");
+	$currentDate = formatToDateYmd($currentTime);
+	$sql="select od_id from od_hdr where date(od_date) = '{$currentDate}' and od_isprint = 'N';";
+	$rows=fetchAll($link,$sql);
+
+	for($i=0;$i<count($rows);$i++){
+		updateOrderIsPrint($rows[$i]);
+	}
+	for($i=0;$i<count($rows);$i++){
+		printOrder($rows[$i]);
+	}
 }
 /*
  *  方法1

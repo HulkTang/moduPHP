@@ -35,6 +35,7 @@ a:hover{text-decoration: underline;}
 .mList h3 span{display: inline-block; width: 10px; margin-right: 8px;}
 .mList dl{text-indent: 3em;}
 .mList a{color: #FFF;font:12px/2 "微软雅黑"; display: block;}
+.mList li{margin-bottom:20px}
 .icon{padding-left: 18px; background-position: left center; background-repeat: no-repeat;}
 .icon_i{background-image: url(../images/icon/i.png);}
 .icon_j{background-image: url(../images/icon/j.png);}
@@ -60,6 +61,7 @@ a:hover{text-decoration: underline;}
 .check{margin-right: 4px;}
 .btn{padding: 4px 16px; background-color: #E8E8E8; margin: 0 10px;font-family: "微软雅黑"; font-size: 14px; }
 .btn:hover{background-color: #ccc;}
+
 
 
 

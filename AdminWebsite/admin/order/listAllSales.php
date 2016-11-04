@@ -2,7 +2,7 @@
 require_once '../../include.php';
 
 $from=isset($_REQUEST['from'])?$_REQUEST['from']:'2016-08-01';
-$to=isset($_REQUEST['to'])?$_REQUEST['to']:'2088-08-01';
+$to=isset($_REQUEST['to'])?$_REQUEST['to']:'2016-10-01';
 
 $pageSize=5;
 $page=isset($_REQUEST['page'])?(int)$_REQUEST['page']:1;
@@ -16,7 +16,7 @@ $income=getIncomeByDate($from,$to);
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Insert title here</title>
     <link rel="stylesheet" href="../styles/backstage.css">
-    <script src="../scripts/showTodayOrder.js"></script>
+    <script src="../scripts/common.js"></script>
 </head>
 <body>
 <div class="details">
@@ -31,7 +31,7 @@ $income=getIncomeByDate($from,$to);
             <div class="text">
                 <span>结束日期：</span>
                 <div class="bui_select">
-                    <input type="text" value="<?php echo isset($_REQUEST['to'])?$_REQUEST['to']:'';?>" class="search" id="toDate" placeholder="2088-08-01"/>
+                    <input type="text" value="<?php echo isset($_REQUEST['to'])?$_REQUEST['to']:'';?>" class="search" id="toDate" placeholder="2010-10-01"/>
                 </div>
             </div>
             <div class="text">
@@ -58,7 +58,7 @@ $income=getIncomeByDate($from,$to);
         <?php endforeach;?>
         <?php if($totalRows>$pageSize):?>
             <tr>
-                <td colspan="7"><?php echo showPage($page, $totalPage,$where='&from='.$from.'&to='.$to);?></td>
+                <td colspan="8"><?php echo showPage($page, $totalPage,$where='&from='.$from.'&to='.$to);?></td>
             </tr>
         <?php endif;?>
         </tbody>
@@ -66,6 +66,7 @@ $income=getIncomeByDate($from,$to);
 
     <br>
     <div><?php echo $from.'~'.$to.' ';?>总销售额:<?php echo $income['od_total_income']; ?>元</div>
+    
 </div>
 <script type="text/javascript">
     function editCate(id){
@@ -82,12 +83,18 @@ $income=getIncomeByDate($from,$to);
         if(from=='')
             from = '2016-08-01';
         if(to=='')
-            to = '2088-08-01';
-        if(from>to) {
-            alert("开始时间不能晚于结束时间");
+            to = '2016-10-01';
+        if(checkDateFormat(from)&&checkDateFormat(to)){
+            if(from>to) {
+                alert("开始时间不能晚于结束时间");
+                return;
+            }
+            window.location="listAllSales.php?from="+from+"&to="+to;
+        }
+        else{
+            alert('请输入正确的日期格式!');
             return;
         }
-        window.location="listAllSales.php?from="+from+"&to="+to;
     }
 
 </script>

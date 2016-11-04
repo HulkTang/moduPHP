@@ -2,7 +2,7 @@
 require_once '../../include.php';
 
 $from=isset($_REQUEST['from'])?$_REQUEST['from']:'2016-08-01';
-$to=isset($_REQUEST['to'])?$_REQUEST['to']:'2088-08-01';
+$to=isset($_REQUEST['to'])?$_REQUEST['to']:'2016-10-01';
 $pageSize=5;
 $page=isset($_REQUEST['page'])?(int)$_REQUEST['page']:1;
 $rows=getAllOrderByPage($page,$pageSize,$from,$to);
@@ -15,7 +15,7 @@ $rows=getAllOrderByPage($page,$pageSize,$from,$to);
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Insert title here</title>
     <link rel="stylesheet" href="../styles/backstage.css">
-    <script src="../scripts/showTodayOrder.js"></script>
+    <script src="../scripts/common.js"></script>
 </head>
 <body>
 <div class="details">
@@ -48,6 +48,7 @@ $rows=getAllOrderByPage($page,$pageSize,$from,$to);
             <th width="25%">商品</th>
             <th width="7%">总价</th>
             <th width="7%">状态</th>
+            <th width="7%">打印</th>
 
             <th>操作</th>
         </tr>
@@ -61,12 +62,13 @@ $rows=getAllOrderByPage($page,$pageSize,$from,$to);
             <td><?php echo showFormatedProList($row['od_string']);?></td>
             <td><?php echo $row['od_total_price'];?></td>
             <td><?php echo $row['od_state'];?></td>
-            <td align="center"><input type="button" value="打印" class="btn" onclick="printOrder(<?php echo $row['od_id'];?>)"><input type="button" value="删除(无效)" class="btn"  onclick="delCate(<?php echo $row['od_id'];?>)"></td>
+            <td><?php echo $row['od_isprint'];?></td>
+            <td align="center"><input type="button" value="打印" class="btn" onclick="printOrder(<?php echo $row['od_id'];?>)"></td>
         </tr>
     <?php endforeach;?>
     <?php if($totalRows>$pageSize):?>
         <tr>
-            <td colspan="7"><?php echo showPage($page, $totalPage,$where='&from='.$from.'&to='.$to);?></td>
+            <td colspan="8"><?php echo showPage($page, $totalPage,$where='&from='.$from.'&to='.$to);?></td>
         </tr>
     <?php endif;?>
     </tbody>
@@ -78,14 +80,8 @@ $rows=getAllOrderByPage($page,$pageSize,$from,$to);
             window.location="../doAdminAction.php?act=printOrder&id="+id;
         }
     }
-    function delCate(id){
-        if(window.confirm("您确定要删除吗？删除之后不能恢复!")){
-
-        }
-    }
     function search(){
         if(event.keyCode==13){
-            alert("press");
             searchbtn();
         }
     }
@@ -95,12 +91,18 @@ $rows=getAllOrderByPage($page,$pageSize,$from,$to);
         if(from=='')
             from = '2016-08-01';
         if(to=='')
-            to = '2088-08-01';
-        if(from>to) {
-            alert("开始时间不能晚于结束时间");
-            return;
+            to = '2016-10-01';
+        if(checkDateFormat(from)&&checkDateFormat(to)){
+            if(from>to) {
+                alert("开始时间不能晚于结束时间");
+                return;
+            }
+            window.location="listAllOrder.php?from="+from+"&to="+to;
         }
-        window.location="listAllOrder.php?from="+from+"&to="+to;
+        else{
+            alert('请输入正确的日期格式!');
+        }
+
     }
 </script>
 </body>

@@ -4,12 +4,10 @@ require_once '../../include.php';
 $cardNumber=isset($_REQUEST['cardNumber'])?$_REQUEST['cardNumber']:null;
 $isEmpty=isset($_REQUEST['isEmpty'])?$_REQUEST['isEmpty']:'EMPTY';
 
-$pageSize=2;
+$pageSize=5;
 $page=isset($_REQUEST['page'])?(int)$_REQUEST['page']:1;
 $rows=getBalanceChangeByPage($page,$pageSize,$cardNumber,$isEmpty);
 
-var_dump($page);
-var_dump($totalRows);
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>

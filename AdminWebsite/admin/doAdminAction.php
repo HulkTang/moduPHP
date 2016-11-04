@@ -10,28 +10,64 @@ ob_clean();
 $act = $_REQUEST['act'];
 if($act=="logout"){
     logout();
-}elseif($act=="addAdmin"){
+}
+//admin
+elseif($act=="addAdmin"){
     $mes = addAdmin();
 }elseif($act=='delAdmin'){
     $mes = delAdmin($_REQUEST['id']);
 }elseif($act=='changeBossPassword'){
     $mes = changeBossPassword($_REQUEST['oldPassword'],$_REQUEST['newPassword1'],$_REQUEST['newPassword2']);
-}elseif($act=='addCate'){
+}
+//Cate
+elseif($act=='addCate'){
     $mes = addCate();
 }elseif($act=='delCate'){
     $mes = delCate($_REQUEST['id']);
 }elseif($act=='editCate'){
     $mes = editCate($_REQUEST['id']);
-}elseif($act=='addPro'){
+}
+//Pro
+elseif($act=='addPro'){
     $mes = addPro();
 }elseif($act=='delPro'){
     $mes = delPro($_REQUEST['id']);
 }elseif($act=='editPro'){
     $mes = editPro($_REQUEST['id']);
-}elseif($act=='printOrder'){
-    $mes = printOrder($_REQUEST['id']);
-}elseif($act=='addBenefit'){
+}elseif($act=='addProConfig'){
+    $mes = addProConfig();
+}elseif($act=='editProConfig'){
+    $mes = editProConfig();
+}elseif($act=='delProConfig'){
+    $mes = delProConfig($_REQUEST['id']);
+}elseif($act=='getQRForPro'){
+    $mes = getQRForPro($_REQUEST['id']);
+}
+//Order
+elseif($act=='printOrder'){
+    printOrder($_REQUEST['id']);
+}
+//Customer
+elseif($act=='addBenefit'){
     $mes = addBenefit();
+}elseif($act=='addSubCoupon'){
+    $mes = addSubCoupon();
+}elseif($act=='addDiscountCoupon'){
+    $mes = addDiscountCoupon();
+}elseif($act=='delCouponConfig'){
+    $mes = delCouponConfig($_REQUEST['id']);
+}elseif($act=='sendCouponToCardNumber'){
+    $mes = sendCouponToCardNumber();
+}elseif($act=='delActivityConfigForcible'){
+    $mes = delActivityConfigForcible($_REQUEST['id']);
+}elseif($act=='addDiscountActivity'){
+    $mes = addDiscountActivity();
+}elseif($act=='addSubActivity'){
+    $mes = addSubActivity();
+}elseif($act=='delActivityConfig'){
+    $mes = delActivityConfig($_REQUEST['id']);
+}elseif($act=='delActivityConfigForcible'){
+    $mes = delActivityConfigForcible($_REQUEST['id']);
 }
 
 ?>

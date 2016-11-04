@@ -1,7 +1,7 @@
 <?php
 
 require_once '../../include.php';
-$pageSize=2;
+$pageSize=6;
 $page=isset($_REQUEST['page'])?(int)$_REQUEST['page']:1;
 $rows=getCateByPage($page,$pageSize);
 if(!$rows){
@@ -39,7 +39,9 @@ if(!$rows){
             <tr>
                 <td><label for="c1" class="label"><?php echo $row['ctlg_name'];?></label></td>
                 <td><?php echo $row['ctlg_description'];?></td>
-                <td align="center"><input type="button" value="修改" class="btn" onclick="editCate(<?php echo $row['ctlg_id'];?>)"><input type="button" value="删除" class="btn"  onclick="delCate(<?php echo $row['ctlg_id'];?>)"></td>
+                <td align="center"><input type="button" value="修改" class="btn" onclick="editCate(<?php echo $row['ctlg_id'];?>)">
+                    <input type="button" value="删除" class="btn"  onclick="delCate(<?php echo $row['ctlg_id'];?>)">
+                </td>
             </tr>
         <?php endforeach;?>
         <?php if($totalRows>$pageSize):?>
