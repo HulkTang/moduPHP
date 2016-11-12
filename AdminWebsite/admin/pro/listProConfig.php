@@ -35,7 +35,21 @@ $rows=getProConfigByPage($page,$pageSize,$proId);
         <?php  foreach($rows as $row):?>
             <tr>
                 <td><?php echo $row['gd_name'];?></td>
-                <td><?php echo $row['gd_config_type'];?></td>
+                <td><?php 
+                        switch ($row['gd_config_type']){
+                            case 1:
+                                echo PRO_CONFIG_1;
+                                break;
+                            case 2:
+                                echo PRO_CONFIG_2;
+                                break;
+                            case 3:
+                                echo PRO_CONFIG_3;
+                                break;
+                        }
+                    ?>
+
+                </td>
                 <td><?php echo $row['gd_config'];?></td>
                 <td align="center"><input type="button" value="修改" class="btn" onclick="editProConfig(<?php echo $row['id'];?>)">
                     <input type="button" value="删除" class="btn"  onclick="delProConfig(<?php echo $row['id'];?>)">

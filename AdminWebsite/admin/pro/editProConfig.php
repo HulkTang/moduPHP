@@ -30,9 +30,9 @@ $row = getProConfigById($proId);
             <td align="right">配置类型</td>
             <td>
                 <select name="gd_config_type">
-                    <option value="规格" <?php if($row['gd_config_type'] = "规格") echo "selected";?> >规格</option>
-                    <option value="其他" <?php if($row['gd_config_type'] = "其他") echo "selected";?> >其他</option>
-                    <option value="推荐配菜" <?php if($row['gd_config_type'] = "推荐配菜") echo "selected";?> >推荐</option>
+                    <option value="1" <?php if($row['gd_config_type'] = "1") echo "selected";?> ><?php echo PRO_CONFIG_1;?></option>
+                    <option value="2" <?php if($row['gd_config_type'] = "2") echo "selected";?> ><?php echo PRO_CONFIG_2;?></option>
+                    <option value="3" <?php if($row['gd_config_type'] = "3") echo "selected";?> ><?php echo PRO_CONFIG_3;?></option>
                 </select>
 
             </td>

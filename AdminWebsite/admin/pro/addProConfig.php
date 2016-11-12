@@ -29,9 +29,9 @@ $row = getProById($proId);
             <td align="right">配置类型</td>
             <td>
                 <select name="gd_config_type" >
-                    <option value="规格">规格</option>
-                    <option value="其他">其他</option>
-                    <option value="推荐配菜">推荐配菜</option>
+                    <option value="1"><?php echo PRO_CONFIG_1;?></option>
+                    <option value="2"><?php echo PRO_CONFIG_2;?></option>
+                    <option value="3"><?php echo PRO_CONFIG_3;?></option>
                 </select>
 
             </td>
