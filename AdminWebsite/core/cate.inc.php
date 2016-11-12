@@ -13,22 +13,23 @@ function addCate(){
     return $mes;
 }
 
-function getCateByPage($page,$pageSize){
+function getCateByPage($page,$pageSize)
+{
     global $link;
-    $sql="select * from gd_ctlg;";
+    $sql = "select * from gd_ctlg;";
     global $totalRows;
-    $totalRows=getResultNum($link,$sql);
+    $totalRows = getResultNum($link, $sql);
     global $totalPage;
-    $totalPage=ceil($totalRows/$pageSize);
+    $totalPage = ceil($totalRows / $pageSize);
 //    echo $totalRows;
-    if($page<1||$page==null||!is_numeric($page)){
-        $page=1;
+    if ($page < 1 || $page == null || !is_numeric($page)) {
+        $page = 1;
     }
-    if($page>=$totalPage)$page=$totalPage;
-    $offset=($page-1)*$pageSize;
-    $sql="select ctlg_id,ctlg_name,ctlg_description from gd_ctlg order by ctlg_id limit {$offset},{$pageSize};";
+    if ($page >= $totalPage) $page = $totalPage;
+    $offset = ($page - 1) * $pageSize;
+    $sql = "select ctlg_id,ctlg_name,ctlg_description from gd_ctlg order by ctlg_id limit {$offset},{$pageSize};";
 //    echo $sql;
-    $rows=fetchAll($link,$sql);
+    $rows = fetchAll($link, $sql);
 //    var_dump($rows);
     return $rows;
 }

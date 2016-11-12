@@ -92,7 +92,12 @@ checkLogined();
                         </dl>
                     </li>
 
-                    
+                    <li>
+                        <h3><div onclick="show('menu6','change6')" style="cursor:pointer"><div id="change6" style="display:inline">+</div>&nbsp;&nbsp;<div style="display:inline">其他</div></div></h3>
+                        <dl id="menu6" style="display:none;">
+                            <dd><a href="others/listRecruit.php" target="mainFrame" onclick="changeTitle('招聘信息');">招聘信息</a></dd>
+                        </dl>
+                    </li>
                 </ul>
             </div>
         </div>

@@ -11,6 +11,7 @@ require_once "core/cate.inc.php";
 require_once "core/pro.inc.php";
 require_once "core/order.inc.php";
 require_once "core/balance.inc.php";
+require_once "core/others.inc.php";
 require_once "core/HttpClient.class.php";
 require_once "core/PrinterAPI.php";
 require_once "lib/page.func.php";

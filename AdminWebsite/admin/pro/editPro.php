@@ -65,12 +65,12 @@ var_dump($proInfo);
 		<td><input type="text" name="gd_inventory"  value="<?php echo $proInfo['gd_inventory'];?>"/></td>
 	</tr>
 	<tr>
-		<td align="right">商品销量</td>
-		<td><input type="text" name="gd_sales"  value="<?php echo $proInfo['gd_sales'];?>"/></td>
-	</tr>
-	<tr>
 		<td align="right">商品价格</td>
 		<td><input type="text" name="gd_price"  value="<?php echo $proInfo['gd_price'];?>"/></td>
+	</tr>
+	<tr>
+		<td align="right">商品描述</td>
+		<td><textarea name="gd_description" style="width:100%;height:150px;"><?php echo $proInfo['gd_description']?></textarea></td>
 	</tr>
 	<tr>
 		<td align="right">商品图像</td>
