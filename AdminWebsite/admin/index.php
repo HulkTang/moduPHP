@@ -78,7 +78,7 @@ checkLogined();
                     </li>
                     <?php
                          $loginUser = getLoginUser();
-                         if($loginUser != '00000')
+                         if($loginUser != BOSS_CODE)
                             $display = 'none';
                          else
                             $display = 'block';
@@ -86,6 +86,7 @@ checkLogined();
                     <li style="display:<?php echo $display;?>">
                         <h3><div onclick="show('menu5','change5')" style="cursor:pointer"><div id="change5" style="display:inline">+</div>&nbsp;&nbsp;<div style="display:inline">管理员管理</div></div></h3>
                         <dl id="menu5" style="display:none;">
+                            <dd><a href="admin/listStaff.php" target="mainFrame">员工列表</a></dd>
                         	<dd><a href="admin/addAdmin.php" target="mainFrame">添加管理员</a></dd>
                             <dd><a href="admin/listAdmin.php" target="mainFrame">管理员列表</a></dd>
                             <dd><a href="admin/changeBossPassword.php" target="mainFrame">更改密码</a></dd>

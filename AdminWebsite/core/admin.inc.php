@@ -40,7 +40,7 @@ function logout(){
 
 function addAdmin(){
     $loginUser = getLoginUser();
-    if($loginUser != '00000'){
+    if($loginUser != BOSS_CODE){
         alertMes("请勿违规操作，谢谢！","main.php");
         return '';
     }
@@ -58,33 +58,18 @@ function addAdmin(){
     }
 
     $token = true;
-    //检测是否重复添加管理员
-//    $sql1 = "select * from stf_mst where stf_authority = 'admin'";
+//    //检测管理员是否被重复添加
+//    $sql1 = "select stf_id from stf_mst where stf_name = '{$arr['stf_name']}' and stf_code = '{$arr['stf_code']}' and stf_authority = 'admin'";
 //    $row1 = fetchOne($link,$sql1);
-//    if($row1!=0) {
-//        alertMes("已有管理员，请先删除再添加", "listAdmin.php");
+//    if($row1) {
+//        alertMes("该员工已经是管理员", "admin/addAdmin.php");
 //        $token = false;
 //    }
-
-//    //检测是否重复添加某店的管理员
-//    $sql1 = "select * from st_mst where st_name = '{$arr['st_name']}'";
-//    $row1 = fetchOne($link,$sql1);
-//    if($row1!=0) {
-//        alertMes("该店已有管理员，请先删除再添加", "listAdmin.php");
-//        $token = false;
-//    }
-    //检测管理员是否在员工列表中
-    $sql2 = "select * from stf_mst where stf_name = '{$arr['stf_name']}' and stf_code = '{$arr['stf_code']}'";
-    $row2 = fetchOne($link,$sql2);
-    if($row2==0) {
-        alertMes("管理员不在员工中，请检查姓名或工号是否正确", "admin/addAdmin.php");
-        $token = false;
-    }
-//    //检测是否为一个管理员添加了多个店
-//    $sql3 = "select * from st_mst where st_manager_code = '{$arr['st_manager_code']}'";
-//    $row3 = fetchOne($link,$sql3);
-//    if($row3!=0) {
-//        alertMes("管理员只能管理一家店铺，请选择其他管理员", "listAdmin.php");
+//    //检测管理员是否在员工列表中
+//    $sql2 = "select stf_id from stf_mst where stf_name = '{$arr['stf_name']}' and stf_code = '{$arr['stf_code']}'";
+//    $row2 = fetchOne($link,$sql2);
+//    if(!$row2) {
+//        alertMes("管理员不在员工中，请检查姓名或工号是否正确", "admin/addAdmin.php");
 //        $token = false;
 //    }
     //删除以post方式提交的stf_name
@@ -100,7 +85,7 @@ function addAdmin(){
 function getAllAdmin(){
     global $link;
     $loginUser = getLoginUser();
-    if($loginUser != '00000'){
+    if($loginUser != BOSS_CODE){
         alertMes("请勿违规操作，谢谢！","main.php");
         return '';
     }
@@ -143,7 +128,7 @@ function changeBossPassword($oldPassword,$newPassword1,$newPassword2){
 
     global $link;
     $loginUser = getLoginUser();
-    if($loginUser != '00000'){
+    if($loginUser != BOSS_CODE){
         alertMes("请勿违规操作，谢谢！","main.php");
         return '';
     }
@@ -175,4 +160,52 @@ function getAdminNameForadminNumber($adminNumber){
         return '员工编号不存在';
 }
 
+//staff
+function getStaffByPage($page,$pageSize){
+    $bossCode = BOSS_CODE;
+    global $link;
+    $sql = "select * from stf_mst where stf_code!='{$bossCode}';";
+    global $totalRows;
+    $totalRows = getResultNum($link, $sql);
+    global $totalPage;
+    $totalPage = ceil($totalRows / $pageSize);
+//    echo $totalRows;
+    if ($page < 1 || $page == null || !is_numeric($page)) {
+        $page = 1;
+    }
+    if ($page >= $totalPage) $page = $totalPage;
+    $offset = ($page - 1) * $pageSize;
+    $sql = "select stf_id,stf_name,stf_code,stf_authority from stf_mst where stf_code!='{$bossCode}' 
+            order by stf_code limit {$offset},{$pageSize};";
+//    echo $sql;
+    $rows = fetchAll($link, $sql);
+//    var_dump($rows);
+    return $rows;
+}
 
+function delStaff($id){
+    global $link;
+    $where="stf_id=".$id;
+    if(delete($link,"stf_mst",$where)){
+        $mes="删除成功!<br/><a href='admin/listStaff.php'>查看员工</a>|<a href='admin/addStaff.php'>添加员工</a>";
+    }else{
+        $mes="删除失败！<br/><a href='admin/listStaff.php'>请重新操作</a>";
+    }
+    return $mes;
+}
+
+function addStaff(){
+    global $link;
+    $arr=$_POST;
+    //删除以post方式提交的act
+    unset($arr['act']);
+    unset($arr['stf_password_again']);
+    $arr['stf_password'] = md5($arr['stf_password']);
+    $arr['stf_authority'] = 'normal';
+    if(insert($link,"stf_mst",$arr)){
+        $mes="添加成功!<br/><a href='admin/addStaff.php'>继续添加</a>|<a href='admin/listStaff.php'>查看员工</a>";
+    }else{
+        $mes="添加失败！<br/><a href='admin/addStaff.php'>重新添加</a>|<a href='admin/listStaff.php'>查看员工</a>";
+    }
+    return $mes;
+}

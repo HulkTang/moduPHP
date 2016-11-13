@@ -9,11 +9,12 @@ if(isset($_POST['autoFlag']))
     $autoFlag = $_POST['autoFlag'];
 $link = connect();
 if($verify==$verify1){
-    if(strtoupper($username) == '00000')   //只为老板写的登录逻辑
+    if(strtoupper($username) == BOSS_CODE)   //只为老板写的登录逻辑
         $sql = "select * from stf_mst where stf_code='{$username}' and stf_password='{$password}';";
     else
         $sql = "select * from stf_mst where stf_code='{$username}' and stf_password='{$password}'
                 and stf_authority='admin';";
+
     $result = checkAdmin($link,$sql);
     if($result){
         $_SESSION['adminCode'] = $result['stf_code'];

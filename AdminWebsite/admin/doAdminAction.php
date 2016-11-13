@@ -18,6 +18,10 @@ elseif($act=="addAdmin"){
     $mes = delAdmin($_REQUEST['id']);
 }elseif($act=='changeBossPassword'){
     $mes = changeBossPassword($_REQUEST['oldPassword'],$_REQUEST['newPassword1'],$_REQUEST['newPassword2']);
+}elseif($act=='delStaff'){
+    $mes = delStaff($_REQUEST['id']);
+}elseif($act=='addStaff'){
+    $mes = addStaff();
 }
 //Cate
 elseif($act=='addCate'){

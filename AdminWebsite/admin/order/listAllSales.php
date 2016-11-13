@@ -43,9 +43,8 @@ $income=getIncomeByDate($from,$to);
     <table class="table" cellspacing="0" cellpadding="0">
         <thead>
         <tr>
-            <th width="35%">商品名称</th>
-            <th width="35%">商品销量</th>
-            <th>操作</th>
+            <th width="50%">商品名称</th>
+            <th width="50%">商品销量</th>
         </tr>
         </thead>
         <tbody>
@@ -53,7 +52,6 @@ $income=getIncomeByDate($from,$to);
             <tr>
                 <td><?php echo $row['gd_name'];?></td>
                 <td><?php echo $row['gd_total_quantity'];?></td>
-                <td align="center"><input type="button" value="修改(无效)" class="btn" onclick="editCate(<?php echo $row['gd_name'];?>)"><input type="button" value="删除(无效)" class="btn"  onclick="delCate(<?php echo $row['gd_name'];?>)"></td>
             </tr>
         <?php endforeach;?>
         <?php if($totalRows>$pageSize):?>

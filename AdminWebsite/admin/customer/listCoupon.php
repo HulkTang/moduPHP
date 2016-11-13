@@ -34,7 +34,6 @@ $rows=getCouponByCardNumberByPage($page,$pageSize,$cardNumber);
             <th width="10%">失效日期</th>
             <th width="5%">剩余</th>
             <th width="30%">适用商品分类</th>
-            <th>操作</th>
         </tr>
         </thead>
         <tbody>
@@ -47,7 +46,6 @@ $rows=getCouponByCardNumberByPage($page,$pageSize,$cardNumber);
                 <td><?php echo $row['coupon_end_date'];?></td>
                 <td><?php echo $row['coupon_number'];?></td>
                 <td><?php echo $row['coupon_catalogue'];?></td>
-                <td align="center"><input type="button" value="wu" class="btn" onclick="listCouponByCardNumber()"></td>
             </tr>
         <?php endforeach;?>
         <?php if($totalRows>$pageSize):?>
