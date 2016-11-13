@@ -17,7 +17,7 @@ function getRecruitByPage($page,$pageSize){
     }
     if($page>=$totalPage)$page=$totalPage;
     $offset=($page-1)*$pageSize;
-    $sql="select id,content,release_date from recruit_master order by id limit {$offset},{$pageSize};";
+    $sql="select recruit_id,recruit_title,recruit_content,release_date from recruit_master order by recruit_id limit {$offset},{$pageSize};";
 //    echo $sql;
     $rows=fetchAll($link,$sql);
 //    var_dump($rows);
@@ -41,7 +41,7 @@ function addRecruit(){
 function delRecruit($id){
 
     global $link;
-    $where="id=".$id;
+    $where="recruit_id=".$id;
     if(delete($link,"recruit_master",$where)){
         $mes="招聘信息删除成功!<br/><a href='others/listRecruit.php'>查看招聘信息</a>|<a href='others/addRecruit.php'>添加招聘信息</a>";
     }else{
@@ -53,7 +53,7 @@ function delRecruit($id){
 
 function getRecruitById($id){
     global $link;
-    $sql = "select content from recruit_master where id = {$id};";
+    $sql = "select recruit_title,recruit_content from recruit_master where recruit_id = {$id};";
     $row = fetchOne($link, $sql);
     return $row;
 }
@@ -62,7 +62,7 @@ function editRecruit($id){
     global $link;
     $arr=$_POST;
     unset($arr['act']);
-    if(update($link,"recruit_master",$arr,"id='{$id}'")>0){
+    if(update($link,"recruit_master",$arr,"recruit_id='{$id}'")>0){
         $msg = "招聘信息修改成功!<br/><a href='others/listRecruit.php'>查看招聘信息</a>";
     }else{
         $msg = "招聘信息修改失败!<br/><a href='others/editRecruit.php?id={$id}'>请重新修改</a>";

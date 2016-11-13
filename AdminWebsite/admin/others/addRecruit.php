@@ -12,8 +12,12 @@
     <input type="hidden" name="act" value="addRecruit" >
     <table width="50%" border="1" cellpadding="5" cellspacing="0" bgcolor="#cccccc">
         <tr>
+            <td align="right">标题</td>
+            <td><input name="recruit_title" placeholder="15字以内" /></td>
+        </tr>
+        <tr>
             <td align="right">招聘信息</td>
-            <td><textarea name="content" placeholder="100字以内" style="width:90%;height:120px;"></textarea></td>
+            <td><textarea name="recruit_content" placeholder="100字以内" style="width:90%;height:120px;"></textarea></td>
         </tr>
         <tr>
             <td colspan="2" align="center"><input type="submit"  value="添加招聘信息"/></td>

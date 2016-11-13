@@ -5,7 +5,6 @@ $pageSize=6;
 $page=isset($_REQUEST['page'])?(int)$_REQUEST['page']:1;
 $rows=getRecruitByPage($page,$pageSize);
 
-
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -25,18 +24,20 @@ $rows=getRecruitByPage($page,$pageSize);
     <table class="table" cellspacing="0" cellpadding="0">
         <thead>
         <tr>
-            <th width="60%">描述</th>
-            <th width="20%">发布时间</th>
+            <th width="15%">标题</th>
+            <th width="50%">招聘信息</th>
+            <th width="15%">发布时间</th>
             <th>操作</th>
         </tr>
         </thead>
         <tbody>
         <?php  foreach($rows as $row):?>
             <tr>
-                <td><label for="c1" class="label"><?php echo $row['content'];?></label></td>
+                <td><?php echo $row['recruit_title'];?></td>
+                <td><?php echo $row['recruit_content'];?></td>
                 <td><?php echo $row['release_date'];?></td>
-                <td align="center"><input type="button" value="修改" class="btn" onclick="editRecruit(<?php echo $row['id'];?>)">
-                    <input type="button" value="删除" class="btn"  onclick="delRecruit(<?php echo $row['id'];?>)">
+                <td align="center"><input type="button" value="修改" class="btn" onclick="editRecruit(<?php echo $row['recruit_id'];?>)">
+                    <input type="button" value="删除" class="btn"  onclick="delRecruit(<?php echo $row['recruit_id'];?>)">
                 </td>
             </tr>
         <?php endforeach;?>
