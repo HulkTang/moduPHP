@@ -74,6 +74,7 @@ checkLogined();
                             <dd><a href="customer/listBalanceChange.php" target="mainFrame" onclick="changeTitle('充值/消费记录');">充值/消费记录</a></dd>
                             <dd><a href="customer/listCouponConfig.php" target="mainFrame" onclick="changeTitle('优惠券配置');">优惠券配置</a></dd>
                             <dd><a href="customer/listActivityConfig.php" target="mainFrame" onclick="changeTitle('活动配置');">活动配置</a></dd>
+                            <dd><a href="customer/listComments.php" target="mainFrame" onclick="changeTitle('留言');">留言</a></dd>
                         </dl>
                     </li>
                     <?php

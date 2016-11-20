@@ -315,7 +315,7 @@ function getActivityConfigByPage($page, $pageSize){
     }
     if($page>=$totalPage)$page=$totalPage;
     $offset=($page-1)*$pageSize;
-    $sql="select activity_id,activity_type,activity_amount1,activity_amount2,activity_start_date,activity_end_date,activity_description,activity_catalogue
+    $sql="select activity_id,activity_type,activity_amount1,activity_amount2,activity_start_date,activity_end_date,activity_description,activity_catalogue,activity_picture
           from activity_config
           order by activity_type limit {$offset},{$pageSize};";
     $rows=fetchAll($link,$sql);
@@ -333,10 +333,28 @@ function addDiscountActivity(){
     }
     unset($arr['catalogue']);
 
+    $path = IMAGE_ACTIVITY_ORIGIN_UPLOAD_PATH;
+    $uploadFiles=uploadFile($path);
+    if(is_array($uploadFiles)&&$uploadFiles){
+        foreach($uploadFiles as $key=>$uploadFile){
+            thumb($path."/".$uploadFile['name'],IMAGE_ACTIVITY_UPLOAD_PATH.$uploadFile['name'],250,200);
+            $arr['activity_picture'] = IMAGE_ACTIVITY_STORE_PATH.$uploadFile['name'];
+        }
+    }
+
+
     $res = insert($link,"activity_config",$arr);
     if ($res) {
         $mes = "<p>折扣活动添加成功!</p><a href='customer/listActivityConfig.php' target='mainFrame'>查看活动</a>";
     } else {
+        foreach($uploadFiles as $uploadFile){
+            if(file_exists(IMAGE_ACTIVITY_ORIGIN_UPLOAD_PATH.$uploadFile['name'])){
+                unlink(IMAGE_ACTIVITY_ORIGIN_UPLOAD_PATH.$uploadFile['name']);
+            }
+            if(file_exists(IMAGE_ACTIVITY_UPLOAD_PATH.$uploadFile['name'])){
+                unlink(IMAGE_ACTIVITY_UPLOAD_PATH.$uploadFile['name']);
+            }
+        }
         $mes = "<p>折扣活动添加失败!</p><a href='customer/addDiscountActivity.php' target='mainFrame'>重新添加</a>";
 
     }
@@ -354,10 +372,27 @@ function addSubActivity(){
     }
     unset($arr['catalogue']);
 
+    $path = IMAGE_ACTIVITY_ORIGIN_UPLOAD_PATH;
+    $uploadFiles=uploadFile($path);
+    if(is_array($uploadFiles)&&$uploadFiles){
+        foreach($uploadFiles as $key=>$uploadFile){
+            thumb($path."/".$uploadFile['name'],IMAGE_ACTIVITY_UPLOAD_PATH.$uploadFile['name'],250,200);
+            $arr['activity_picture'] = IMAGE_ACTIVITY_STORE_PATH.$uploadFile['name'];
+        }
+    }
+
     $res = insert($link,"activity_config",$arr);
     if ($res) {
         $mes = "<p>满减活动添加成功!</p><a href='customer/listActivityConfig.php' target='mainFrame'>查看活动</a>";
     } else {
+        foreach($uploadFiles as $uploadFile){
+            if(file_exists(IMAGE_ACTIVITY_ORIGIN_UPLOAD_PATH.$uploadFile['name'])){
+                unlink(IMAGE_ACTIVITY_ORIGIN_UPLOAD_PATH.$uploadFile['name']);
+            }
+            if(file_exists(IMAGE_ACTIVITY_UPLOAD_PATH.$uploadFile['name'])){
+                unlink(IMAGE_ACTIVITY_UPLOAD_PATH.$uploadFile['name']);
+            }
+        }
         $mes = "<p>满减活动添加失败!</p><a href='customer/addSubActivity.php' target='mainFrame'>重新添加</a>";
 
     }
@@ -374,9 +409,8 @@ function checkActivityConfigUsed($id){
 function delActivityConfig($id){
     global $link;
     $res=checkActivityConfigUsed($id);
-    var_dump($res['activity_end_date']);
-    var_dump($res['activity_end_date']>=formatToDateYmd(time()));
-    if($res['activity_end_date']>=formatToDateYmd(time())){
+    $currentDate = getCurrentDate();
+    if($res['activity_end_date']>=$currentDate){
         echo "<script>
                 if(window.confirm(\"活动尚未结束，您确定要删除该活动吗？\"))
                     window.location = \"doAdminAction.php?act=delActivityConfigForcible&id={$id}\";
@@ -393,12 +427,29 @@ function delActivityConfig($id){
 function delActivityConfigForcible($id){
     global $link;
     $where="activity_id=".$id;
+    $row = getActivityById($id);
+    $proImgPath = $row['activity_picture'];
+    $proImgName = getFileNameThroughPath($proImgPath);
+
+    if (file_exists(IMAGE_ACTIVITY_ORIGIN_UPLOAD_PATH . $proImgName)) {
+        unlink(IMAGE_ACTIVITY_ORIGIN_UPLOAD_PATH . $proImgName);
+    }
+    if (file_exists(IMAGE_ACTIVITY_UPLOAD_PATH . $proImgName)) {
+        unlink(IMAGE_ACTIVITY_UPLOAD_PATH . $proImgName);
+    }
     if(delete($link,"activity_config",$where)){
         $mes="活动配置删除成功!<br/><a href='customer/listActivityConfig.php'>查看活动配置</a>";
     }else{
         $mes="删除失败！<br/><a href='customer/listActivityConfig.php'>请重新操作</a>";
     }
     return $mes;
+}
+
+function getActivityById($id){
+    global $link;
+    $sql="select activity_picture from activity_config where activity_id = {$id}";
+    $row=fetchOne($link,$sql);
+    return $row;
 }
 
 /**
@@ -429,4 +480,35 @@ function getDurationByCouponId($coupon_id){
     $sql = "select coupon_duration from coupon_config where coupon_id = {$coupon_id}";
     $row = fetchOne($link,$sql);
     return $row['coupon_duration'];
+}
+
+/*
+ * comments
+ */
+function getCommentsByPage($page,$pageSize){
+    global $link;
+    $sql = "select * from comment_master;";
+    global $totalRows;
+    $totalRows = getResultNum($link, $sql);
+    global $totalPage;
+    $totalPage = ceil($totalRows / $pageSize);
+    if ($page < 1 || $page == null || !is_numeric($page)) {
+        $page = 1;
+    }
+    if ($page >= $totalPage) $page = $totalPage;
+    $offset = ($page - 1) * $pageSize;
+    $sql = "select comment_id,comment_openid,comment_content,comment_date from comment_master order by comment_date limit {$offset},{$pageSize};";
+    $rows = fetchAll($link, $sql);
+    return $rows;
+}
+
+function delComment($id){
+    global $link;
+    $where="comment_id=".$id;
+    if(delete($link,"comment_master",$where)){
+        $mes="留言删除成功!<br/><a href='customer/listComments.php'>查看留言</a>";
+    }else{
+        $mes="删除失败！<br/><a href='customer/listComments.php'>请重新操作</a>";
+    }
+    return $mes;
 }

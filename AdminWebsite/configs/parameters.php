@@ -8,4 +8,7 @@ define('PRO_CONFIG_3','配菜');
 define('BOSS_CODE','00000');
 define('NORMAL_PSD','123456');
 //配置上传图片的路径
-//define('IMAGE_UPLOAD_PATH','../uploadImages/');
+define('IMAGE_ACTIVITY_ORIGIN_UPLOAD_PATH','/data/wwwroot/default/weixin/public/tempImages/');
+define('IMAGE_ACTIVITY_UPLOAD_PATH','/data/wwwroot/default/weixin/public/images/');
+//define('IMAGE_ACTIVITY_STORE_PATH','../uploadModifiedImages/');
+define('IMAGE_ACTIVITY_STORE_PATH','http://wechat.qiancs.cn/weixin/public/images/');

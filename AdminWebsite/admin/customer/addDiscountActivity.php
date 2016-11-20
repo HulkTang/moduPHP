@@ -12,10 +12,13 @@ if(!$rows){
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <link rel="stylesheet" href="../styles/common.css">
     <title>Insert title here</title>
+    <link href="../styles/global.css" rel="stylesheet" type="text/css" media="all" />
+    <script type="text/javascript" src="../scripts/jquery-1.6.4.js"></script>
+    <script type="text/javascript" src="../scripts/addFile.js"></script>
 </head>
 <body>
 <h3>添加折扣活动</h3>
-<form action="../doAdminAction.php" method="post">
+<form action="../doAdminAction.php" method="post" enctype="multipart/form-data">
     <!--        表单无法同时以post get传递参数，采用该方法传递。-->
     <input type="hidden" name="act" value="addDiscountActivity" >
     <table width="70%" border="1" cellpadding="5" cellspacing="0" bgcolor="#cccccc">
@@ -55,10 +58,19 @@ if(!$rows){
             </td>
         </tr>
         <tr>
+            <td align="right">活动图片</td>
+            <td>
+                <a href="javascript:void(0)" id="selectFileBtn">添加附件</a>
+                <div id="attachList" class="clear"></div>
+            </td>
+        </tr>
+        <tr>
             <td colspan="2" align="center"><input type="submit"  value="添加折扣活动"/></td>
         </tr>
 
     </table>
 </form>
+Tips:<br/>
+附件只能添加一张图片
 </body>
 </html>

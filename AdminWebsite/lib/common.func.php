@@ -48,7 +48,11 @@ function checkDateFormat($date) {
     } else {
         return false;
     }
-    
-    
 
 } 
+
+function getCurrentDate(){
+    $currentTime = date("Y-m-d H:i:s");
+    $currentDate = formatToDateYmd($currentTime);
+    return $currentDate;
+}

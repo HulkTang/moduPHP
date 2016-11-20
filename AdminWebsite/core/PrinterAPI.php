@@ -37,8 +37,7 @@ function updateOrderIsPrint($id){
 
 function printNewTodayOrder(){
 	global $link;
-	$currentTime = date("Y-m-d H:i:s");
-	$currentDate = formatToDateYmd($currentTime);
+	$currentDate = getCurrentDate();
 	$sql="select od_id from od_hdr where date(od_date) = '{$currentDate}' and od_isprint = 'N';";
 	$rows=fetchAll($link,$sql);
 

@@ -13,8 +13,13 @@ $rows=getActivityConfigByPage($page,$pageSize);
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Insert title here</title>
     <link rel="stylesheet" href="../styles/backstage.css">
+    <link rel="stylesheet" href="../scripts/jquery-ui/css/ui-lightness/jquery-ui-1.10.4.custom.css" />
+    <script src="../scripts/jquery-ui/js/jquery-1.10.2.js"></script>
+    <script src="../scripts/jquery-ui/js/jquery-ui-1.10.4.custom.js"></script>
+    <script src="../scripts/jquery-ui/js/jquery-ui-1.10.4.custom.min.js"></script>
 </head>
 <body>
+
 <div class="details">
 
     <div class="details_operation clearfix">
@@ -32,12 +37,12 @@ $rows=getActivityConfigByPage($page,$pageSize);
     <table class="table" cellspacing="0" cellpadding="0">
         <thead>
         <tr>
-            <th width="7%">类型</th>
-            <th width="7%">字段1</th>
-            <th width="7%">字段2</th>
+            <th width="6%">类型</th>
+            <th width="6%">字段1</th>
+            <th width="6%">字段2</th>
             <th width="7%">开始日期</th>
             <th width="7%">结束日期</th>
-            <th width="20%">描述</th>
+            <th width="18%">描述</th>
             <th width="25%">对应商品种类</th>
             <th>操作</th>
         </tr>
@@ -53,7 +58,16 @@ $rows=getActivityConfigByPage($page,$pageSize);
                 <td><?php echo $row['activity_description'];?></td>
                 <td><?php echo $row['activity_catalogue'];?></td>
                 <td align="center">
+                    <input type="button" value="图片" class="btn" onclick="showDetail(<?php echo $row['activity_id'];?>)">
                     <input type="button" value="删除" class="btn" onclick="delActivityConfig(<?php echo $row['activity_id'];?>)">
+                    <div id="showDetail<?php echo $row['activity_id'];?>" style="display:none;">
+                        <table class="table" cellspacing="0" cellpadding="0">
+                            <tr>
+                                <td width="20%"  align="right">活动图片</td>
+                                <td><img width="300" height="300" src="<?php echo $row['activity_picture'];?>" alt="无法显示"/> </td>
+                            </tr>
+                        </table>
+                    </div>
                 </td>
             </tr>
         <?php endforeach;?>
@@ -66,6 +80,20 @@ $rows=getActivityConfigByPage($page,$pageSize);
     </table>
 </div>
 <script type="text/javascript">
+
+    function showDetail(id){
+        $("#showDetail"+id).dialog({
+            height:"auto",
+            width: "auto",
+            position: {my: "center", at: "center",  collision:"fit"},
+            modal:false,
+            draggable:true,
+            resizable:true,
+            title:"活动图片",
+            show:"slide",
+            hide:"explode"
+        });
+    }
 
     function addSubActivity(){
         window.location='addSubActivity.php';

@@ -60,5 +60,5 @@ function checkDateFormat(date)
     else
         return true;
 
-
 }
+

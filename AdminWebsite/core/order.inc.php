@@ -10,8 +10,7 @@ function getTodayOrder(){
 
 
 function getTodayOrderByPage($page,$pageSize){
-    $currentTime = date("Y-m-d H:i:s");
-    $currentDate = formatToDateYmd($currentTime);
+    $currentDate = getCurrentDate();
 
     global $link;
     $sql="select * from od_hdr where date(od_date) = '{$currentDate}';";
@@ -31,8 +30,7 @@ function getTodayOrderByPage($page,$pageSize){
 }
 
 function getOtherDaysOrderNum(){
-    $currentTime = date("Y-m-d H:i:s");
-    $currentDate = formatToDateYmd($currentTime);
+    $currentDate = getCurrentDate();
     global $link;
     $sql="select * from od_hdr where date(od_date) != '{$currentDate}';";
     return getResultNum($link,$sql);

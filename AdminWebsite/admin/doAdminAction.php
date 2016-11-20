@@ -72,6 +72,8 @@ elseif($act=='addBenefit'){
     $mes = delActivityConfig($_REQUEST['id']);
 }elseif($act=='delActivityConfigForcible'){
     $mes = delActivityConfigForcible($_REQUEST['id']);
+}elseif($act=='delComment'){
+    $mes = delComment($_REQUEST['id']);
 }
 //others
 elseif($act=='addRecruit'){

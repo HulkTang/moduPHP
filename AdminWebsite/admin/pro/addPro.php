@@ -10,36 +10,14 @@ if(!$rows){
 <html>
 <head>
 <meta charset="utf-8">
-<title>-.-</title>
-<link href="../styles/global.css" rel="stylesheet" type="text/css" media="all" />
-<script type="text/javascript" src="../scripts/jquery-1.6.4.js"></script>
-<script>
- 
-        $(document).ready(function(){
-        	$("#selectFileBtn").click(function(){
-        		$fileField = $('<input type="file" name="thumbs[]"/>');
-        		$fileField.hide();
-        		$("#attachList").append($fileField);
-        		$fileField.trigger("click");
-        		$fileField.change(function(){
-        		$path = $(this).val();
-        		$filename = $path.substring($path.lastIndexOf("\\")+1);
-        		$attachItem = $('<div class="attachItem"><div class="left"></div></div>');
-        		$attachItem.find(".left").html($filename);
-        		$("#attachList").append($attachItem);
-        		});
-        	});
-        	$("#attachList>.attachItem").find('a').live('click',function(obj,i){
-        		$(this).parents('.attachItem').prev('input').remove();
-        		$(this).parents('.attachItem').remove();
-        	});
-        });
-</script>
+	<title>-.-</title>
+	<link href="../styles/global.css" rel="stylesheet" type="text/css" media="all" />
+	<script type="text/javascript" src="../scripts/jquery-1.6.4.js"></script>
+	<script type="text/javascript" src="../scripts/addFile.js"></script>
 </head>
 <body>
 <h3>添加商品</h3>
 <form action="../doAdminAction.php" method="post" enctype="multipart/form-data">
-	<!--        表单无法同时以post get传递参数，采用该方法传递。-->
 	<input type="hidden" name="act" value="addPro" >
 <table width="70%"  border="1" cellpadding="5" cellspacing="0" bgcolor="#cccccc">
 	<tr>
