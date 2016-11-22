@@ -1,6 +1,7 @@
 <?php
 $link = connect();
 
+//today
 function getTodayOrder(){
     global $link;
     $sql="select od_id,od_desk_id,od_date,od_string,od_total_price,od_state from od_hdr;";
@@ -23,12 +24,25 @@ function getTodayOrderByPage($page,$pageSize){
     }
     if($page>=$totalPage)$page=$totalPage;
     $offset=($page-1)*$pageSize;
-    $sql="select od_id,od_desk_id,od_date,od_string,od_total_price,od_state,od_isprint from od_hdr where date(od_date) = '{$currentDate}' order by od_date desc limit {$offset},{$pageSize};";
+    $sql="select od_id,od_desk_id,od_date,od_string,od_fixed_total_price,od_total_price,od_state,od_isprint,od_coupon_description from od_hdr where date(od_date) = '{$currentDate}' order by od_date desc limit {$offset},{$pageSize};";
     $rows=fetchAll($link,$sql);
 
     return $rows;
 }
 
+function changeStates($id, $state, $page){
+    if($state==0||$state==2)
+        return;
+    if($state==1){
+        global $link;
+        $arr['od_state'] = 2;
+        update($link,"od_hdr",$arr,"od_id={$id}");
+        echo "<script>window.location = 'order/listTodayOrder.php?page='+$page;</script>";
+    }
+
+}
+
+//other day
 function getOtherDaysOrderNum(){
     $currentDate = getCurrentDate();
     global $link;
@@ -49,7 +63,7 @@ function getAllOrderByPage($page,$pageSize,$from,$to){
     }
     if($page>=$totalPage)$page=$totalPage;
     $offset=($page-1)*$pageSize;
-    $sql="select od_id,od_desk_id,od_date,od_string,od_total_price,od_state,od_isprint from od_hdr where date(od_hdr.od_date)>='{$from}' and date(od_hdr.od_date)<='{$to}' order by od_date desc limit {$offset},{$pageSize};";
+    $sql="select od_id,od_desk_id,od_date,od_string,od_fixed_total_price,od_total_price,od_state,od_isprint,od_coupon_description from od_hdr where date(od_hdr.od_date)>='{$from}' and date(od_hdr.od_date)<='{$to}' order by od_date desc limit {$offset},{$pageSize};";
     $rows=fetchAll($link,$sql);
 
     return $rows;
@@ -65,6 +79,7 @@ function showFormatedProList($proOfOrder){
     return $formatedArr;
 }
 
+//analyze sales
 function getSalesByPage($page,$pageSize,$from='2016-08-01',$to='2010-10-01'){
     global $link;
     $sql="select distinct(od_ln.gd_name) from od_hdr,od_ln where date(od_hdr.od_date)>='{$from}' and date(od_hdr.od_date)<='{$to}' and od_hdr.od_id = od_ln.od_id;";
@@ -104,3 +119,11 @@ function getIncomeByDate($from='2016-08-01',$to='2016-10-01'){
 //
 //
 //}
+
+function getProByOrderId($id){
+    global $link;
+    $sql="select gd_name,gd_quantity,gd_detail from od_ln where od_id = {$id};";
+    $rows=fetchAll($link,$sql);
+    return $rows;
+}
+

@@ -50,6 +50,8 @@ elseif($act=='addPro'){
 //Order
 elseif($act=='printOrder'){
     printOrder($_REQUEST['id']);
+}elseif($act=='changeStates'){
+    changeStates($_REQUEST['id'],$_REQUEST['state'],$_REQUEST['page']);
 }
 //Customer
 elseif($act=='addBenefit'){

@@ -23,7 +23,7 @@ function callback(){
         if(xmlHttp.status == 200){
             document.getElementById("details").innerHTML = xmlHttp.responseText;
             //60s刷新一次
-            setTimeout("start()",60000);
+            setTimeout("start()",20000);
             document.getElementById("mask").innerHTML = "";
         }
     }

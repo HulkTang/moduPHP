@@ -7,6 +7,10 @@
     <title>Insert title here</title>
     <link rel="stylesheet" href="../styles/backstage.css">
     <script type="text/javascript" src="../scripts/showTodayOrder.js"></script>
+    <link rel="stylesheet" href="../scripts/jquery-ui/css/ui-lightness/jquery-ui-1.10.4.custom.css" />
+    <script src="../scripts/jquery-ui/js/jquery-1.10.2.js"></script>
+    <script src="../scripts/jquery-ui/js/jquery-ui-1.10.4.custom.js"></script>
+    <script src="../scripts/jquery-ui/js/jquery-ui-1.10.4.custom.min.js"></script>
 </head>
 <body>
 <div id="mask">
@@ -16,6 +20,21 @@
 
 </div>
 <script type="text/javascript">
+    
+    function showDetail(id){
+        $("#showDetail"+id).dialog({
+            height:"auto",
+            width: "auto",
+            position: {my: "center", at: "center",  collision:"fit"},
+            modal:false,
+            draggable:true,
+            resizable:true,
+            title:"订单详情",
+            show:"slide",
+            hide:"explode"
+        });
+    }
+
     window.onload = function(){
         start();
     }
@@ -24,8 +43,10 @@
             window.location="../doAdminAction.php?act=printOrder&id="+id;
         }
     }
-    function test(text){
-        alert(text);
+    
+    function changeStates(id,state,page){
+        window.location="../doAdminAction.php?act=changeStates&id="+id+"&state="+state+"&page="+page;
+
     }
    
 </script>
