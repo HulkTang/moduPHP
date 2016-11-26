@@ -61,6 +61,8 @@ a:hover{text-decoration: underline;}
 .check{margin-right: 4px;}
 .btn{padding: 4px 16px; background-color: #E8E8E8; margin: 0 10px;font-family: "微软雅黑"; font-size: 14px; }
 .btn:hover{background-color: #ccc;}
+/*Tips隐藏*/
+.display_tips{display:block;}
 
 
 

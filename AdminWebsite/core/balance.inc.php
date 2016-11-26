@@ -324,6 +324,14 @@ function getActivityConfigByPage($page, $pageSize){
 
 function addDiscountActivity(){
     global $link;
+    //delete old one
+    $sql = "select activity_id from activity_config;";
+    $row = fetchOne($link, $sql);
+    if($row){
+        delActivityConfigForcible($row['activity_id']);
+    }
+
+    //add new
     $arr = $_POST;
 
     unset($arr['act']);
@@ -363,6 +371,15 @@ function addDiscountActivity(){
 
 function addSubActivity(){
     global $link;
+
+    //delete old one
+    $sql = "select activity_id from activity_config;";
+    $row = fetchOne($link, $sql);
+    if($row){
+        delActivityConfigForcible($row['activity_id']);
+    }
+
+    //add new
     $arr = $_POST;
 
     unset($arr['act']);
@@ -443,6 +460,22 @@ function delActivityConfigForcible($id){
         $mes="删除失败！<br/><a href='customer/listActivityConfig.php'>请重新操作</a>";
     }
     return $mes;
+}
+
+function delActivityConfigForcibleWithoutOutput($id){
+    global $link;
+    $where="activity_id=".$id;
+    $row = getActivityById($id);
+    $proImgPath = $row['activity_picture'];
+    $proImgName = getFileNameThroughPath($proImgPath);
+
+    if (file_exists(IMAGE_ACTIVITY_ORIGIN_UPLOAD_PATH . $proImgName)) {
+        unlink(IMAGE_ACTIVITY_ORIGIN_UPLOAD_PATH . $proImgName);
+    }
+    if (file_exists(IMAGE_ACTIVITY_UPLOAD_PATH . $proImgName)) {
+        unlink(IMAGE_ACTIVITY_UPLOAD_PATH . $proImgName);
+    }
+    delete($link,"activity_config",$where);
 }
 
 function getActivityById($id){

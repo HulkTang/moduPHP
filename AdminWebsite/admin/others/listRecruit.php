@@ -49,6 +49,14 @@ $rows=getRecruitByPage($page,$pageSize);
         </tbody>
     </table>
 </div>
+<?php
+    global $DISPLAY_TIPS;
+    if($DISPLAY_TIPS):?>
+<div style="margin-left:20px;bottom:100px;">
+    Tips:</br>
+    最多包含一条招聘信息。当添加新信息时，旧信息将自动删除。
+</div>
+<?php endif?>
 <script type="text/javascript">
     function editRecruit(id){
         window.location="editRecruit.php?id="+id;

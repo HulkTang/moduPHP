@@ -84,6 +84,8 @@ elseif($act=='addRecruit'){
     $mes = delRecruit($_REQUEST['id']);
 }elseif($act=='editRecruit'){
     $mes = editRecruit($_REQUEST['id']);
+}elseif($act=='systemConfig'){
+    $mes = changeShowDisplayTips($_REQUEST['token']);
 }
 
 ?>

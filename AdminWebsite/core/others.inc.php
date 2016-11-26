@@ -26,6 +26,17 @@ function getRecruitByPage($page,$pageSize){
 
 function addRecruit(){
     global $link;
+
+    //delete old one
+    $sql = "select recruit_id from recruit_master;";
+    $row = fetchOne($link, $sql);
+    if($row){
+        $where="recruit_id=".$row['recruit_id'];
+        delete($link,"recruit_master",$where);
+    }
+    
+
+    //add new 
     $arr=$_POST;
     unset($arr['act']);
     $currentTime = date("Y-m-d H:i:s");
@@ -69,3 +80,19 @@ function editRecruit($id){
     }
     return $msg;
 }
+
+/*
+ * system config
+ */
+//function changeShowDisplayTips($token){
+//    var_dump($GLOBALS['show_display_tips']);
+//    if($token==1) {
+//        $GLOBALS['show_display_tips'] = true;
+//        return;
+//    }
+//    if($token==0) {
+//        $GLOBALS['show_display_tips'] = false;
+//        var_dump($GLOBALS['show_display_tips']);
+//        return;
+//    }
+//}
