@@ -1,8 +1,8 @@
 <?php
 require_once '../../include.php';
 
-$from=isset($_REQUEST['from'])?$_REQUEST['from']:'2016-08-01';
-$to=isset($_REQUEST['to'])?$_REQUEST['to']:'2016-10-01';
+$from=isset($_REQUEST['from'])?$_REQUEST['from']:'2016-11-01';
+$to=isset($_REQUEST['to'])?$_REQUEST['to']:getCurrentDate();
 $pageSize=5;
 $page=isset($_REQUEST['page'])?(int)$_REQUEST['page']:1;
 $rows=getAllOrderByPage($page,$pageSize,$from,$to);
@@ -28,13 +28,13 @@ $rows=getAllOrderByPage($page,$pageSize,$from,$to);
             <div class="text">
                 <span>开始日期：</span>
                 <div class="bui_select">
-                    <input type="text" value="<?php echo isset($_REQUEST['from'])?$_REQUEST['from']:'';?>" class="search" id="fromDate" placeholder="2016-08-01" onkeypress="search()"/>
+                    <input type="text" value="<?php echo isset($_REQUEST['from'])?$_REQUEST['from']:'2016-11-01';?>" class="search" id="fromDate" placeholder="yyyy-MM-dd" onkeypress="search()"/>
                 </div>
             </div>
             <div class="text">
                 <span>结束日期：</span>
                 <div class="bui_select">
-                    <input type="text" value="<?php echo isset($_REQUEST['to'])?$_REQUEST['to']:'';?>" class="search" id="toDate" placeholder="2016-10-01" onkeypress="search()"/>
+                    <input type="text" value="<?php echo isset($_REQUEST['to'])?$_REQUEST['to']:getCurrentDate();?>" class="search" id="toDate" placeholder="yyyy-MM-dd" onkeypress="search()"/>
                 </div>
             </div>
             <div class="text">
@@ -143,9 +143,9 @@ $rows=getAllOrderByPage($page,$pageSize,$from,$to);
         var from=document.getElementById("fromDate").value;
         var to=document.getElementById("toDate").value;
         if(from=='')
-            from = '2016-08-01';
+            from = '2016-11-01';
         if(to=='')
-            to = '2016-10-01';
+              to = getNowFormatDate();
         if(checkDateFormat(from)&&checkDateFormat(to)){
             if(from>to) {
                 alert("开始时间不能晚于结束时间");

@@ -530,7 +530,7 @@ function getCommentsByPage($page,$pageSize){
     }
     if ($page >= $totalPage) $page = $totalPage;
     $offset = ($page - 1) * $pageSize;
-    $sql = "select comment_id,comment_openid,comment_content,comment_date from comment_master order by comment_date limit {$offset},{$pageSize};";
+    $sql = "select comment_id,comment_openid,comment_content,comment_date,comment_name,comment_phone from comment_master order by comment_date limit {$offset},{$pageSize};";
     $rows = fetchAll($link, $sql);
     return $rows;
 }

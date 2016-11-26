@@ -12,17 +12,17 @@ $link = connect();
 //根据主订单id打印
 function printOrder($id){
 	global $link;
-	$sql1="select od_id,od_desk_id,od_date,od_string,od_total_price,od_state from od_hdr where od_id = {$id};";
+	$sql1="select od_id,od_desk_id,od_date,od_string,od_fixed_total_price,od_total_price,od_state,od_coupon_id,od_coupon_description from od_hdr where od_id = {$id};";
 	$row=fetchOne($link,$sql1);
 
-	$sql2="select n.gd_name,n.gd_quantity,n.od_price from od_hdr as m, od_ln as n where m.od_id = {$id} and m.od_id = n.od_id;";
+	$sql2="select n.gd_name,n.gd_quantity,n.od_price,n.gd_detail from od_hdr as m, od_ln as n where m.od_id = {$id} and m.od_id = n.od_id;";
 	$rows=fetchAll($link,$sql2);
 	//在这里加打印的相关函数
 	wp_print(PRINTER_SN,KEY,1,$row,$rows);
 
 	//打印成功如何判断？
 	//判断打印成功后，修改打印状态为'Y'
-	//现在把每一次查出的未打印订单，状态先全部修改为'Y'，再加入打印队列。能否成功需要测试。
+	//一种思路是把每一次查出的未打印订单，状态先全部修改为'Y'，再加入打印队列。能否成功需要测试。
 	
 }
 
@@ -59,8 +59,11 @@ function wp_print($printer_sn,$key,$times,$row,$rows){
 		$od_desk_id = $row['od_desk_id'];//桌号
 		$od_date = $row['od_date'];//下单时间
 		$od_string = $row['od_string'];//菜品和数量，格式类似于“苦瓜*1;蛋糕*1;肥牛*1;”
+		$od_fixed_total_price = $row['od_fixed_total_price'];//订单原价（参与活动或者使用优惠券前的价格）
 		$od_total_price = $row['od_total_price'];//订单总价
-		echo '</br>'."打印数据:".$od_id.'/'.$od_desk_id.'/'.$od_date.'/'.$od_string.'/'.$od_total_price.'</br>';
+	    $od_coupon_description = $row['od_coupon_description'];//优惠券描述
+
+		echo '</br>'."打印数据:".$od_id.'/'.$od_desk_id.'/'.$od_date.'/'.$od_string.'/'.$od_fixed_total_price.'/'.$od_total_price.'/'.$od_coupon_description.'</br>';
 
 		var_dump($rows);
 
@@ -68,7 +71,8 @@ function wp_print($printer_sn,$key,$times,$row,$rows){
 			$gd_name = $rows[$i]['gd_name'];			//商品名
 			$gd_quantity = $rows[$i]['gd_quantity'];	//商品数量
 			$gd_price = $rows[$i]['od_price'];			//商品价格
-			echo "打印每一条具体的菜品信息：".$gd_name.' \ '.$gd_quantity.' \ '.$gd_price.'<br>';
+			$gd_detail = $rows[$i]['gd_detail'];			//商品配置信息
+			echo "打印每一条具体的菜品信息：".$gd_name.' \ '.$gd_quantity.' \ '.$gd_price.' \ '.$gd_detail.'<br>';
 		}
 
 

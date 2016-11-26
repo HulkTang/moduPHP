@@ -31,8 +31,10 @@ function getTodayOrderByPage($page,$pageSize){
 }
 
 function changeStates($id, $state, $page){
-    if($state==0||$state==2)
-        return;
+    if($state==0)
+        alertMes("订单未付款！",'order/listTodayOrder.php?page='.$page);
+    if($state==2)
+        alertMes("订单已出！",'order/listTodayOrder.php?page='.$page);
     if($state==1){
         global $link;
         $arr['od_state'] = 2;
@@ -80,7 +82,7 @@ function showFormatedProList($proOfOrder){
 }
 
 //analyze sales
-function getSalesByPage($page,$pageSize,$from='2016-08-01',$to='2010-10-01'){
+function getSalesByPage($page,$pageSize,$from,$to){
     global $link;
     $sql="select distinct(od_ln.gd_name) from od_hdr,od_ln where date(od_hdr.od_date)>='{$from}' and date(od_hdr.od_date)<='{$to}' and od_hdr.od_id = od_ln.od_id;";
     global $totalRows;
@@ -98,7 +100,7 @@ function getSalesByPage($page,$pageSize,$from='2016-08-01',$to='2010-10-01'){
     return $rows;
 }
 
-function getIncomeByDate($from='2016-08-01',$to='2016-10-01'){
+function getIncomeByDate($from,$to){
     global $link;
     $sql="select sum(od_total_price) as od_total_income from od_hdr where date(od_hdr.od_date)>='{$from}' and date(od_hdr.od_date)<='{$to}';";
     $row=fetchOne($link,$sql);

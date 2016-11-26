@@ -19,7 +19,8 @@ $rows=getCommentsByPage($page,$pageSize);
     <table class="table" cellspacing="0" cellpadding="0">
         <thead>
         <tr>
-            <th width="30%">Open ID</th>
+            <th width="10%">姓名</th>
+            <th width="20%">手机</th>
             <th width="50%">留言内容</th>
             <th width="10%">发布时间</th>
             <th>操作</th>
@@ -28,7 +29,8 @@ $rows=getCommentsByPage($page,$pageSize);
         <tbody>
         <?php  foreach($rows as $row):?>
             <tr>
-                <td><?php echo $row['comment_openid'];?></td>
+                <td><?php echo $row['comment_name'];?></td>
+                <td><?php echo $row['comment_phone'];?></td>
                 <td><?php echo $row['comment_content'];?></td>
                 <td><?php echo $row['comment_date'];?></td>
                 <td align="center">
