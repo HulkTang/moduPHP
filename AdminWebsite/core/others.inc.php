@@ -96,3 +96,68 @@ function editRecruit($id){
 //        return;
 //    }
 //}
+/*
+ * wechat index picture
+ */
+function addWeChatIndexPicture(){
+    global $link;
+    $arr = $_POST;
+
+    unset($arr['act']);
+    $arr['release_date'] = date("Y-m-d H:i:s");
+
+    $path = IMAGE_WECHAT_INDEX_ORIGIN_UPLOAD_PATH;
+    $uploadFiles=uploadFile($path);
+    if(is_array($uploadFiles)&&$uploadFiles){
+        foreach($uploadFiles as $key=>$uploadFile){
+            thumb($path."/".$uploadFile['name'],IMAGE_WECHAT_INDEX_UPLOAD_PATH.$uploadFile['name'],250,200);
+            $arr['picture_path'] = IMAGE_WECHAT_INDEX_STORE_PATH.$uploadFile['name'];
+        }
+    }
+
+    $res = insert($link,"wechat_index_picture",$arr);
+    if ($res) {
+        $mes = "<p>图片添加成功!</p><a href='others/listWeChatIndexPicture.php' target='mainFrame'>查看图片</a>";
+    } else {
+        foreach($uploadFiles as $uploadFile){
+            if(file_exists(IMAGE_WECHAT_INDEX_ORIGIN_UPLOAD_PATH.$uploadFile['name'])){
+                unlink(IMAGE_WECHAT_INDEX_ORIGIN_UPLOAD_PATH.$uploadFile['name']);
+            }
+            if(file_exists(IMAGE_WECHAT_INDEX_UPLOAD_PATH.$uploadFile['name'])){
+                unlink(IMAGE_WECHAT_INDEX_UPLOAD_PATH.$uploadFile['name']);
+            }
+        }
+        $mes = "<p>图片添加失败!</p><a href='others/addWeChatIndexPicture.php' target='mainFrame'>重新添加</a>";
+
+    }
+    return $mes;
+}
+
+function getWeChatIndexPictureByPage($page,$pageSize){
+    global $link;
+    $sql = "select * from wechat_index_picture;";
+    global $totalRows;
+    $totalRows = getResultNum($link, $sql);
+    global $totalPage;
+    $totalPage = ceil($totalRows / $pageSize);
+    if ($page < 1 || $page == null || !is_numeric($page)) {
+        $page = 1;
+    }
+    if ($page >= $totalPage) $page = $totalPage;
+    $offset = ($page - 1) * $pageSize;
+    $sql = "select picture_id,release_date,picture_path from wechat_index_picture
+            order by picture_id limit {$offset},{$pageSize};";
+    $rows = fetchAll($link, $sql);
+    return $rows;
+}
+
+function delWeChatIndexPicture($id){
+    global $link;
+    $where="picture_id=".$id;
+    if(delete($link,"wechat_index_picture",$where)){
+        $mes="图片删除成功!<br/><a href='others/listWeChatIndexPicture.php'>查看图片</a>|<a href='others/addWeChatIndexPicture.php.php'>添加图片</a>";
+    }else{
+        $mes="删除失败！<br/><a href='others/listWeChatIndexPicture.php'>请重新操作</a>";
+    }
+    return $mes;
+}

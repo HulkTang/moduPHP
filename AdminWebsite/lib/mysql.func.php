@@ -54,7 +54,7 @@ function delete($link,$table,$where=null){
 }
 
 function fetchOne($link,$sql,$result_type=MYSQLI_ASSOC){
-    echo $sql;
+  
     $result = mysqli_query($link,$sql);
     //如果查询出错，直接返回0，防止向用户展示错误信息而暴露数据库细节
     if($result == null){

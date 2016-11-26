@@ -22,6 +22,11 @@ $rows=getBalanceByPage($page,$pageSize,$cardNumber,$isEmpty);
 
         <div class="bui_select">
             <input type="button" value="发放优惠券" class="add"  onclick="sendCouponToCardNumber()">
+
+        </div>
+
+        <div class="bui_select" style="margin-left:20px;">
+            <input type="button" value="群体发放" class="add"  onclick="sendCouponToCardType()">
         </div>
 
         <div class="fr">
@@ -81,6 +86,10 @@ $rows=getBalanceByPage($page,$pageSize,$cardNumber,$isEmpty);
 
     function sendCouponToCardNumber(){
         window.location='sendCouponToCardNumber.php';
+    }
+    
+    function sendCouponToCardType(){
+        window.location='sendCouponToCardType.php';
     }
 
     function searchbtn(){

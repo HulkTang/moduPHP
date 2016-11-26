@@ -46,7 +46,18 @@ $rows=getCouponConfigByPage($page,$pageSize);
         <tbody>
         <?php  foreach($rows as $row):?>
             <tr>
-                <td><?php echo $row['coupon_type'];?></td>
+                <td>
+                    <?php
+                    switch($row['coupon_type']){
+                        case 1:
+                            echo COUPON_SUB;
+                            break;
+                        case 2:
+                            echo COUPON_DISCOUNT;
+                            break;
+                    }
+                    ?>
+                </td>
                 <td><?php echo $row['coupon_amount1'];?></td>
                 <td><?php echo $row['coupon_amount2'];?></td>
                 <td><?php echo $row['coupon_duration'];?>日</td>

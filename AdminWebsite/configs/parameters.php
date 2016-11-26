@@ -10,6 +10,13 @@ define('IMAGE_ACTIVITY_STORE_PATH','http://wechat.qiancs.cn/weixin/public/images
 //define('IMAGE_ACTIVITY_ORIGIN_UPLOAD_PATH','../uploadImages/');
 //define('IMAGE_ACTIVITY_UPLOAD_PATH','../uploadModifiedImages/');
 //define('IMAGE_ACTIVITY_STORE_PATH','../uploadModifiedImages/');
+//配置微信首页图片的路径
+define('IMAGE_WECHAT_INDEX_ORIGIN_UPLOAD_PATH','/data/wwwroot/default/weixin/public/tempImages/');
+define('IMAGE_WECHAT_INDEX_UPLOAD_PATH','/data/wwwroot/default/weixin/public/images/');
+define('IMAGE_WECHAT_INDEX_STORE_PATH','http://wechat.qiancs.cn/weixin/public/images/');
+//define('IMAGE_WECHAT_INDEX_ORIGIN_UPLOAD_PATH','../uploadImages/');
+//define('IMAGE_WECHAT_INDEX_UPLOAD_PATH','../uploadModifiedImages/');
+//define('IMAGE_WECHAT_INDEX_STORE_PATH','../../uploadModifiedImages/');
 //商品详情配置
 define('PRO_CONFIG_1','选项');
 define('PRO_CONFIG_2','其他');
@@ -18,6 +25,9 @@ define('PRO_CONFIG_3','配菜');
 define('ORDER_STATE_0','未支付');
 define('ORDER_STATE_1','未出');
 define('ORDER_STATE_2','已出');
+//优惠券类型配置
+define('COUPON_DISCOUNT','折扣');
+define('COUPON_SUB','满减');
 //超级管理员账号
 define('BOSS_CODE','00000');
 //员工默认密码

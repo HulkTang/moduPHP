@@ -96,64 +96,64 @@ function getAllBenefitsType(){
     return $rows;
 }
 
-function editBenefit(){
-    global $link;
-    $arr = $_POST;
-    var_dump($arr);
-    unset($arr['act']);
-
-    $row = getBenefitById($arr['id']);
-    unset($arr['id']);
-
-    $arr['blc_benefit_balance'] = $arr['blc_benefit_balance'] + $row['blc_benefit_balance'];
-    $where = " blc_card_number='{$arr['blc_card_number']}' and blc_benefit_type='{$arr['blc_benefit_type']}' ";
-    $res = update($link, "blc_benefit_config", $arr, $where);
-
-    if ($res) {
-        $mes = "<p>发放成功!</p><a href='customer/listBalance.php' target='mainFrame'>查看会员卡</a>";
-    } else {
-        $mes = "<p>发放失败!</p><a href='customer/listBalance.php' target='mainFrame'>重新发放</a>";
-
-    }
-    return $mes;
-}
-
-function addBenefit()
-{
-
-    global $link;
-    $arr = $_POST;
-    if(strstr($arr['coupon_card_number'],'卡号')!==false){
-        $mes = "该卡号不存在，请重新核对。";
-        alertMes($mes,'customer/listBalance.php');
-    }
-
-    unset($arr['act']);
-
-    $sql = "select * from blc_benefit_config  
-            where blc_card_number = '{$arr['blc_card_number']}' and blc_benefit_type = '{$arr['blc_benefit_type']}';";
-    $row=fetchOne($link,$sql);
-    //更新
-    if($row){
-        $arr['blc_benefit_balance'] = $arr['blc_benefit_balance'] + $row['blc_benefit_balance'];
-        $where = " blc_card_number='{$arr['blc_card_number']}' and blc_benefit_type='{$arr['blc_benefit_type']}' ";
-        $res = update($link, "blc_benefit_config", $arr, $where);
-    }
-    //插入
-    else{
-        $res = insert($link,"blc_benefit_config",$arr);
-    }
-
-
-
-    if ($res) {
-        $mes = "<p>发放成功!</p><a href='customer/listBalance.php' target='mainFrame'>查看会员卡</a>";
-    } else {
-        $mes = "<p>发放失败!</p><a href='customer/listBalance.php' target='mainFrame'>重新发放</a>";
-
-    }
-    return $mes;
-}
+//function editBenefit(){
+//    global $link;
+//    $arr = $_POST;
+//    var_dump($arr);
+//    unset($arr['act']);
+//
+//    $row = getBenefitById($arr['id']);
+//    unset($arr['id']);
+//
+//    $arr['blc_benefit_balance'] = $arr['blc_benefit_balance'] + $row['blc_benefit_balance'];
+//    $where = " blc_card_number='{$arr['blc_card_number']}' and blc_benefit_type='{$arr['blc_benefit_type']}' ";
+//    $res = update($link, "blc_benefit_config", $arr, $where);
+//
+//    if ($res) {
+//        $mes = "<p>发放成功!</p><a href='customer/listBalance.php' target='mainFrame'>查看会员卡</a>";
+//    } else {
+//        $mes = "<p>发放失败!</p><a href='customer/listBalance.php' target='mainFrame'>重新发放</a>";
+//
+//    }
+//    return $mes;
+//}
+//
+//function addBenefit()
+//{
+//
+//    global $link;
+//    $arr = $_POST;
+//    if(strstr($arr['coupon_card_number'],'卡号')!==false){
+//        $mes = "该卡号不存在，请重新核对。";
+//        alertMes($mes,'customer/listBalance.php');
+//    }
+//
+//    unset($arr['act']);
+//
+//    $sql = "select * from blc_benefit_config
+//            where blc_card_number = '{$arr['blc_card_number']}' and blc_benefit_type = '{$arr['blc_benefit_type']}';";
+//    $row=fetchOne($link,$sql);
+//    //更新
+//    if($row){
+//        $arr['blc_benefit_balance'] = $arr['blc_benefit_balance'] + $row['blc_benefit_balance'];
+//        $where = " blc_card_number='{$arr['blc_card_number']}' and blc_benefit_type='{$arr['blc_benefit_type']}' ";
+//        $res = update($link, "blc_benefit_config", $arr, $where);
+//    }
+//    //插入
+//    else{
+//        $res = insert($link,"blc_benefit_config",$arr);
+//    }
+//
+//
+//
+//    if ($res) {
+//        $mes = "<p>发放成功!</p><a href='customer/listBalance.php' target='mainFrame'>查看会员卡</a>";
+//    } else {
+//        $mes = "<p>发放失败!</p><a href='customer/listBalance.php' target='mainFrame'>重新发放</a>";
+//
+//    }
+//    return $mes;
+//}
 
 
 
@@ -190,6 +190,7 @@ function addSubCoupon(){
         $arr['coupon_catalogue'] .= $catalogue.";";
     }
     unset($arr['catalogue']);
+    $arr['coupon_type'] = 1;
 
     $res = insert($link,"coupon_config",$arr);
     if ($res) {
@@ -211,6 +212,7 @@ function addDiscountCoupon(){
         $arr['coupon_catalogue'] .= $catalogue.";";
     }
     unset($arr['catalogue']);
+    $arr['coupon_type'] = 2;
 
     $res = insert($link,"coupon_config",$arr);
     if ($res) {
@@ -256,6 +258,13 @@ function getAllCouponConfig(){
     return $rows;
 }
 
+function getAllCardType(){
+    global $link;
+    $sql = "select blc_card_type from blc_master";
+    $rows = fetchAll($link,$sql);
+    return $rows;
+}
+
 function sendCouponToCardNumber(){
     global $link;
     $arr = $_POST;
@@ -275,7 +284,7 @@ function sendCouponToCardNumber(){
     $arr['coupon_status'] = 'Y';
     $arr['coupon_start_date'] = date("Y-m-d",strtotime($arr['coupon_start_date']));
     $arr['coupon_end_date'] = date("Y-m-d",mktime(0,0,0,intval($endDate[1]),intval($endDate[2]),intval($endDate[0])));
-    $sql = "select * from coupon_master  
+    $sql = "select coupon_number from coupon_master  
             where coupon_id = {$arr['coupon_id']} and coupon_card_number = '{$arr['coupon_card_number']}' and coupon_start_date = '{$arr['coupon_start_date']}';";
     $row=fetchOne($link,$sql);
     //更新
@@ -297,6 +306,45 @@ function sendCouponToCardNumber(){
         $mes = "<p>发放失败!</p><a href='customer/sendCouponToCardNumber.php' target='mainFrame'>重新发放</a>";
 
     }
+    return $mes;
+}
+
+function sendCouponToCardType(){
+    global $link;
+    $arr = $_POST;
+    if($arr['coupon_end_date']==null){
+        $mes = "请填写失效日期";
+        alertMes($mes,'customer/sendCouponToCardType.php');
+    }
+
+    $sql = "select blc_card_number from blc_master where blc_card_type = '{$arr['blc_card_type']}';";
+    $rows = fetchAll($link, $sql);
+    
+    unset($arr['blc_card_type']);
+    $endDate = explode("-",$arr['coupon_end_date']);
+    unset($arr['act']);
+    $arr['coupon_status'] = 'Y';
+    $arr['coupon_start_date'] = date("Y-m-d",strtotime($arr['coupon_start_date']));
+    $arr['coupon_end_date'] = date("Y-m-d",mktime(0,0,0,intval($endDate[1]),intval($endDate[2]),intval($endDate[0])));
+    $coupon_number = $arr['coupon_number'];
+    for($i=0;$i<count($rows);$i++){
+        $arr['coupon_card_number'] = $rows[$i]['blc_card_number'];
+        $arr['coupon_number'] = $coupon_number;
+        $sql2 = "select coupon_number from coupon_master  
+            where coupon_id = {$arr['coupon_id']} and coupon_card_number = '{$arr['coupon_card_number']}' and coupon_start_date = '{$arr['coupon_start_date']}';";
+        $row=fetchOne($link,$sql2);
+        //更新
+        if($row){
+            $arr['coupon_number'] = $arr['coupon_number'] + $row['coupon_number'];
+            $where = " coupon_id = {$arr['coupon_id']} and coupon_card_number = '{$arr['coupon_card_number']}' and coupon_start_date = '{$arr['coupon_start_date']}';";
+            $res = update($link, "coupon_master", $arr, $where);
+        }
+        //插入
+        else{
+            $res = insert($link,"coupon_master",$arr);
+        }
+    }
+    $mes = "<p>发放成功!</p><a href='customer/listBalance.php?' target='mainFrame'>查看优惠券</a>";
     return $mes;
 }
 /**

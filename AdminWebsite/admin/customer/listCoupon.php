@@ -40,7 +40,18 @@ $rows=getCouponByCardNumberByPage($page,$pageSize,$cardNumber);
         <?php  foreach($rows as $row):?>
             <tr>
                 <td><?php echo $row['coupon_card_number'];?></td>
-                <td><?php echo $row['coupon_type'];?></td>
+                <td>
+                    <?php
+                    switch($row['coupon_type']){
+                        case 1:
+                            echo COUPON_SUB;
+                            break;
+                        case 2:
+                            echo COUPON_DISCOUNT;
+                            break;
+                    }
+                    ?>
+                </td>
                 <td><?php echo $row['coupon_description'];?></td>
                 <td><?php echo $row['coupon_start_date'];?></td>
                 <td><?php echo $row['coupon_end_date'];?></td>

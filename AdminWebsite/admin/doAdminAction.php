@@ -54,9 +54,7 @@ elseif($act=='printOrder'){
     changeStates($_REQUEST['id'],$_REQUEST['state'],$_REQUEST['page']);
 }
 //Customer
-elseif($act=='addBenefit'){
-    $mes = addBenefit();
-}elseif($act=='addSubCoupon'){
+elseif($act=='addSubCoupon'){
     $mes = addSubCoupon();
 }elseif($act=='addDiscountCoupon'){
     $mes = addDiscountCoupon();
@@ -64,6 +62,8 @@ elseif($act=='addBenefit'){
     $mes = delCouponConfig($_REQUEST['id']);
 }elseif($act=='sendCouponToCardNumber'){
     $mes = sendCouponToCardNumber();
+}elseif($act=='sendCouponToCardType'){
+    $mes = sendCouponToCardType();
 }elseif($act=='delActivityConfigForcible'){
     $mes = delActivityConfigForcible($_REQUEST['id']);
 }elseif($act=='addDiscountActivity'){
@@ -84,8 +84,10 @@ elseif($act=='addRecruit'){
     $mes = delRecruit($_REQUEST['id']);
 }elseif($act=='editRecruit'){
     $mes = editRecruit($_REQUEST['id']);
-}elseif($act=='systemConfig'){
-    $mes = changeShowDisplayTips($_REQUEST['token']);
+}elseif($act=='addWeChatIndexPicture'){
+    $mes = addWeChatIndexPicture();
+}elseif($act=='delWeChatIndexPicture'){
+    $mes = delWeChatIndexPicture($_REQUEST['id']);
 }
 
 ?>

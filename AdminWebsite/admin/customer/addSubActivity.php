@@ -5,6 +5,7 @@ $rows=getAllCate();
 if(!$rows){
     alertMes("没有相应分类，请先添加分类!!", "addCate.php");
 }
+$today = getCurrentDate();
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -35,11 +36,11 @@ if(!$rows){
         </tr>
         <tr>
             <td align="right">开始日期</td>
-            <td><input type="text" name="activity_start_date" placeholder="2016-10-10"/></td>
+            <td><input type="text" name="activity_start_date" value="<?php echo $today;?>" /></td>
         </tr>
         <tr>
             <td align="right">结束日期</td>
-            <td><input type="text" name="activity_end_date" placeholder="2016-12-12"/></td>
+            <td><input type="text" name="activity_end_date" value="<?php echo $today;?>" /></td>
         </tr>
         <tr>
             <td align="right">描述</td>
@@ -75,5 +76,8 @@ if(!$rows){
 </form>
 Tips:<br/>
 附件只能添加一张图片
+<script type="text/javascript">
+
+</script>
 </body>
 </html>
