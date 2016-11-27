@@ -50,7 +50,18 @@ $rows=getActivityConfigByPage($page,$pageSize);
         <tbody>
         <?php  foreach($rows as $row):?>
             <tr>
-                <td><?php echo $row['activity_type'];?></td>
+                <td>
+                    <?php
+                    switch($row['activity_type']){
+                        case 1:
+                            echo COUPON_SUB;
+                            break;
+                        case 2:
+                            echo COUPON_DISCOUNT;
+                            break;
+                    }
+                    ?>
+                </td>
                 <td><?php echo $row['activity_amount1'];?></td>
                 <td><?php echo $row['activity_amount2'];?></td>
                 <td><?php echo $row['activity_start_date'];?></td>

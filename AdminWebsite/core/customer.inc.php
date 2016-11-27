@@ -388,6 +388,7 @@ function addDiscountActivity(){
         $arr['activity_catalogue'] .= $catalogue.";";
     }
     unset($arr['catalogue']);
+    $arr['activity_type'] = 2;
 
     $path = IMAGE_ACTIVITY_ORIGIN_UPLOAD_PATH;
     $uploadFiles=uploadFile($path);
@@ -436,6 +437,7 @@ function addSubActivity(){
         $arr['activity_catalogue'] .= $catalogue.";";
     }
     unset($arr['catalogue']);
+    $arr['activity_type'] = 1;
 
     $path = IMAGE_ACTIVITY_ORIGIN_UPLOAD_PATH;
     $uploadFiles=uploadFile($path);

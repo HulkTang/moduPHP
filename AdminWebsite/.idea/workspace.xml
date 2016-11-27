@@ -29,46 +29,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="listWeChatIndexPicture.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/admin/others/listWeChatIndexPicture.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="293">
-              <caret line="54" column="60" selection-start-line="54" selection-start-column="60" selection-end-line="54" selection-end-column="60" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="addWeChatIndexPicture.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/admin/others/addWeChatIndexPicture.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="179">
-              <caret line="13" column="79" selection-start-line="13" selection-start-column="79" selection-end-line="13" selection-end-column="79" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="doAdminAction.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/admin/doAdminAction.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="359">
-              <caret line="86" column="39" selection-start-line="86" selection-start-column="39" selection-end-line="86" selection-end-column="39" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="addDiscountActivity.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/admin/customer/addDiscountActivity.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="399">
-              <caret line="21" column="79" selection-start-line="21" selection-start-column="50" selection-end-line="21" selection-end-column="79" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="others.inc.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/others.inc.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -87,11 +47,111 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="parameters.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="parameters.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/configs/parameters.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="179">
-              <caret line="19" column="8" selection-start-line="19" selection-start-column="8" selection-end-line="19" selection-end-column="8" />
+            <state relative-caret-position="589">
+              <caret line="31" column="28" selection-start-line="31" selection-start-column="28" selection-end-line="31" selection-end-column="28" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="listActivityConfig.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/admin/customer/listActivityConfig.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="361">
+              <caret line="57" column="25" selection-start-line="57" selection-start-column="25" selection-end-line="57" selection-end-column="25" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PrinterAPI.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/core/PrinterAPI.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1330">
+              <caret line="73" column="25" selection-start-line="73" selection-start-column="25" selection-end-line="73" selection-end-column="25" />
+              <folding>
+                <marker date="1480139024622" expanded="true" signature="325:473" placeholder="select od_id... od_hdr" />
+                <marker date="1480139024622" expanded="true" signature="520:646" placeholder="select n.gd_... od_hdr" />
+                <marker date="1480139024622" expanded="true" signature="1071:1155" placeholder="select od_id... od_hdr" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="customer.inc.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/customer.inc.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="502">
+              <caret line="439" column="29" selection-start-line="439" selection-start-column="29" selection-end-line="439" selection-end-column="29" />
+              <folding>
+                <marker date="1480166893428" expanded="true" signature="139:236" placeholder="select * fro... blc_benefit_config" />
+                <marker date="1480166893428" expanded="true" signature="531:779" placeholder="select m.blc... blc_master" />
+                <marker date="1480166893428" expanded="true" signature="928:1038" placeholder="select sum(c... chg_master" />
+                <marker date="1480166893428" expanded="true" signature="928:1054" placeholder="select sum(c... chg_master" />
+                <marker date="1480166893428" expanded="true" signature="1217:1348" placeholder="select count... blc_master" />
+                <marker date="1480166893428" expanded="true" signature="1217:1366" placeholder="select count... blc_master" />
+                <marker date="1480166893428" expanded="true" signature="1217:1393" placeholder="select sum(c... blc_master" />
+                <marker date="1480166893428" expanded="true" signature="1581:1651" placeholder="select * fro... chg_master" />
+                <marker date="1480166893428" expanded="true" signature="1944:2312" placeholder="select blc_c... chg_master" />
+                <marker date="1480166893428" expanded="true" signature="2480:2577" placeholder="select * fro... chg_master" />
+                <marker date="1480166893428" expanded="true" signature="2870:3076" placeholder="select blc_c... chg_master" />
+                <marker date="1480166893428" expanded="true" signature="3202:3327" placeholder="select blc_c... blc_benefit_config" />
+                <marker date="1480166893428" expanded="true" signature="3445:3519" placeholder="select disti... blc_benefit_config" />
+                <marker date="1480166893428" expanded="true" signature="4571:4721" placeholder="select * fro... blc_benefit_config" />
+                <marker date="1480166893428" expanded="true" signature="5540:5561" placeholder="select * fro... coupon_master" />
+                <marker date="1480166893428" expanded="true" signature="5540:5567" placeholder="select * fro... coupon_config" />
+                <marker date="1480166893428" expanded="true" signature="5859:6046" placeholder="select blc_c... chg_master" />
+                <marker date="1480166893428" expanded="true" signature="7373:7414" placeholder="select * fro... coupon_master" />
+                <marker date="1480166893428" expanded="true" signature="7373:7417" placeholder="select * fro... coupon_master" />
+                <marker date="1480166893428" expanded="true" signature="7373:7422" placeholder="select * fro... coupon_master" />
+                <marker date="1480166893428" expanded="true" signature="7373:7444" placeholder="select * fro... coupon_master" />
+                <marker date="1480166893428" expanded="true" signature="8055:8166" placeholder="select coupo... coupon_config" />
+                <marker date="1480166893428" expanded="true" signature="8281:8311" placeholder="select blc_c... blc_" />
+                <marker date="1480166893428" expanded="true" signature="8281:8317" placeholder="select blc_c... blc_master" />
+                <marker date="1480166893428" expanded="true" signature="9065:9156" placeholder="select * fro... coupon_master" />
+                <marker date="1480166893428" expanded="true" signature="9065:9212" placeholder="select * fro... coupon_master" />
+                <marker date="1480166893428" expanded="true" signature="9065:9216" placeholder="select * fro... coupon_master" />
+                <marker date="1480166893428" expanded="true" signature="9065:9239" placeholder="select * fro... coupon_master" />
+                <marker date="1480166893428" expanded="true" signature="9065:9266" placeholder="select * fro... coupon_master" />
+                <marker date="1480166893428" expanded="true" signature="9065:9267" placeholder="select * fro... coupon_master" />
+                <marker date="1480166893428" expanded="true" signature="10220:10276" placeholder="select blc_c... blc_master" />
+                <marker date="1480166893428" expanded="true" signature="10220:10280" placeholder="select blc_c... blc_master" />
+                <marker date="1480166893428" expanded="true" signature="10220:10282" placeholder="select blc_c... blc_master" />
+                <marker date="1480166893428" expanded="true" signature="10220:10306" placeholder="select blc_c... blc_master" />
+                <marker date="1480166893428" expanded="true" signature="10909:11110" placeholder="select * fro... coupon_master" />
+                <marker date="1480166893428" expanded="true" signature="11823:11852" placeholder="select * fro... activity_config" />
+                <marker date="1480166893428" expanded="true" signature="12144:12386" placeholder="select coupo... coupon_config" />
+                <marker date="1480166893428" expanded="true" signature="12537:12576" placeholder="select activ... activity_config" />
+                <marker date="1480166893428" expanded="true" signature="14136:14175" placeholder="select activ... activity_config" />
+                <marker date="1480166893428" expanded="true" signature="15719:15783" placeholder="select activ... activity_master" />
+                <marker date="1480166893428" expanded="true" signature="15719:15788" placeholder="select activ... activity_master" />
+                <marker date="1480166893428" expanded="true" signature="16042:16193" placeholder="..." />
+                <marker date="1480166893428" expanded="true" signature="16042:16194" placeholder="..." />
+                <marker date="1480166893428" expanded="true" signature="16042:16199" placeholder="..." />
+                <marker date="1480166893428" expanded="true" signature="16042:16261" placeholder="..." />
+                <marker date="1480166893428" expanded="true" signature="16042:16294" placeholder="..." />
+                <marker date="1480166893428" expanded="true" signature="16042:16321" placeholder="..." />
+                <marker date="1480166893428" expanded="true" signature="17753:17818" placeholder="select activ... activity_config" />
+                <marker date="1480166893428" expanded="true" signature="17968:17995" placeholder="select * fro... " />
+                <marker date="1480166893428" expanded="true" signature="17968:18046" placeholder="select * fro... blc_master" />
+                <marker date="1480166893428" expanded="true" signature="18250:18326" placeholder="select blc_c... blc_master" />
+                <marker date="1480166893428" expanded="true" signature="18524:18584" placeholder="select coupo... coupon_config" />
+                <marker date="1480166893428" expanded="true" signature="18524:18596" placeholder="select coupo... coupon_config" />
+                <marker date="1480166893428" expanded="true" signature="18765:18793" placeholder="select * fro... comment_master" />
+                <marker date="1480166893428" expanded="true" signature="19119:19266" placeholder="select comme... comment_master" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="listCouponConfig.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/admin/customer/listCouponConfig.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="76">
+              <caret line="43" column="13" selection-start-line="43" selection-start-column="13" selection-end-line="43" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -136,7 +196,6 @@
         <option value="$PROJECT_DIR$/admin/scripts/common.js" />
         <option value="$PROJECT_DIR$/admin/scripts/addFile.js" />
         <option value="$PROJECT_DIR$/admin/pro/addPro.php" />
-        <option value="$PROJECT_DIR$/admin/customer/listActivityConfig.php" />
         <option value="$PROJECT_DIR$/lib/common.func.php" />
         <option value="$PROJECT_DIR$/admin/scripts/showTodayOrder.js" />
         <option value="$PROJECT_DIR$/admin/order/listTodayOrder.php" />
@@ -153,7 +212,6 @@
         <option value="$PROJECT_DIR$/lib/mysql.func.php" />
         <option value="$PROJECT_DIR$/admin/customer/sendCouponToCardType.php" />
         <option value="$PROJECT_DIR$/admin/customer/listBalance.php" />
-        <option value="$PROJECT_DIR$/core/customer.inc.php" />
         <option value="$PROJECT_DIR$/admin/customer/listCouponConfig.php" />
         <option value="$PROJECT_DIR$/admin/customer/listCoupon.php" />
         <option value="$PROJECT_DIR$/admin/others/listRecruit.php" />
@@ -166,6 +224,8 @@
         <option value="$PROJECT_DIR$/admin/customer/addDiscountActivity.php" />
         <option value="$PROJECT_DIR$/admin/others/addWeChatIndexPicture.php" />
         <option value="$PROJECT_DIR$/configs/parameters.php" />
+        <option value="$PROJECT_DIR$/admin/customer/listActivityConfig.php" />
+        <option value="$PROJECT_DIR$/core/customer.inc.php" />
       </list>
     </option>
   </component>
@@ -618,12 +678,12 @@
       <workItem from="1479791319452" duration="562000" />
       <workItem from="1479875692842" duration="5016000" />
       <workItem from="1480136272914" duration="4388000" />
-      <workItem from="1480155522974" duration="9118000" />
+      <workItem from="1480155522974" duration="10878000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="466560000" />
+    <option name="totallyTimeSpent" value="468320000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -636,7 +696,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1378" height="754" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28462708" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32847896" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -885,14 +945,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/customer/listActivityConfig.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="102" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/include.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -936,18 +988,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/PrinterAPI.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="73" column="25" selection-start-line="73" selection-start-column="25" selection-end-line="73" selection-end-column="25" />
-          <folding>
-            <marker date="1480139024622" expanded="true" signature="325:473" placeholder="select od_id... od_hdr" />
-            <marker date="1480139024622" expanded="true" signature="520:646" placeholder="select n.gd_... od_hdr" />
-            <marker date="1480139024622" expanded="true" signature="1071:1155" placeholder="select od_id... od_hdr" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/admin/others/addRecruit.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="114">
@@ -982,14 +1022,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/customer/listCouponConfig.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="50" column="20" selection-start-line="50" selection-start-column="20" selection-end-line="57" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/admin/customer/listCoupon.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="399">
@@ -1014,70 +1046,6 @@
         <state relative-caret-position="212">
           <caret line="51" column="0" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/customer.inc.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="404">
-          <caret line="463" column="16" selection-start-line="420" selection-start-column="4" selection-end-line="463" selection-end-column="16" />
-          <folding>
-            <marker date="1480161454739" expanded="true" signature="139:236" placeholder="select * fro... blc_benefit_config" />
-            <marker date="1480161454739" expanded="true" signature="531:779" placeholder="select m.blc... blc_master" />
-            <marker date="1480161454739" expanded="true" signature="928:1038" placeholder="select sum(c... chg_master" />
-            <marker date="1480161454739" expanded="true" signature="928:1054" placeholder="select sum(c... chg_master" />
-            <marker date="1480161454739" expanded="true" signature="1217:1348" placeholder="select count... blc_master" />
-            <marker date="1480161454739" expanded="true" signature="1217:1366" placeholder="select count... blc_master" />
-            <marker date="1480161454739" expanded="true" signature="1217:1393" placeholder="select sum(c... blc_master" />
-            <marker date="1480161454739" expanded="true" signature="1581:1651" placeholder="select * fro... chg_master" />
-            <marker date="1480161454739" expanded="true" signature="1944:2312" placeholder="select blc_c... chg_master" />
-            <marker date="1480161454739" expanded="true" signature="2480:2577" placeholder="select * fro... chg_master" />
-            <marker date="1480161454739" expanded="true" signature="2870:3076" placeholder="select blc_c... chg_master" />
-            <marker date="1480161454739" expanded="true" signature="3202:3327" placeholder="select blc_c... blc_benefit_config" />
-            <marker date="1480161454739" expanded="true" signature="3445:3519" placeholder="select disti... blc_benefit_config" />
-            <marker date="1480161454739" expanded="true" signature="4571:4721" placeholder="select * fro... blc_benefit_config" />
-            <marker date="1480161454739" expanded="true" signature="5540:5561" placeholder="select * fro... coupon_master" />
-            <marker date="1480161454739" expanded="true" signature="5540:5567" placeholder="select * fro... coupon_config" />
-            <marker date="1480161454739" expanded="true" signature="5859:6046" placeholder="select blc_c... chg_master" />
-            <marker date="1480161454739" expanded="true" signature="7373:7414" placeholder="select * fro... coupon_master" />
-            <marker date="1480161454739" expanded="true" signature="7373:7417" placeholder="select * fro... coupon_master" />
-            <marker date="1480161454739" expanded="true" signature="7373:7422" placeholder="select * fro... coupon_master" />
-            <marker date="1480161454739" expanded="true" signature="7373:7444" placeholder="select * fro... coupon_master" />
-            <marker date="1480161454739" expanded="true" signature="8055:8166" placeholder="select coupo... coupon_config" />
-            <marker date="1480161454739" expanded="true" signature="8281:8311" placeholder="select blc_c... blc_" />
-            <marker date="1480161454739" expanded="true" signature="8281:8317" placeholder="select blc_c... blc_master" />
-            <marker date="1480161454739" expanded="true" signature="9065:9156" placeholder="select * fro... coupon_master" />
-            <marker date="1480161454739" expanded="true" signature="9065:9212" placeholder="select * fro... coupon_master" />
-            <marker date="1480161454739" expanded="true" signature="9065:9216" placeholder="select * fro... coupon_master" />
-            <marker date="1480161454739" expanded="true" signature="9065:9239" placeholder="select * fro... coupon_master" />
-            <marker date="1480161454739" expanded="true" signature="9065:9266" placeholder="select * fro... coupon_master" />
-            <marker date="1480161454739" expanded="true" signature="9065:9267" placeholder="select * fro... coupon_master" />
-            <marker date="1480161454739" expanded="true" signature="10220:10276" placeholder="select blc_c... blc_master" />
-            <marker date="1480161454739" expanded="true" signature="10220:10280" placeholder="select blc_c... blc_master" />
-            <marker date="1480161454739" expanded="true" signature="10220:10282" placeholder="select blc_c... blc_master" />
-            <marker date="1480161454739" expanded="true" signature="10220:10306" placeholder="select blc_c... blc_master" />
-            <marker date="1480161454739" expanded="true" signature="10909:11110" placeholder="select * fro... coupon_master" />
-            <marker date="1480161454739" expanded="true" signature="11823:11852" placeholder="select * fro... activity_config" />
-            <marker date="1480161454739" expanded="true" signature="12144:12386" placeholder="select coupo... coupon_config" />
-            <marker date="1480161454739" expanded="true" signature="12537:12576" placeholder="select activ... activity_config" />
-            <marker date="1480161454739" expanded="true" signature="14105:14144" placeholder="select activ... activity_config" />
-            <marker date="1480161454739" expanded="true" signature="15657:15721" placeholder="select activ... activity_master" />
-            <marker date="1480161454739" expanded="true" signature="15657:15726" placeholder="select activ... activity_master" />
-            <marker date="1480161454739" expanded="true" signature="15980:16131" placeholder="..." />
-            <marker date="1480161454739" expanded="true" signature="15980:16132" placeholder="..." />
-            <marker date="1480161454739" expanded="true" signature="15980:16137" placeholder="..." />
-            <marker date="1480161454739" expanded="true" signature="15980:16199" placeholder="..." />
-            <marker date="1480161454739" expanded="true" signature="15980:16232" placeholder="..." />
-            <marker date="1480161454739" expanded="true" signature="15980:16259" placeholder="..." />
-            <marker date="1480161454739" expanded="true" signature="17691:17756" placeholder="select activ... activity_config" />
-            <marker date="1480161454739" expanded="true" signature="17906:17933" placeholder="select * fro... " />
-            <marker date="1480161454739" expanded="true" signature="17906:17984" placeholder="select * fro... blc_master" />
-            <marker date="1480161454739" expanded="true" signature="18188:18264" placeholder="select blc_c... blc_master" />
-            <marker date="1480161454739" expanded="true" signature="18462:18522" placeholder="select coupo... coupon_config" />
-            <marker date="1480161454739" expanded="true" signature="18462:18534" placeholder="select coupo... coupon_config" />
-            <marker date="1480161454739" expanded="true" signature="18703:18731" placeholder="select * fro... comment_master" />
-            <marker date="1480161454739" expanded="true" signature="19057:19204" placeholder="select comme... comment_master" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1191,11 +1159,103 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/admin/customer/listActivityConfig.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="361">
+          <caret line="57" column="25" selection-start-line="57" selection-start-column="25" selection-end-line="57" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/customer.inc.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="502">
+          <caret line="439" column="29" selection-start-line="439" selection-start-column="29" selection-end-line="439" selection-end-column="29" />
+          <folding>
+            <marker date="1480166893428" expanded="true" signature="139:236" placeholder="select * fro... blc_benefit_config" />
+            <marker date="1480166893428" expanded="true" signature="531:779" placeholder="select m.blc... blc_master" />
+            <marker date="1480166893428" expanded="true" signature="928:1038" placeholder="select sum(c... chg_master" />
+            <marker date="1480166893428" expanded="true" signature="928:1054" placeholder="select sum(c... chg_master" />
+            <marker date="1480166893428" expanded="true" signature="1217:1348" placeholder="select count... blc_master" />
+            <marker date="1480166893428" expanded="true" signature="1217:1366" placeholder="select count... blc_master" />
+            <marker date="1480166893428" expanded="true" signature="1217:1393" placeholder="select sum(c... blc_master" />
+            <marker date="1480166893428" expanded="true" signature="1581:1651" placeholder="select * fro... chg_master" />
+            <marker date="1480166893428" expanded="true" signature="1944:2312" placeholder="select blc_c... chg_master" />
+            <marker date="1480166893428" expanded="true" signature="2480:2577" placeholder="select * fro... chg_master" />
+            <marker date="1480166893428" expanded="true" signature="2870:3076" placeholder="select blc_c... chg_master" />
+            <marker date="1480166893428" expanded="true" signature="3202:3327" placeholder="select blc_c... blc_benefit_config" />
+            <marker date="1480166893428" expanded="true" signature="3445:3519" placeholder="select disti... blc_benefit_config" />
+            <marker date="1480166893428" expanded="true" signature="4571:4721" placeholder="select * fro... blc_benefit_config" />
+            <marker date="1480166893428" expanded="true" signature="5540:5561" placeholder="select * fro... coupon_master" />
+            <marker date="1480166893428" expanded="true" signature="5540:5567" placeholder="select * fro... coupon_config" />
+            <marker date="1480166893428" expanded="true" signature="5859:6046" placeholder="select blc_c... chg_master" />
+            <marker date="1480166893428" expanded="true" signature="7373:7414" placeholder="select * fro... coupon_master" />
+            <marker date="1480166893428" expanded="true" signature="7373:7417" placeholder="select * fro... coupon_master" />
+            <marker date="1480166893428" expanded="true" signature="7373:7422" placeholder="select * fro... coupon_master" />
+            <marker date="1480166893428" expanded="true" signature="7373:7444" placeholder="select * fro... coupon_master" />
+            <marker date="1480166893428" expanded="true" signature="8055:8166" placeholder="select coupo... coupon_config" />
+            <marker date="1480166893428" expanded="true" signature="8281:8311" placeholder="select blc_c... blc_" />
+            <marker date="1480166893428" expanded="true" signature="8281:8317" placeholder="select blc_c... blc_master" />
+            <marker date="1480166893428" expanded="true" signature="9065:9156" placeholder="select * fro... coupon_master" />
+            <marker date="1480166893428" expanded="true" signature="9065:9212" placeholder="select * fro... coupon_master" />
+            <marker date="1480166893428" expanded="true" signature="9065:9216" placeholder="select * fro... coupon_master" />
+            <marker date="1480166893428" expanded="true" signature="9065:9239" placeholder="select * fro... coupon_master" />
+            <marker date="1480166893428" expanded="true" signature="9065:9266" placeholder="select * fro... coupon_master" />
+            <marker date="1480166893428" expanded="true" signature="9065:9267" placeholder="select * fro... coupon_master" />
+            <marker date="1480166893428" expanded="true" signature="10220:10276" placeholder="select blc_c... blc_master" />
+            <marker date="1480166893428" expanded="true" signature="10220:10280" placeholder="select blc_c... blc_master" />
+            <marker date="1480166893428" expanded="true" signature="10220:10282" placeholder="select blc_c... blc_master" />
+            <marker date="1480166893428" expanded="true" signature="10220:10306" placeholder="select blc_c... blc_master" />
+            <marker date="1480166893428" expanded="true" signature="10909:11110" placeholder="select * fro... coupon_master" />
+            <marker date="1480166893428" expanded="true" signature="11823:11852" placeholder="select * fro... activity_config" />
+            <marker date="1480166893428" expanded="true" signature="12144:12386" placeholder="select coupo... coupon_config" />
+            <marker date="1480166893428" expanded="true" signature="12537:12576" placeholder="select activ... activity_config" />
+            <marker date="1480166893428" expanded="true" signature="14136:14175" placeholder="select activ... activity_config" />
+            <marker date="1480166893428" expanded="true" signature="15719:15783" placeholder="select activ... activity_master" />
+            <marker date="1480166893428" expanded="true" signature="15719:15788" placeholder="select activ... activity_master" />
+            <marker date="1480166893428" expanded="true" signature="16042:16193" placeholder="..." />
+            <marker date="1480166893428" expanded="true" signature="16042:16194" placeholder="..." />
+            <marker date="1480166893428" expanded="true" signature="16042:16199" placeholder="..." />
+            <marker date="1480166893428" expanded="true" signature="16042:16261" placeholder="..." />
+            <marker date="1480166893428" expanded="true" signature="16042:16294" placeholder="..." />
+            <marker date="1480166893428" expanded="true" signature="16042:16321" placeholder="..." />
+            <marker date="1480166893428" expanded="true" signature="17753:17818" placeholder="select activ... activity_config" />
+            <marker date="1480166893428" expanded="true" signature="17968:17995" placeholder="select * fro... " />
+            <marker date="1480166893428" expanded="true" signature="17968:18046" placeholder="select * fro... blc_master" />
+            <marker date="1480166893428" expanded="true" signature="18250:18326" placeholder="select blc_c... blc_master" />
+            <marker date="1480166893428" expanded="true" signature="18524:18584" placeholder="select coupo... coupon_config" />
+            <marker date="1480166893428" expanded="true" signature="18524:18596" placeholder="select coupo... coupon_config" />
+            <marker date="1480166893428" expanded="true" signature="18765:18793" placeholder="select * fro... comment_master" />
+            <marker date="1480166893428" expanded="true" signature="19119:19266" placeholder="select comme... comment_master" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/customer/listCouponConfig.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="43" column="13" selection-start-line="43" selection-start-column="13" selection-end-line="43" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/configs/parameters.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="179">
-          <caret line="19" column="8" selection-start-line="19" selection-start-column="8" selection-end-line="19" selection-end-column="8" />
+        <state relative-caret-position="589">
+          <caret line="31" column="28" selection-start-line="31" selection-start-column="28" selection-end-line="31" selection-end-column="28" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/PrinterAPI.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1330">
+          <caret line="73" column="25" selection-start-line="73" selection-start-column="25" selection-end-line="73" selection-end-column="25" />
+          <folding>
+            <marker date="1480139024622" expanded="true" signature="325:473" placeholder="select od_id... od_hdr" />
+            <marker date="1480139024622" expanded="true" signature="520:646" placeholder="select n.gd_... od_hdr" />
+            <marker date="1480139024622" expanded="true" signature="1071:1155" placeholder="select od_id... od_hdr" />
+          </folding>
         </state>
       </provider>
     </entry>

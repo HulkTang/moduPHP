@@ -26,8 +26,11 @@ define('ORDER_STATE_0','未支付');
 define('ORDER_STATE_1','未出');
 define('ORDER_STATE_2','已出');
 //优惠券类型配置
-define('COUPON_DISCOUNT','折扣');
 define('COUPON_SUB','满减');
+define('COUPON_DISCOUNT','折扣');
+//活动类型配置
+define('ACTIVITY_SUB','满减');
+define('ACTIVITY_DISCOUNT','折扣');
 //超级管理员账号
 define('BOSS_CODE','00000');
 //员工默认密码
