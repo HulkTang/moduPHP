@@ -37,12 +37,12 @@ $rows=getBalanceChangeByPage($page,$pageSize,$cardNumber,$isEmpty);
     <table class="table" cellspacing="0" cellpadding="0">
         <thead>
         <tr>
-            <th width="30%">卡号</th>
-            <th width="20%">充值/消费时间</th>
-            <th width="15%">变动金额</th>
-            <th width="15%">当前余额</th>
+            <th width="35%">卡号</th>
+            <th width="25%">充值/消费时间</th>
+            <th width="20%">变动金额</th>
+            <th width="20%">当前余额</th>
 
-            <th>操作</th>
+
         </tr>
         </thead>
         <tbody>
@@ -60,7 +60,7 @@ $rows=getBalanceChangeByPage($page,$pageSize,$cardNumber,$isEmpty);
                     ?>
                 </td>
                 <td><?php echo $row['chg_after_amount'];?>元</td>
-                <td align="center"><input type="button" value="删除(无效)" class="btn" onclick="delCate(<?php echo $row['blc_card_number'];?>)"></td>
+
             </tr>
         <?php endforeach;?>
         <?php if($totalRows>$pageSize):?>
@@ -72,12 +72,7 @@ $rows=getBalanceChangeByPage($page,$pageSize,$cardNumber,$isEmpty);
     </table>
 </div>
 <script type="text/javascript">
-
-    function delCate(id){
-        if(window.confirm("您确定要删除吗？删除之后不能恢复!")){
-            window.location="../doAdminAction.php?act=delCate&id="+id;
-        }
-    }
+    
 
     function searchbtn(){
         var cardNumber = document.getElementById("cardNumber").value.trim();

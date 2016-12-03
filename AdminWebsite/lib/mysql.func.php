@@ -24,7 +24,7 @@ function insert($link,$table,$array){
     $keys = join(",",array_keys($array));
     $vals = "'".join("','",array_values($array))."'";
     $sql = "insert {$table}($keys) values({$vals})";
-    echo $sql;
+//    echo $sql;
     mysqli_query($link,$sql);
     return mysqli_insert_id($link);
 }
@@ -40,7 +40,7 @@ function update($link,$table,$array,$where=null){
         $str.=$sep.$key."='".$val."'";
     }
     $sql = "update {$table} set {$str} ".($where==null?null:"where ".$where);
-    echo $sql;
+//    echo $sql;
     mysqli_query($link,$sql);
     return mysqli_affected_rows($link);
 }
@@ -67,7 +67,7 @@ function fetchOne($link,$sql,$result_type=MYSQLI_ASSOC){
 
 function fetchAll($link,$sql,$result_type=MYSQLI_ASSOC){
 
-    echo $sql;
+//    echo $sql;
     $rows = array();
     $result = mysqli_query($link,$sql);
     if($result == null){
@@ -86,7 +86,7 @@ function getResultNum($link,$sql){
     if($result == null){
         return 0;
     }
-    echo $sql.'</br>';
+//    echo $sql.'</br>';
     return mysqli_num_rows($result);
 }
 

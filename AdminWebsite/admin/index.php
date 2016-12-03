@@ -87,10 +87,10 @@ checkLogined();
                     <li style="display:<?php echo $display;?>">
                         <h3><div onclick="show('menu5','change5')" style="cursor:pointer"><div id="change5" style="display:inline">+</div>&nbsp;&nbsp;<div style="display:inline">管理员管理</div></div></h3>
                         <dl id="menu5" style="display:none;">
-                            <dd><a href="admin/listStaff.php" target="mainFrame">员工列表</a></dd>
-                        	<dd><a href="admin/addAdmin.php" target="mainFrame">添加管理员</a></dd>
-                            <dd><a href="admin/listAdmin.php" target="mainFrame">管理员列表</a></dd>
-                            <dd><a href="admin/changeBossPassword.php" target="mainFrame">更改密码</a></dd>
+                            <dd><a href="admin/listStaff.php" target="mainFrame" onclick="changeTitle('员工列表');">员工列表</a></dd>
+                        	<dd><a href="admin/addAdmin.php" target="mainFrame" onclick="changeTitle('添加管理员');">添加管理员</a></dd>
+                            <dd><a href="admin/listAdmin.php" target="mainFrame" onclick="changeTitle('管理员列表');">管理员列表</a></dd>
+                            <dd><a href="admin/changeBossPassword.php" target="mainFrame" onclick="changeTitle('更改密码');">更改密码</a></dd>
                         </dl>
                     </li>
 

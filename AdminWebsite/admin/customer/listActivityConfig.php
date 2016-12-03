@@ -40,10 +40,10 @@ $rows=getActivityConfigByPage($page,$pageSize);
             <th width="6%">类型</th>
             <th width="6%">字段1</th>
             <th width="6%">字段2</th>
-            <th width="7%">开始日期</th>
-            <th width="7%">结束日期</th>
-            <th width="18%">描述</th>
-            <th width="25%">对应商品种类</th>
+            <th width="9%">开始日期</th>
+            <th width="9%">结束日期</th>
+            <th width="16%">描述</th>
+            <th width="23%">对应商品种类</th>
             <th>操作</th>
         </tr>
         </thead>

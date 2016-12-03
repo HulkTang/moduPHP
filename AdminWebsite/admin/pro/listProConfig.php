@@ -1,7 +1,7 @@
 <?php
 
 require_once '../../include.php';
-$pageSize=2;
+$pageSize=6;
 $page=isset($_REQUEST['page'])?(int)$_REQUEST['page']:1;
 $proId=isset($_REQUEST['id'])?(int)$_REQUEST['id']:1;
 $rows=getProConfigByPage($page,$pageSize,$proId);
