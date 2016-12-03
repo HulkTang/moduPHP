@@ -35,5 +35,10 @@ define('ACTIVITY_DISCOUNT','折扣');
 define('BOSS_CODE','00000');
 //员工默认密码
 define('NORMAL_PSD','123456');
+//会员卡等级
+define('CARD_TYPE_1',"星光会员");
+define('CARD_TYPE_2',"纯银会员");
+define('CARD_TYPE_3',"纯金会员");
+define('CARD_TYPE_4',"钻石会员");
 
 

@@ -74,8 +74,7 @@ $today = getCurrentDate();
 
     </table>
 </form>
-Tips:<br/>
-附件只能添加一张图片
+
 <script type="text/javascript">
 
 </script>

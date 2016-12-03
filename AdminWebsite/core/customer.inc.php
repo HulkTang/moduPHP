@@ -259,9 +259,18 @@ function getAllCouponConfig(){
 }
 
 function getAllCardType(){
-    global $link;
-    $sql = "select blc_card_type from blc_master";
-    $rows = fetchAll($link,$sql);
+//    global $link;
+//    $sql = "select blc_card_type from blc_master";
+//    $rows = fetchAll($link,$sql);
+    $rows = [];
+    $rows[0] = [];
+    $rows[1] = [];
+    $rows[2] = [];
+    $rows[3] = [];
+    $rows[0]['blc_card_type'] = CARD_TYPE_1;
+    $rows[1]['blc_card_type'] = CARD_TYPE_2;
+    $rows[2]['blc_card_type'] = CARD_TYPE_3;
+    $rows[3]['blc_card_type'] = CARD_TYPE_4;
     return $rows;
 }
 

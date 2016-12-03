@@ -14,7 +14,7 @@ $rows=getAllCouponConfig();
     <script type='text/javascript' src="../scripts/common.js"></script>
 </head>
 <body>
-<h3>发放优惠券</h3>
+<h3>群体发放</h3>
 <form action="../doAdminAction.php" method="post">
     <input type="hidden" name="act" value="sendCouponToCardType" >
     <table width="70%" border="1" cellpadding="5" cellspacing="0" bgcolor="#cccccc">

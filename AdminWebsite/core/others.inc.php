@@ -155,7 +155,7 @@ function delWeChatIndexPicture($id){
     global $link;
     $where="picture_id=".$id;
     if(delete($link,"wechat_index_picture",$where)){
-        $mes="图片删除成功!<br/><a href='others/listWeChatIndexPicture.php'>查看图片</a>|<a href='others/addWeChatIndexPicture.php.php'>添加图片</a>";
+        $mes="图片删除成功!<br/><a href='others/listWeChatIndexPicture.php'>查看图片</a>|<a href='others/addWeChatIndexPicture.php'>添加图片</a>";
     }else{
         $mes="删除失败！<br/><a href='others/listWeChatIndexPicture.php'>请重新操作</a>";
     }

@@ -35,7 +35,8 @@
 
     foreach($rows as $row):
         echo    "<tr>";
-        echo    "<td>".($row['od_id']-getOtherDaysOrderNum())."</label></td>";
+//        echo    "<td>".($row['od_id']-getOtherDaysOrderNum())."</label></td>";
+        echo    "<td>".$row['od_id']."</label></td>";
         echo    "<td>".$row['od_desk_id']."</td>";
         echo    "<td>".$row['od_date']."</td>";
         echo    "<td>".showFormatedProList($row['od_string'])."</td>";
