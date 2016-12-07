@@ -1,16 +1,10 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Administrator
- * Date: 2016/4/2
- * Time: 14:17
- */
 //连接数据库
 
 function connect(){
 
 
-    $link = mysqli_connect("115.159.94.41:3306","remote","remote","modu") or die("数据库连接失败");
+    $link = mysqli_connect("116.62.11.14:3306","root","remote","modu") or die("数据库连接失败");
 
     mysqli_query($link,"set names 'utf8'");
 

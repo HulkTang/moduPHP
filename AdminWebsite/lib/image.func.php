@@ -33,7 +33,7 @@ function verifyImage(){
     imagedestroy($image);
 }
 
-function thumb($filename,$destination=null,$dst_w=null,$dst_h=null,$isReservedSource=true,$scale=0.5){
+function thumb($filename,$destination=null,$dst_w=null,$dst_h=null,$isReservedSource=true,$scale=1.0){
     list($src_w,$src_h,$imagetype)=getimagesize($filename);
     if(is_null($dst_w)||is_null($dst_h)){
         $dst_w=ceil($src_w*$scale);
