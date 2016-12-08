@@ -32,30 +32,30 @@
       <file leaf-file-name="image.func.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/image.func.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="152">
+            <state relative-caret-position="209">
               <caret line="35" column="100" selection-start-line="35" selection-start-column="100" selection-end-line="35" selection-end-column="100" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mysql.func.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="mysql.func.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/mysql.func.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="114">
-              <caret line="6" column="52" selection-start-line="6" selection-start-column="52" selection-end-line="6" selection-end-column="52" />
+            <state relative-caret-position="266">
+              <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
               <folding>
-                <marker date="1481121274981" expanded="true" signature="715:742" placeholder="update ${{$t... " />
-                <marker date="1481121274981" expanded="true" signature="975:996" placeholder="delete from " />
+                <marker date="1481121422654" expanded="true" signature="715:742" placeholder="update ${{$t... " />
+                <marker date="1481121422654" expanded="true" signature="975:996" placeholder="delete from " />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pro.inc.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="pro.inc.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/core/pro.inc.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="988">
+            <state relative-caret-position="1159">
               <caret line="67" column="63" selection-start-line="67" selection-start-column="63" selection-end-line="67" selection-end-column="63" />
               <folding>
                 <marker date="1481120893066" expanded="true" signature="3662:3784" placeholder="select gd_id... gd_mst" />
@@ -612,12 +612,12 @@
       <workItem from="1480753409087" duration="1998000" />
       <workItem from="1480760171302" duration="3169000" />
       <workItem from="1480855407813" duration="1183000" />
-      <workItem from="1481120339777" duration="915000" />
+      <workItem from="1481120339777" duration="1708000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="484861000" />
+    <option name="totallyTimeSpent" value="485654000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -630,7 +630,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1378" height="754" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34855404" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32847896" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1085,6 +1085,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/lib/mysql.func.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding>
+            <marker date="1481121422654" expanded="true" signature="715:742" placeholder="update ${{$t... " />
+            <marker date="1481121422654" expanded="true" signature="975:996" placeholder="delete from " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/configs/parameters.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="779">
@@ -1095,7 +1106,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/image.func.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
+        <state relative-caret-position="209">
           <caret line="35" column="100" selection-start-line="35" selection-start-column="100" selection-end-line="35" selection-end-column="100" />
           <folding />
         </state>
@@ -1103,7 +1114,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/core/pro.inc.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="988">
+        <state relative-caret-position="1159">
           <caret line="67" column="63" selection-start-line="67" selection-start-column="63" selection-end-line="67" selection-end-column="63" />
           <folding>
             <marker date="1481120893066" expanded="true" signature="3662:3784" placeholder="select gd_id... gd_mst" />
@@ -1112,17 +1123,6 @@
             <marker date="1481120893066" expanded="true" signature="4359:4401" placeholder="select * fro... gd_mst_config" />
             <marker date="1481120893066" expanded="true" signature="4666:4788" placeholder="select id,gd... gd_mst_config" />
             <marker date="1481120893066" expanded="true" signature="6270:6349" placeholder="select id,gd... gd_mst_config" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/mysql.func.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="6" column="52" selection-start-line="6" selection-start-column="52" selection-end-line="6" selection-end-column="52" />
-          <folding>
-            <marker date="1481121274981" expanded="true" signature="715:742" placeholder="update ${{$t... " />
-            <marker date="1481121274981" expanded="true" signature="975:996" placeholder="delete from " />
           </folding>
         </state>
       </provider>
