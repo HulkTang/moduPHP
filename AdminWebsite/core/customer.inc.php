@@ -403,7 +403,7 @@ function addDiscountActivity(){
     $uploadFiles=uploadFile($path);
     if(is_array($uploadFiles)&&$uploadFiles){
         foreach($uploadFiles as $key=>$uploadFile){
-            thumb($path."/".$uploadFile['name'],IMAGE_ACTIVITY_UPLOAD_PATH.$uploadFile['name'],250,200);
+            thumb($path."/".$uploadFile['name'],IMAGE_ACTIVITY_UPLOAD_PATH.$uploadFile['name']);
             $arr['activity_picture'] = IMAGE_ACTIVITY_STORE_PATH.$uploadFile['name'];
         }
     }
@@ -452,7 +452,7 @@ function addSubActivity(){
     $uploadFiles=uploadFile($path);
     if(is_array($uploadFiles)&&$uploadFiles){
         foreach($uploadFiles as $key=>$uploadFile){
-            thumb($path."/".$uploadFile['name'],IMAGE_ACTIVITY_UPLOAD_PATH.$uploadFile['name'],250,200);
+            thumb($path."/".$uploadFile['name'],IMAGE_ACTIVITY_UPLOAD_PATH.$uploadFile['name']);
             $arr['activity_picture'] = IMAGE_ACTIVITY_STORE_PATH.$uploadFile['name'];
         }
     }
