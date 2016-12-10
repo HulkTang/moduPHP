@@ -29,56 +29,43 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="addCate.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/admin/cate/addCate.php">
+      <file leaf-file-name="include.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/include.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="19">
-              <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="3" selection-end-column="42" />
+            <state relative-caret-position="190">
+              <caret line="10" column="32" selection-start-line="10" selection-start-column="32" selection-end-line="10" selection-end-column="32" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="addPro.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/admin/pro/addPro.php">
+      <file leaf-file-name="doAdminAction.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/admin/doAdminAction.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="29" column="8" selection-start-line="29" selection-start-column="8" selection-end-line="33" selection-end-column="17" />
+            <state relative-caret-position="169">
+              <caret line="49" column="4" selection-start-line="49" selection-start-column="4" selection-end-line="49" selection-end-column="4" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="editCate.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/admin/cate/editCate.php">
+      <file leaf-file-name="HttpClient.class.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/HttpClient.class.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="34" column="43" selection-start-line="34" selection-start-column="30" selection-end-line="34" selection-end-column="43" />
+            <state relative-caret-position="-2451">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="listCate.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/admin/cate/listCate.php">
+      <file leaf-file-name="PrinterAPI.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/core/PrinterAPI.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="38">
-              <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="cate.inc.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/cate.inc.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="281">
-              <caret line="29" column="54" selection-start-line="29" selection-start-column="54" selection-end-line="29" selection-end-column="54" />
+            <state relative-caret-position="95">
+              <caret line="5" column="26" selection-start-line="5" selection-start-column="26" selection-end-line="5" selection-end-column="26" />
               <folding>
-                <marker date="1481371945929" expanded="true" signature="475:496" placeholder="select * fro... gd_ctlg" />
-                <marker date="1481371945929" expanded="true" signature="845:947" placeholder="select ctlg_... gd_ctlg" />
-                <marker date="1481371945929" expanded="true" signature="1915:1969" placeholder="select ctlg_... gd_ctlg" />
-                <marker date="1481371945929" expanded="true" signature="2085:2168" placeholder="select ctlg_... gd_ctlg" />
+                <marker date="1481376435600" expanded="true" signature="292:391" placeholder="select od_id... od_hdr" />
               </folding>
             </state>
           </provider>
@@ -102,7 +89,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/admin/pro/editProConfig.php" />
         <option value="$PROJECT_DIR$/admin/admin/listStaff.php" />
         <option value="$PROJECT_DIR$/admin/admin/addAdmin.php" />
         <option value="$PROJECT_DIR$/core/admin.inc.php" />
@@ -114,16 +100,13 @@
         <option value="$PROJECT_DIR$/admin/scripts/addFile.js" />
         <option value="$PROJECT_DIR$/lib/common.func.php" />
         <option value="$PROJECT_DIR$/admin/scripts/showTodayOrder.js" />
-        <option value="$PROJECT_DIR$/admin/order/listTodayOrder.php" />
         <option value="$PROJECT_DIR$/admin/styles/backstage.css" />
         <option value="$PROJECT_DIR$/admin/others/systemConfig.php" />
         <option value="$PROJECT_DIR$/admin/pro/addProConfig.php" />
         <option value="$PROJECT_DIR$/admin/customer/listComments.php" />
         <option value="$PROJECT_DIR$/core/balance.inc.php" />
-        <option value="$PROJECT_DIR$/admin/order/listAllOrder.php" />
         <option value="$PROJECT_DIR$/admin/order/listAllSales.php" />
         <option value="$PROJECT_DIR$/core/order.inc.php" />
-        <option value="$PROJECT_DIR$/core/PrinterAPI.php" />
         <option value="$PROJECT_DIR$/admin/customer/listBalance.php" />
         <option value="$PROJECT_DIR$/admin/customer/listCouponConfig.php" />
         <option value="$PROJECT_DIR$/admin/customer/listCoupon.php" />
@@ -145,7 +128,6 @@
         <option value="$PROJECT_DIR$/admin/pro/addPro.php" />
         <option value="$PROJECT_DIR$/lib/mysql.func.php" />
         <option value="$PROJECT_DIR$/admin/doAdminAction.php" />
-        <option value="$PROJECT_DIR$/admin/pro/listPro.php" />
         <option value="$PROJECT_DIR$/configs/parameters.php" />
         <option value="$PROJECT_DIR$/core/pro.inc.php" />
         <option value="$PROJECT_DIR$/admin/pro/editPro.php" />
@@ -153,6 +135,11 @@
         <option value="$PROJECT_DIR$/admin/cate/editCate.php" />
         <option value="$PROJECT_DIR$/admin/cate/listCate.php" />
         <option value="$PROJECT_DIR$/core/cate.inc.php" />
+        <option value="$PROJECT_DIR$/admin/pro/listPro.php" />
+        <option value="$PROJECT_DIR$/admin/order/listAllOrder.php" />
+        <option value="$PROJECT_DIR$/admin/order/listTodayOrder.php" />
+        <option value="$PROJECT_DIR$/include.php" />
+        <option value="$PROJECT_DIR$/core/PrinterAPI.php" />
       </list>
     </option>
   </component>
@@ -487,19 +474,19 @@
     <property name="list.type.of.created.stylesheet" value="CSS" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\WAMP\wamp\www\RestaurantManagement\AdminWebsite\admin\pro" />
-      <recent name="D:\WAMP\wamp\www\RestaurantManagement\AdminWebsite\core" />
-      <recent name="D:\WAMP\wamp\www\RestaurantManagement\AdminWebsite" />
-      <recent name="D:\WAMP\wamp\www\RestaurantManagement\AdminWebsite\admin" />
-      <recent name="D:\WAMP\wamp\www\RestaurantManagement\AdminWebsite\admin\uploads" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\WAMP\wamp\www\RestaurantManagement\AdminWebsite\admin\customer" />
       <recent name="D:\WAMP\wamp\www\RestaurantManagement\AdminWebsite\ajax\order" />
       <recent name="D:\WAMP\wamp\www\RestaurantManagement\AdminWebsite\ajax\admin" />
       <recent name="D:\WAMP\wamp\www\RestaurantManagement\AdminWebsite\ajax\cardNumber" />
       <recent name="D:\WAMP\wamp\www\RestaurantManagement\AdminWebsite\admin\Order" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\WAMP\wamp\www\RestaurantManagement\AdminWebsite\core" />
+      <recent name="D:\WAMP\wamp\www\RestaurantManagement\AdminWebsite\admin\pro" />
+      <recent name="D:\WAMP\wamp\www\RestaurantManagement\AdminWebsite" />
+      <recent name="D:\WAMP\wamp\www\RestaurantManagement\AdminWebsite\admin" />
+      <recent name="D:\WAMP\wamp\www\RestaurantManagement\AdminWebsite\admin\uploads" />
     </key>
   </component>
   <component name="RunManager">
@@ -638,12 +625,12 @@
       <workItem from="1481120339777" duration="1708000" />
       <workItem from="1481365323824" duration="1758000" />
       <workItem from="1481367341835" duration="1634000" />
-      <workItem from="1481369124395" duration="3089000" />
+      <workItem from="1481369124395" duration="7093000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="492135000" />
+    <option name="totallyTimeSpent" value="496139000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -714,20 +701,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/admin/order/listAllSales.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="9" column="16" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/include.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ajax/cardNumber/getCouponDurationDays.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -795,13 +768,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="817">
           <caret line="43" column="13" selection-start-line="43" selection-start-column="13" selection-end-line="43" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/PrinterAPI.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1387">
-          <caret line="73" column="25" selection-start-line="73" selection-start-column="25" selection-end-line="73" selection-end-column="25" />
         </state>
       </provider>
     </entry>
@@ -924,13 +890,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/order/listAllOrder.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="7" column="15" selection-start-line="7" selection-start-column="15" selection-end-line="7" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/upload.func.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1311">
@@ -991,13 +950,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/order/listTodayOrder.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="47" column="100" selection-start-line="47" selection-start-column="86" selection-end-line="47" selection-end-column="100" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ajax/order/showTodayOrder.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="152">
@@ -1010,33 +962,6 @@
             <marker date="1481366380524" expanded="true" signature="2696:2869" placeholder="..." />
             <marker date="1481366380524" expanded="true" signature="3026:3248" placeholder="..." />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/order.inc.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="41" column="90" selection-start-line="41" selection-start-column="8" selection-end-line="41" selection-end-column="90" />
-          <folding>
-            <marker date="1481366380539" expanded="true" signature="88:165" placeholder="select od_id... od_hdr" />
-            <marker date="1481366380539" expanded="true" signature="336:395" placeholder="select * fro... od_hdr" />
-            <marker date="1481366380539" expanded="true" signature="688:895" placeholder="select od_id... od_hdr" />
-            <marker date="1481366380539" expanded="true" signature="1509:1569" placeholder="select * fro... od_hdr" />
-            <marker date="1481366380539" expanded="true" signature="1697:1789" placeholder="select * fro... od_hdr" />
-            <marker date="1481366380539" expanded="true" signature="2082:2324" placeholder="select od_id... od_hdr" />
-            <marker date="1481366380539" expanded="true" signature="2755:2906" placeholder="select disti... od_hdr" />
-            <marker date="1481366380539" expanded="true" signature="3199:3461" placeholder="select od_ln... od_hdr" />
-            <marker date="1481366380539" expanded="true" signature="3595:3724" placeholder="select sum(o... od_hdr" />
-            <marker date="1481366380539" expanded="true" signature="4398:4460" placeholder="select gd_na... od_ln" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/doAdminAction.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="283">
-          <caret line="49" column="4" selection-start-line="49" selection-start-column="4" selection-end-line="49" selection-end-column="4" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1089,17 +1014,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/pro/listPro.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-166">
-          <caret line="105" column="117" selection-start-line="105" selection-start-column="117" selection-end-line="105" selection-end-column="117" />
-          <folding>
-            <marker date="1481370506350" expanded="true" signature="322:448" placeholder="select gd_na... gd_mst" />
-            <marker date="1481370506350" expanded="true" signature="734:893" placeholder="select gd_id... gd_mst" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/admin/pro/editPro.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-456">
@@ -1129,10 +1043,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/cate/addCate.php">
+    <entry file="file://$PROJECT_DIR$/admin/cate/editCate.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="3" selection-end-column="42" />
+        <state relative-caret-position="152">
+          <caret line="35" column="0" selection-start-line="34" selection-start-column="30" selection-end-line="35" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1145,11 +1059,91 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/cate/editCate.php">
+    <entry file="file://$PROJECT_DIR$/admin/order/listTodayOrder.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="34" column="43" selection-start-line="34" selection-start-column="30" selection-end-line="34" selection-end-column="43" />
+        <state relative-caret-position="380">
+          <caret line="41" column="35" selection-start-line="41" selection-start-column="35" selection-end-line="41" selection-end-column="35" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/pro/listPro.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="107" column="150" selection-start-line="107" selection-start-column="150" selection-end-line="107" selection-end-column="150" />
+          <folding>
+            <marker date="1481373381489" expanded="true" signature="322:448" placeholder="select gd_na... gd_mst" />
+            <marker date="1481373381489" expanded="true" signature="734:893" placeholder="select gd_id... gd_mst" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/cate/addCate.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="3" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/order/listAllOrder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="123">
+          <caret line="132" column="35" selection-start-line="132" selection-start-column="35" selection-end-line="132" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/order.inc.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding>
+            <marker date="1481366380539" expanded="true" signature="88:165" placeholder="select od_id... od_hdr" />
+            <marker date="1481366380539" expanded="true" signature="336:395" placeholder="select * fro... od_hdr" />
+            <marker date="1481366380539" expanded="true" signature="688:895" placeholder="select od_id... od_hdr" />
+            <marker date="1481366380539" expanded="true" signature="1509:1569" placeholder="select * fro... od_hdr" />
+            <marker date="1481366380539" expanded="true" signature="1697:1789" placeholder="select * fro... od_hdr" />
+            <marker date="1481366380539" expanded="true" signature="2082:2324" placeholder="select od_id... od_hdr" />
+            <marker date="1481366380539" expanded="true" signature="2755:2906" placeholder="select disti... od_hdr" />
+            <marker date="1481366380539" expanded="true" signature="3199:3461" placeholder="select od_ln... od_hdr" />
+            <marker date="1481366380539" expanded="true" signature="3595:3724" placeholder="select sum(o... od_hdr" />
+            <marker date="1481366380539" expanded="true" signature="4398:4460" placeholder="select gd_na... od_ln" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="10" column="32" selection-start-line="10" selection-start-column="32" selection-end-line="10" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/doAdminAction.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="169">
+          <caret line="49" column="4" selection-start-line="49" selection-start-column="4" selection-end-line="49" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/HttpClient.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2451">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/PrinterAPI.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="5" column="26" selection-start-line="5" selection-start-column="26" selection-end-line="5" selection-end-column="26" />
+          <folding>
+            <marker date="1481376435600" expanded="true" signature="292:391" placeholder="select od_id... od_hdr" />
+          </folding>
         </state>
       </provider>
     </entry>

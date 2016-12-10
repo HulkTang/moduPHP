@@ -105,7 +105,7 @@ if($totalPage!=0)
                                 <td align="center">
 												<input type="button" value=<?php if(strcmp($row['gd_is_sale_out'], 'N')==0) echo "售罄"; else echo "出售";?> class="btn" id="is_sale_out_button" onclick="changeIsSaleOutStatus(<?php echo $row['gd_id'];?>,<?php echo $page;?>)">
                                 				<input type="button" value="详情" class="btn" onclick="showDetail(<?php echo $row['gd_id'];?>,'<?php echo $row['gd_name'];?>')">
-											 	<input type="button" value="二维码" class="btn"onclick="getQRForPro(<?php echo $row['gd_id'];?>)">
+											 	<!--<input type="button" value="二维码" class="btn"onclick="getQRForPro(<?php echo $row['gd_id'];?>)">-->
 												<input type="button" value="配置" class="btn"onclick="configPro(<?php echo $row['gd_id'];?>)">
 												<input type="button" value="修改" class="btn" onclick="editPro(<?php echo $row['gd_id'];?>)">
 												<input type="button" value="删除" class="btn"onclick="delPro(<?php echo $row['gd_id'];?>)">
