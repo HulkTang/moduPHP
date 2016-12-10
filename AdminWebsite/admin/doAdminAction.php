@@ -46,6 +46,8 @@ elseif($act=='addPro'){
     $mes = delProConfig($_REQUEST['id']);
 }elseif($act=='getQRForPro'){
     $mes = getQRForPro($_REQUEST['id']);
+}elseif($act=='updateProIsSaleOut'){
+    updateProIsSaleOut($_REQUEST['id'], $_REQUEST['page']);
 }
 //Order
 elseif($act=='printOrder'){
