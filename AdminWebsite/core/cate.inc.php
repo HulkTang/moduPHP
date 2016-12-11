@@ -27,7 +27,7 @@ function getCateByPage($page,$pageSize)
     }
     if ($page >= $totalPage) $page = $totalPage;
     $offset = ($page - 1) * $pageSize;
-    $sql = "select ctlg_id,ctlg_name,ctlg_description from gd_ctlg order by ctlg_id limit {$offset},{$pageSize};";
+    $sql = "select ctlg_id,ctlg_name,ctlg_description,ctlg_priority from gd_ctlg order by ctlg_id limit {$offset},{$pageSize};";
 //    echo $sql;
     $rows = fetchAll($link, $sql);
 //    var_dump($rows);

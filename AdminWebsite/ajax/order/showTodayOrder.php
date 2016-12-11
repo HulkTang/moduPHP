@@ -3,7 +3,7 @@
 
 
 
-    $pageSize=6;
+    $pageSize=10;
     $page=isset($_REQUEST['page'])?(int)$_REQUEST['page']:1;
     $rows=getTodayOrderByPage($page,$pageSize);
 //    printNewTodayOrder();

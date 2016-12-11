@@ -29,8 +29,8 @@ if(!$rows){
         <thead>
         <tr>
             <th width="20%">名称</th>
-            <th width="50%">描述</th>
-           
+            <th width="40%">描述</th>
+            <th width="20%">优先级</th>
             <th>操作</th>
         </tr>
         </thead>
@@ -39,6 +39,7 @@ if(!$rows){
             <tr>
                 <td><label for="c1" class="label"><?php echo $row['ctlg_name'];?></label></td>
                 <td><?php echo $row['ctlg_description'];?></td>
+                <td><?php echo $row['ctlg_priority'];?></td>
                 <td align="center"><input type="button" value="修改" class="btn" onclick="editCate(<?php echo $row['ctlg_id'];?>)">
                     <input type="button" value="删除" class="btn"  onclick="delCate(<?php echo $row['ctlg_id'];?>)">
                 </td>

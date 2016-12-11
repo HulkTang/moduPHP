@@ -7,7 +7,7 @@ $orderBy=$order?" order by ".$order:null;
 $keywords=isset($_REQUEST['keywords'])?$_REQUEST['keywords']:null;
 $where=$keywords?" where gd_name like '%{$keywords}%'":null;
 //得到数据库中所有商品
-$sql="select gd_name,gd_price,gd_inventory,gd_description,gd_sales,gd_picture,gd_catalogue_name from gd_mst {$where} {$orderBy};";
+$sql="select gd_name,gd_price,gd_inventory,gd_description,gd_sales,gd_picture,gd_catalogue_name,gd_is_sale_out from gd_mst {$where} {$orderBy};";
 $totalRows=getResultNum($link,$sql);
 $pageSize=6;
 $totalPage=ceil($totalRows/$pageSize);
@@ -15,7 +15,7 @@ $page=isset($_REQUEST['page'])?(int)$_REQUEST['page']:1;
 if($page<1||$page==null||!is_numeric($page))$page=1;
 if($page>$totalPage)$page=$totalPage;
 $offset=($page-1)*$pageSize;
-$sql="select gd_id,gd_name,gd_price,gd_inventory,gd_description,gd_sales,gd_picture,gd_catalogue_name from gd_mst {$where} {$orderBy} limit {$offset},{$pageSize}";
+$sql="select gd_id,gd_name,gd_price,gd_inventory,gd_description,gd_sales,gd_picture,gd_catalogue_name,gd_is_sale_out from gd_mst {$where} {$orderBy} limit {$offset},{$pageSize}";
 $rows=array();
 if($totalPage!=0)
 	$rows=fetchAll($link,$sql);
@@ -84,11 +84,12 @@ if($totalPage!=0)
                     <table class="table" cellspacing="0" cellpadding="0">
                         <thead>
                             <tr>
-                                <th width="12%">商品名称</th>
+                                <th width="14%">商品名称</th>
                                 <th width="8%">商品分类</th>
-                                <th width="8%">商品库存</th>
-                                <th width="8%">商品销量</th>
-                                <th width="8%">商品价格</th>
+                                <th width="7%">商品库存</th>
+                                <th width="7%">商品销量</th>
+                                <th width="7%">商品价格</th>
+								<th width="6%">售罄</th>
                                 <th>操作</th>
                             </tr>
                         </thead>
@@ -100,9 +101,11 @@ if($totalPage!=0)
 								<td><?php echo $row['gd_inventory'];?></td>
 								<td><?php echo $row['gd_sales'];?></td>
 								<td><?php echo $row['gd_price'];?>元</td>
+								<td><?php echo $row['gd_is_sale_out'];?></td>
                                 <td align="center">
+												<input type="button" value=<?php if(strcmp($row['gd_is_sale_out'], 'N')==0) echo "售罄"; else echo "出售";?> class="btn" id="is_sale_out_button" onclick="changeIsSaleOutStatus(<?php echo $row['gd_id'];?>,<?php echo $page;?>)">
                                 				<input type="button" value="详情" class="btn" onclick="showDetail(<?php echo $row['gd_id'];?>,'<?php echo $row['gd_name'];?>')">
-											 	<input type="button" value="二维码" class="btn"onclick="getQRForPro(<?php echo $row['gd_id'];?>)">
+											 	<!--<input type="button" value="二维码" class="btn"onclick="getQRForPro(<?php echo $row['gd_id'];?>)">-->
 												<input type="button" value="配置" class="btn"onclick="configPro(<?php echo $row['gd_id'];?>)">
 												<input type="button" value="修改" class="btn" onclick="editPro(<?php echo $row['gd_id'];?>)">
 												<input type="button" value="删除" class="btn"onclick="delPro(<?php echo $row['gd_id'];?>)">
@@ -169,6 +172,15 @@ if($totalPage!=0)
 			  show:"slide",
 			  hide:"explode"
 		});
+	}
+
+	function changeIsSaleOutStatus(id, page){
+		var is_sale_out = document.getElementById('is_sale_out_button');
+		if(is_sale_out.value == '售罄')
+			is_sale_out.value = '出售';
+		else
+			is_sale_out.value = '售罄';
+		window.location="../doAdminAction.php?act=updateProIsSaleOut&id="+id+"&page="+page;
 	}
 	
 	function configPro(id){

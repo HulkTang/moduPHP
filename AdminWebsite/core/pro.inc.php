@@ -12,9 +12,10 @@ function addPro(){
 	$uploadFiles=uploadFile($path);
 	if(is_array($uploadFiles)&&$uploadFiles){
 		foreach($uploadFiles as $key=>$uploadFile){
-			thumb($path."/".$uploadFile['name'],IMAGE_UPLOAD_PATH.$uploadFile['name'],100,100);
+			thumb($path."/".$uploadFile['name'],IMAGE_UPLOAD_PATH.$uploadFile['name'],250,250);
 //			$arr['gd_picture'] = "../image_100/".$uploadFile['name'];
-			$arr['gd_picture'] = IMAGE_STORE_PATH.$uploadFile['name'];
+			$arr['gd_picture'] = IMAGE_ORIGIN_STORE_PATH.$uploadFile['name'];
+			$arr['gd_small_picture'] = IMAGE_STORE_PATH.$uploadFile['name'];
 		}
 	}
 	$res=insert($link,"gd_mst",$arr);
@@ -69,9 +70,10 @@ function editPro($id){
 			}
 
 			foreach ($uploadFiles as $key => $uploadFile) {
-				thumb($path . "/" . $uploadFile['name'], IMAGE_UPLOAD_PATH . $uploadFile['name'], 100, 100);
+				thumb($path . "/" . $uploadFile['name'], IMAGE_UPLOAD_PATH . $uploadFile['name'],250, 250);
 //				$arr['gd_picture'] = "../image_100/" . $uploadFile['name'];
-				$arr['gd_picture'] = IMAGE_STORE_PATH.$uploadFile['name'];
+				$arr['gd_picture'] = IMAGE_ORIGIN_STORE_PATH.$uploadFile['name'];
+				$arr['gd_small_picture'] = IMAGE_STORE_PATH.$uploadFile['name'];
 			}
 		}
 	}
@@ -117,7 +119,7 @@ function delPro($id)
 	$res1 = delete($link, "gd_mst", $where);
 	$res2 = delete($link, "gd_mst_config", $where);
 
-	if ($res1&&$res2) {
+	if ($res1) {
 		$mes = "删除成功!<br/><a href='pro/listPro.php' target='mainFrame'>查看商品列表</a>";
 	} else {
 		$mes = "删除失败!<br/><a href='pro/listPro.php' target='mainFrame'>重新删除</a>";
@@ -232,6 +234,19 @@ function getQRForPro($id){
 	$url = 'https://cli.im/api/qrcode/code?text=http://wechat.qiancs.cn/addByQRCode?item_id='.$id.'&mhid=sELPDFnok80gPHovKdI';
 	$html = file_get_contents($url);
 	return $html;
+}
+
+function updateProIsSaleOut($id, $page){
+	global $link;
+	$sql = "select gd_is_sale_out from gd_mst where gd_id = {$id}";
+	$arr = fetchOne($link, $sql);
+	$status = [];
+	if(strcmp($arr['gd_is_sale_out'], 'Y')==0)
+		$status['gd_is_sale_out'] = 'N';
+	else if(strcmp($arr['gd_is_sale_out'], 'N')==0)
+		$status['gd_is_sale_out'] = 'Y';
+	update($link,"gd_mst",$status,"gd_id={$id}");
+	echo "<script>window.location = 'pro/listPro.php?page='+$page;</script>";
 }
 
 

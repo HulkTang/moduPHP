@@ -43,6 +43,10 @@ if(!$rows){
 		<td><input type="text" name="gd_price"  placeholder="请输入商品价格"/></td>
 	</tr>
 	<tr>
+		<td align="right">商品销量</td>
+		<td><input type="text" name="gd_sales"  placeholder="请输入商品销量"/></td>
+	</tr>
+	<tr>
 		<td align="right">商品描述</td>
 		<td>
 			<textarea name="gd_description" id="editor_id" placeholder="50字以内" style="width:100%;height:150px;"></textarea>

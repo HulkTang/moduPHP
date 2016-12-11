@@ -24,7 +24,7 @@ function getTodayOrderByPage($page,$pageSize){
     }
     if($page>=$totalPage)$page=$totalPage;
     $offset=($page-1)*$pageSize;
-    $sql="select od_id,od_desk_id,od_date,od_string,od_fixed_total_price,od_total_price,od_state,od_isprint,od_coupon_description from od_hdr where date(od_date) = '{$currentDate}' order by od_date desc limit {$offset},{$pageSize};";
+    $sql="select od_id,od_desk_id,od_date,od_string,od_fixed_total_price,od_total_price,od_state,od_isprint,od_coupon_description from od_hdr where date(od_date) = '{$currentDate}' order by od_id desc limit {$offset},{$pageSize};";
     $rows=fetchAll($link,$sql);
 
     return $rows;

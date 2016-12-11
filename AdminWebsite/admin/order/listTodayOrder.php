@@ -39,7 +39,7 @@
         start();
     }
     function printOrder(id){
-        if(window.confirm("您确定要打印吗？打印之后不能恢复!")){
+        if(window.confirm("您确定要打印吗？")){
             window.location="../doAdminAction.php?act=printOrder&id="+id;
         }
     }

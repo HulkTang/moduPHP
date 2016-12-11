@@ -7,7 +7,7 @@ if(!$rows){
 }
 $id=$_REQUEST['id'];
 $proInfo=getProById($id);
-var_dump($proInfo);
+
 ?>
 <!doctype html>
 <html>
@@ -67,6 +67,10 @@ var_dump($proInfo);
 	<tr>
 		<td align="right">商品价格</td>
 		<td><input type="text" name="gd_price"  value="<?php echo $proInfo['gd_price'];?>"/></td>
+	</tr>
+	<tr>
+		<td align="right">商品销量</td>
+		<td><input type="text" name="gd_sales"  placeholder="请输入商品销量"/></td>
 	</tr>
 	<tr>
 		<td align="right">商品描述</td>

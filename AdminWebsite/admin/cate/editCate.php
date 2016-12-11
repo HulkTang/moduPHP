@@ -1,8 +1,14 @@
 <?php
-require_once '../../include.php';
-$ctlg_id = $_REQUEST['id'];
-$row = getOneCate($ctlg_id);
-ob_clean();
+    require_once '../../include.php';
+
+    $ctlg_id = $_REQUEST['id'];
+    $row = getOneCate($ctlg_id);
+
+    $rows = [];
+    for($i=0;$i<10;$i++)
+        $rows[$i]['ctlg_priority'] = $i+1;
+
+    ob_clean();
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -22,6 +28,16 @@ ob_clean();
         <tr>
             <td align="right">分类描述</td>
             <td><input type="text" name="ctlg_description" value="<?php echo $row['ctlg_description'];?>" placeholder="请输入分类描述"/></td>
+        </tr>
+        <tr>
+            <td align="right">分类优先级</td>
+            <td>
+                <select name="ctlg_priority">
+                    <?php foreach($rows as $row):?>
+                        <option value="<?php echo $row['ctlg_priority'];?>"><?php echo $row['ctlg_priority'];?></option>
+                    <?php endforeach;?>
+                </select>
+            </td>
         </tr>
         <tr>
             <td colspan="2" align="center"><input type="submit" value="编辑分类"></td>
