@@ -3,7 +3,7 @@ require_once '../../include.php';
 
 $from=isset($_REQUEST['from'])?$_REQUEST['from']:'2016-11-01';
 $to=isset($_REQUEST['to'])?$_REQUEST['to']:getCurrentDate();
-$pageSize=5;
+$pageSize=10;
 $page=isset($_REQUEST['page'])?(int)$_REQUEST['page']:1;
 $rows=getAllOrderByPage($page,$pageSize,$from,$to);
 

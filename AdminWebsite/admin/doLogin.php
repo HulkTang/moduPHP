@@ -22,6 +22,7 @@ if($verify==$verify1){
             setcookie("adminCode",$result['stf_code'],time()+7*24*3600);
             setcookie("adminPassword",$result['stf_password'],time()+7*24*3600);
         }
+        
         echo "<script>window.location='index.php';</script>";
     }else{
         alertMes("登录失败，重新登录","login.php");

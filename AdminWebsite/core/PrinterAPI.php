@@ -1,10 +1,12 @@
 ﻿<?php
-//header("Content-type: text/html; charset=utf-8");
+header("Content-type: text/html; charset=utf-8");
 //include 'HttpClient.class.php';
 
 
-define('PRINTER_SN', '916502961');
-define('KEY', ' xUajsjUm');
+define('PRINTER_SN1', '916502961');
+define('KEY1', 'xUajsjUm');
+//define('PRINTER_SN2', '916504823');
+//define('KEY2', 'XHN7eBqO');
 define('IP','api163.feieyun.com');
 define('PORT',80);
 define('HOSTNAME','/FeieServer');
@@ -18,8 +20,32 @@ function printOrder($id){
 	$sql2="select n.gd_name,n.gd_quantity,n.od_price,n.gd_detail from od_hdr as m, od_ln as n where m.od_id = {$id} and m.od_id = n.od_id;";
 	$rows=fetchAll($link,$sql2);
 	//在这里加打印的相关函数
-	wp_print(PRINTER_SN,KEY,1,$row,$rows);
+	$codeMes = wp_print(PRINTER_SN1,KEY1,1,$row,$rows);
+	$codeMes = json_decode($codeMes);
+	//打印成功时
+	if($codeMes->responseCode == 0) {
+		$orderindex = $codeMes->orderindex;
+		$codeMesForState = queryOrderState(PRINTER_SN1, KEY1, $orderindex);
+		$codeMesForState = json_decode($codeMesForState);
+		if($codeMesForState->responseCode == 0){
+			updateOrderIsPrint($id);
+		}
 
+	}
+//
+//	$codeMes = wp_print(PRINTER_SN2,KEY2,1,$row,$rows);
+//	$codeMes = json_decode($codeMes);
+//	//打印成功时
+//	if($codeMes->responseCode == 0) {
+//		$orderindex = $codeMes->orderindex;
+//		$codeMesForState = queryOrderState(PRINTER_SN2, KEY2, $orderindex);
+//		$codeMesForState = json_decode($codeMesForState);
+//		if($codeMesForState->responseCode == 0){
+//			updateOrderIsPrint($id);
+//		}
+//
+//	}
+//	queryPrinterStatus(PRINTER_SN,KEY);
 	//打印成功如何判断？
 	//判断打印成功后，修改打印状态为'Y'
 	//一种思路是把每一次查出的未打印订单，状态先全部修改为'Y'，再加入打印队列。能否成功需要测试。
@@ -63,29 +89,49 @@ function wp_print($printer_sn,$key,$times,$row,$rows){
 		$od_total_price = $row['od_total_price'];//订单总价
 	    $od_coupon_description = $row['od_coupon_description'];//优惠券描述
 
-		echo '</br>'."打印数据:".$od_id.'/'.$od_desk_id.'/'.$od_date.'/'.$od_string.'/'.$od_fixed_total_price.'/'.$od_total_price.'/'.$od_coupon_description.'</br>';
+//		echo '</br>'."打印数据:".$od_id.'/'.$od_desk_id.'/'.$od_date.'/'.$od_string.'/'.$od_fixed_total_price.'/'.$od_total_price.'/'.$od_coupon_description.'</br>';
+//
+//		var_dump($rows);
 
-		var_dump($rows);
-
-		for($i=0;$i<count($rows);$i++){                //循环读取订单中的每一件商品
-			$gd_name = $rows[$i]['gd_name'];			//商品名
-			$gd_quantity = $rows[$i]['gd_quantity'];	//商品数量
-			$gd_price = $rows[$i]['od_price'];			//商品价格
-			$gd_detail = $rows[$i]['gd_detail'];			//商品配置信息
-			echo "打印每一条具体的菜品信息：".$gd_name.' \ '.$gd_quantity.' \ '.$gd_price.' \ '.$gd_detail.'<br>';
-		}
+//		for($i=0;$i<count($rows);$i++){                //循环读取订单中的每一件商品
+//			$gd_name = $rows[$i]['gd_name'];			//商品名
+//			$gd_quantity = $rows[$i]['gd_quantity'];	//商品数量
+//			$gd_price = $rows[$i]['od_price'];			//商品价格
+//			$gd_detail = $rows[$i]['gd_detail'];			//商品配置信息
+//			echo "打印每一条具体的菜品信息：".$gd_name.' \ '.$gd_quantity.' \ '.$gd_price.' \ '.$gd_detail.'<br>';
+//		}
 
 
-		$orderInfo = '<CB>测试打印</CB><BR>';
-		$orderInfo .= '名称　　　单价   数量  金额<BR>';
-		$orderInfo .= '--------------------------<BR>';
-		$orderInfo .= '红烧牛肉面 15.0   1   15.0<BR>';
-		$orderInfo .= '备注：微辣<BR>';
-		$orderInfo .= '--------------------------<BR>';
-		$orderInfo .= '合计：15.0元<BR>';
-		$orderInfo .= '桌号：3<BR>';
-		$orderInfo .= '联系电话：17751719646<BR>';
-		$orderInfo .= '订餐时间：2016-10-17 12:39:08<BR>';
+//		$orderInfo = '<CB>测试打印</CB><BR>';
+//		$orderInfo .= '名称　　　单价   数量  金额<BR>';
+//		$orderInfo .= '--------------------------<BR>';
+//		$orderInfo .= '红烧牛肉面 15.0   1   15.0<BR>';
+//		$orderInfo .= '备注：微辣<BR>';
+//		$orderInfo .= '--------------------------<BR>';
+//		$orderInfo .= '合计：15.0元<BR>';
+//		$orderInfo .= '桌号：3<BR>';
+//		$orderInfo .= '联系电话：17751719646<BR>';
+//		$orderInfo .= '订餐时间：2016-10-17 12:39:08<BR>';
+	$orderInfo = '订单'.$od_id.'';
+//		$orderInfo = '<CB>订单'.$od_id.'</CB><BR>';
+//	    $orderInfo .= '名称　　　  单价  数量  金额<BR>';
+//		$orderInfo .= '-----------------------------<BR>';
+//		for($i=0;$i<count($rows);$i++){                //循环读取订单中的每一件商品
+//			$gd_name = $rows[$i]['gd_name'];			//商品名
+//			$gd_quantity = $rows[$i]['gd_quantity'];	//商品数量
+//			$gd_price = $rows[$i]['od_price'];			//商品价格
+//			$gd_detail = $rows[$i]['gd_detail'];			//商品配置信息
+//
+//			$orderInfo .=$gd_name.'  '.$gd_quantity.'  '.$gd_price.'  '.$gd_quantity*$gd_price.'<BR>';
+//			if(strlen($gd_detail)!=0)
+//				$orderInfo .= '备注:'.$gd_detail.'<BR>';
+//		}
+//		$orderInfo .= '-----------------------------<BR>';
+//		if(strlen($od_coupon_description)!=0)
+//			$orderInfo .= '优惠券：'.$od_coupon_description.'<BR>';
+//		$orderInfo .= '桌号：'.$od_desk_id.'<BR>';
+//		$orderInfo .= '合计：'.$od_total_price.'元<BR>';
+//		$orderInfo .= '订餐时间:'.$od_date;
 
 		$content = array(
 			'sn'=>$printer_sn,
@@ -95,17 +141,15 @@ function wp_print($printer_sn,$key,$times,$row,$rows){
 		    'times'=>$times//打印次数
 		);
 
-	$client = new HttpClient(IP,PORT);
-	if(!$client->post(HOSTNAME.'/printOrderAction',$content)){
-		echo 'error';
-	}
-	else{
-		echo $client->getContent();
-	}
+		$client = new HttpClient(IP,PORT);
+		if(!$client->post(HOSTNAME.'/printOrderAction',$content)){
+			echo 'error';
+		}
+		else{
+			return $client->getContent();
+		}
 
 }
-
-
 
 
 
@@ -126,7 +170,7 @@ function queryOrderState($printer_sn,$key,$index){
 	}
 	else{
 		$result = $client->getContent();
-		echo $result;
+		return $result;
 	}
 	
 }
