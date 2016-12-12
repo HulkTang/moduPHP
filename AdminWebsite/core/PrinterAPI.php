@@ -122,7 +122,7 @@ function wp_print($printer_sn,$key,$times,$row,$rows){
 			$gd_price = $rows[$i]['od_price'];			//商品价格
 			$gd_detail = $rows[$i]['gd_detail'];			//商品配置信息
 
-			$orderInfo .=$gd_name.'  '.$gd_price.'  '.$gd_quantity.'  '.$gd_quantity*$gd_price.'<BR>';
+			$orderInfo .=$gd_name.'  '.$gd_price.'元  '.$gd_quantity.'份  '.$gd_quantity*$gd_price.'元<BR>';
 			if(strlen($gd_detail)!=0)
 				$orderInfo .= '备注:'.$gd_name.':'.$gd_detail.'<BR>';
 		}
