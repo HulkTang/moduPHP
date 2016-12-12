@@ -1,6 +1,6 @@
 ﻿<?php
 header("Content-type: text/html; charset=utf-8");
-//include 'HttpClient.class.php';
+include 'HttpClient.class.php';
 
 
 define('PRINTER_SN1', '916502961');
@@ -222,6 +222,10 @@ function queryPrinterStatus($printer_sn,$key){
 		echo $result;
 	}
 }
+
+//  处理node打印请求 
+$orderId = $_GET['orderId'];
+printOrder($orderId);
 
 
 ?>
