@@ -93,13 +93,13 @@ function wp_print($printer_sn,$key,$times,$row,$rows){
 //
 //		var_dump($rows);
 
-//		for($i=0;$i<count($rows);$i++){                //循环读取订单中的每一件商品
-//			$gd_name = $rows[$i]['gd_name'];			//商品名
-//			$gd_quantity = $rows[$i]['gd_quantity'];	//商品数量
-//			$gd_price = $rows[$i]['od_price'];			//商品价格
-//			$gd_detail = $rows[$i]['gd_detail'];			//商品配置信息
-//			echo "打印每一条具体的菜品信息：".$gd_name.' \ '.$gd_quantity.' \ '.$gd_price.' \ '.$gd_detail.'<br>';
-//		}
+		// for($i=0;$i<count($rows);$i++){                //循环读取订单中的每一件商品
+		// 	$gd_name = $rows[$i]['gd_name'];			//商品名
+		// 	$gd_quantity = $rows[$i]['gd_quantity'];	//商品数量
+		// 	$gd_price = $rows[$i]['od_price'];			//商品价格
+		// 	$gd_detail = $rows[$i]['gd_detail'];			//商品配置信息
+		// 	echo "打印每一条具体的菜品信息：".$gd_name.' \ '.$gd_quantity.' \ '.$gd_price.' \ '.$gd_detail.'<br>';
+		// }
 
 
 //		$orderInfo = '<CB>测试打印</CB><BR>';
@@ -112,26 +112,26 @@ function wp_print($printer_sn,$key,$times,$row,$rows){
 //		$orderInfo .= '桌号：3<BR>';
 //		$orderInfo .= '联系电话：17751719646<BR>';
 //		$orderInfo .= '订餐时间：2016-10-17 12:39:08<BR>';
-	$orderInfo = '订单'.$od_id.'';
-//		$orderInfo = '<CB>订单'.$od_id.'</CB><BR>';
-//	    $orderInfo .= '名称　　　  单价  数量  金额<BR>';
-//		$orderInfo .= '-----------------------------<BR>';
-//		for($i=0;$i<count($rows);$i++){                //循环读取订单中的每一件商品
-//			$gd_name = $rows[$i]['gd_name'];			//商品名
-//			$gd_quantity = $rows[$i]['gd_quantity'];	//商品数量
-//			$gd_price = $rows[$i]['od_price'];			//商品价格
-//			$gd_detail = $rows[$i]['gd_detail'];			//商品配置信息
-//
-//			$orderInfo .=$gd_name.'  '.$gd_quantity.'  '.$gd_price.'  '.$gd_quantity*$gd_price.'<BR>';
-//			if(strlen($gd_detail)!=0)
-//				$orderInfo .= '备注:'.$gd_detail.'<BR>';
-//		}
-//		$orderInfo .= '-----------------------------<BR>';
-//		if(strlen($od_coupon_description)!=0)
-//			$orderInfo .= '优惠券：'.$od_coupon_description.'<BR>';
-//		$orderInfo .= '桌号：'.$od_desk_id.'<BR>';
-//		$orderInfo .= '合计：'.$od_total_price.'元<BR>';
-//		$orderInfo .= '订餐时间:'.$od_date;
+		$orderInfo = '订单'.$od_id.'';
+		$orderInfo = '<CB>订单'.$od_id.'</CB><BR>';
+	    $orderInfo .= '名称　　　  单价  数量  金额<BR>';
+		$orderInfo .= '-----------------------------<BR>';
+		for($i=0;$i<count($rows);$i++){                //循环读取订单中的每一件商品
+			$gd_name = $rows[$i]['gd_name'];			//商品名
+			$gd_quantity = $rows[$i]['gd_quantity'];	//商品数量
+			$gd_price = $rows[$i]['od_price'];			//商品价格
+			$gd_detail = $rows[$i]['gd_detail'];			//商品配置信息
+
+			$orderInfo .=$gd_name.'  '.$gd_quantity.'  '.$gd_price.'  '.$gd_quantity*$gd_price.'<BR>';
+			if(strlen($gd_detail)!=0)
+				$orderInfo .= '备注:'.$gd_detail.'<BR>';
+		}
+		$orderInfo .= '-----------------------------<BR>';
+		if(strlen($od_coupon_description)!=0)
+			$orderInfo .= '优惠券：'.$od_coupon_description.'<BR>';
+		$orderInfo .= '桌号：'.$od_desk_id.'<BR>';
+		$orderInfo .= '合计：'.$od_total_price.'元<BR>';
+		$orderInfo .= '订餐时间:'.$od_date;
 
 		$content = array(
 			'sn'=>$printer_sn,
