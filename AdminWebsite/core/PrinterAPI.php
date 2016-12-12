@@ -114,7 +114,7 @@ function wp_print($printer_sn,$key,$times,$row,$rows){
 //		$orderInfo .= '订餐时间：2016-10-17 12:39:08<BR>';
 		$orderInfo = '订单'.$od_id.'';
 		$orderInfo = '<CB>订单'.$od_id.'</CB><BR>';
-	    $orderInfo .= '名称　　　  单价  数量  金额<BR>';
+	    $orderInfo .= '名称　　　  单价  数量  总价<BR>';
 		$orderInfo .= '-----------------------------<BR>';
 		for($i=0;$i<count($rows);$i++){                //循环读取订单中的每一件商品
 			$gd_name = $rows[$i]['gd_name'];			//商品名
