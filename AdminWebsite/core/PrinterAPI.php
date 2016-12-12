@@ -33,18 +33,18 @@ function printOrder($id){
 
 	}
 //
-//	$codeMes = wp_print(PRINTER_SN2,KEY2,1,$row,$rows);
-//	$codeMes = json_decode($codeMes);
-//	//打印成功时
-//	if($codeMes->responseCode == 0) {
-//		$orderindex = $codeMes->orderindex;
-//		$codeMesForState = queryOrderState(PRINTER_SN2, KEY2, $orderindex);
-//		$codeMesForState = json_decode($codeMesForState);
-//		if($codeMesForState->responseCode == 0){
-//			updateOrderIsPrint($id);
-//		}
-//
-//	}
+	$codeMes = wp_print(PRINTER_SN2,KEY2,1,$row,$rows);
+	$codeMes = json_decode($codeMes);
+	//打印成功时
+	if($codeMes->responseCode == 0) {
+		$orderindex = $codeMes->orderindex;
+		$codeMesForState = queryOrderState(PRINTER_SN2, KEY2, $orderindex);
+		$codeMesForState = json_decode($codeMesForState);
+		if($codeMesForState->responseCode == 0){
+		//	updateOrderIsPrint($id);
+		}
+
+	}
 //	queryPrinterStatus(PRINTER_SN,KEY);
 	//打印成功如何判断？
 	//判断打印成功后，修改打印状态为'Y'
