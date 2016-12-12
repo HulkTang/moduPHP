@@ -122,14 +122,17 @@ function wp_print($printer_sn,$key,$times,$row,$rows){
 			$gd_price = $rows[$i]['od_price'];			//商品价格
 			$gd_detail = $rows[$i]['gd_detail'];			//商品配置信息
 
-			$orderInfo .=$gd_name.'  '.$gd_quantity.'  '.$gd_price.'  '.$gd_quantity*$gd_price.'<BR>';
+			$orderInfo .=$gd_name.'  '.$gd_price.'  '.$gd_quantity.'  '.$gd_quantity*$gd_price.'<BR>';
 			if(strlen($gd_detail)!=0)
-				$orderInfo .= '备注:'.$gd_detail.'<BR>';
+				$orderInfo .= '备注:'.$gd_name.':'.$gd_detail.'<BR>';
 		}
 		$orderInfo .= '-----------------------------<BR>';
 		if(strlen($od_coupon_description)!=0)
-			$orderInfo .= '优惠券：'.$od_coupon_description.'<BR>';
-		$orderInfo .= '桌号：'.$od_desk_id.'<BR>';
+			$orderInfo .= $od_coupon_description.'<BR>';
+		if($od_desk_id != -1)
+			$orderInfo .= '桌号：'.$od_desk_id.'<BR>';
+		else
+			$orderInfo .= '桌号：'.'自取'.'<BR>';
 		$orderInfo .= '合计：'.$od_total_price.'元<BR>';
 		$orderInfo .= '订餐时间:'.$od_date;
 
