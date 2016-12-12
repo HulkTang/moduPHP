@@ -5,8 +5,8 @@ require_once '../include.php';
 
 define('PRINTER_SN1', '916502961');
 define('KEY1', 'xUajsjUm');
-//define('PRINTER_SN2', '916504823');
-//define('KEY2', 'XHN7eBqO');
+define('PRINTER_SN2', '916504823');
+define('KEY2', 'XHN7eBqO');
 define('IP','api163.feieyun.com');
 define('PORT',80);
 define('HOSTNAME','/FeieServer');
